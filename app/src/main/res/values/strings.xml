@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Wifi Phone</string>
+    <string name="action_settings">Settings</string>
+    <string name="next">next</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contact_ipsum">Contact detailed information such as email, address and so on ...</string>
+</resources>
