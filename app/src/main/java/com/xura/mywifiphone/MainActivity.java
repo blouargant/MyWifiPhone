@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
 import java.security.acl.Permission;
 import java.util.ArrayList;
@@ -146,6 +147,16 @@ public class MainActivity extends AppCompatActivity {
                 int pos = tab.getPosition();
                 viewPager.setCurrentItem(pos);
                 tab.setIcon(tabIconsSelected[pos]);
+
+                FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab);
+                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) mFab.getLayoutParams();
+                if (pos != 0) {
+                    p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
+                } else {
+                    p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                }
+                mFab.setLayoutParams(p);
+
             }
 
             @Override
