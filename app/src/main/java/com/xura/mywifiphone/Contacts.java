@@ -82,8 +82,46 @@ public class Contacts {
 
     public List<String> readContactNames() {
         ContentResolver cr = context.getContentResolver();
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
-                null, null, null, null);
+        String[] columns = {ContactsContract.Contacts._ID,
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.Contacts.HAS_PHONE_NUMBER,
+                ContactsContract.Contacts.PHOTO_URI,
+                ContactsContract.Contacts.PHOTO_THUMBNAIL_URI};
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,columns, null, null, ContactsContract.Contacts.SORT_KEY_PRIMARY + " ASC");
+
+        int amount = 0;
+        if (cur != null) {
+            amount = cur.getCount();
+        }
+        ArrayList<String> list = new ArrayList<>(amount);
+
+        if (amount > 0) {
+            while (cur.moveToNext()) {
+                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+
+                Hashtable<String, String> dic = new Hashtable<>();
+                dic.put("id", id);
+                dic.put("thumbnail", "");
+                dic.put("photo", "");
+
+                contactDic.put(name, dic);
+                list.add(name);
+            }
+        }
+        if (cur != null) {
+            cur.close();
+        }
+
+        return list;
+    }
+
+    public List<String> readContactNamesOld() {
+        ContentResolver cr = context.getContentResolver();
+        String[] columns = {ContactsContract.Contacts._ID,
+                            ContactsContract.Contacts.DISPLAY_NAME};
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,columns, null, null, null);
 
         int amount = 0;
         if (cur != null) {
