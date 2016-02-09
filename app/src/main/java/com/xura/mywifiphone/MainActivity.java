@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -150,13 +151,14 @@ public class MainActivity extends AppCompatActivity {
                 tab.setIcon(tabIconsSelected[pos]);
 
                 FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab);
-                RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) mFab.getLayoutParams();
+                CoordinatorLayout.LayoutParams p = (CoordinatorLayout.LayoutParams) mFab.getLayoutParams();
+                /*
                 if (pos != 0) {
                     p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
                 } else {
                     p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
                 }
-                mFab.setLayoutParams(p);
+                mFab.setLayoutParams(p);*/
 
             }
 

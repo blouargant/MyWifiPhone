@@ -28,16 +28,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -57,6 +61,13 @@ public class ContactFragment extends Fragment {
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.contact_list_recycler, container, false);
         contacts = new Contacts(getActivity());
+        /*
+        FloatingActionButton mFab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+
+        RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) mFab.getLayoutParams();
+        p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
+        mFab.setLayoutParams(p);
+        */
         setupRecyclerView(rv);
         return rv;
     }
@@ -115,6 +126,7 @@ public class ContactFragment extends Fragment {
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
             mValues = contacts.readContactNames();
+
         }
 
         @Override

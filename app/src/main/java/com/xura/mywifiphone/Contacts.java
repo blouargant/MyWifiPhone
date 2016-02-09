@@ -37,6 +37,7 @@ import android.provider.ContactsContract;
 import android.support.v4.graphics.BitmapCompat;
 import android.support.v4.util.LruCache;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.ImageView;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -81,7 +82,6 @@ public class Contacts {
 
     public List<String> readContactNames() {
         ContentResolver cr = context.getContentResolver();
-        System.out.println("readContactNames:  "+ContactsContract.Contacts.CONTENT_URI);
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
 
@@ -114,7 +114,6 @@ public class Contacts {
                     dic.put("photo", "");
                 }
                 contactDic.put(name, dic);
-                System.out.println("Name: " + name);
 
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
                     list.add(name);
@@ -309,8 +308,6 @@ public class Contacts {
 
 
         int bitmapByteCount= BitmapCompat.getAllocationByteCount(output);
-        System.out.println("bitmap size: " + bitmapByteCount);
-
         return output;
     }
 
