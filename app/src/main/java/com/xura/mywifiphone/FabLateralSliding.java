@@ -10,21 +10,15 @@ import android.view.View;
 /**
  * Created by bertrand on 09/02/16.
  */
-public class FabLateralSliding {
+public class FabLateralSliding extends FloatingActionButton.Behavior {
+
     public FabLateralSliding(Context context, AttributeSet attrs) {
         super();
     }
 
     @Override
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout,
-                               FloatingActionButton child,
-                               View target,
-                               int dxConsumed,
-                               int dyConsumed,
-                               int dxUnconsumed,
-                               int dyUnconsumed) {
-
-        //super();
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
 
         //child -> Floating Action Button
         if (child.getVisibility() == View.VISIBLE && dyConsumed > 0) {
