@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             PERMISSIONS_CONTACT, REQUEST_CONTACTS);
             }
         } else {
+
             setupActivity();
         }
     }

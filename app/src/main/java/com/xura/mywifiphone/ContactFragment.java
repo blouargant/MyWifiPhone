@@ -149,7 +149,6 @@ public class ContactFragment extends Fragment {
                     context.startActivity(intent);
                 }
             });
-
             contacts.setContactThumbnail(holder.mImageView, contactName);
 
         }

@@ -57,13 +57,13 @@ public class Contacts {
 
 
     private final Random RANDOM = new Random();
-    private Hashtable<String, Hashtable> contactDic = new Hashtable<String, Hashtable>();
+    private Hashtable<String, Hashtable> contactDic = new Hashtable<>();
     private LruCache<String, Bitmap> mMemoryCache;
     public Context context;
     private Bitmap default_icon;
 
     public Contacts (Context activity_context) {
-        mMemoryCache = new LruCache<String, Bitmap>(1048576); // 1MB
+        mMemoryCache = new LruCache<>(1048576); // 1MB
         context = activity_context;
         default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.face);
 
@@ -81,10 +81,14 @@ public class Contacts {
 
     public List<String> readContactNames() {
         ContentResolver cr = context.getContentResolver();
+        System.out.println("readContactNames:  "+ContactsContract.Contacts.CONTENT_URI);
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
 
-        int amount = cur.getCount();
+        int amount = 0;
+        if (cur != null) {
+            amount = cur.getCount();
+        }
         ArrayList<String> list = new ArrayList<>(amount);
 
         if (amount > 0) {
@@ -97,7 +101,7 @@ public class Contacts {
                 String photo_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
                 String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
 
-                Hashtable<String, String> dic = new Hashtable<String, String>();
+                Hashtable<String, String> dic = new Hashtable<>();
                 dic.put("id", id);
                 if (thumbnail_uri != null) {
                     dic.put("thumbnail", thumbnail_uri);
@@ -110,7 +114,7 @@ public class Contacts {
                     dic.put("photo", "");
                 }
                 contactDic.put(name, dic);
-
+                System.out.println("Name: " + name);
 
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
                     list.add(name);
@@ -223,7 +227,9 @@ public class Contacts {
                 }
             }
         }
-        cur.close();
+        if (cur != null) {
+            cur.close();
+        }
         // Sort the contact list
         java.util.Collections.sort(list, Collator.getInstance());
         return list;
@@ -388,7 +394,7 @@ public class Contacts {
         // Once complete, see if ImageView is still around and set bitmap.
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-            if (imageViewReference != null && bitmap != null) {
+            if (bitmap != null) {
                 final ImageView imageView = imageViewReference.get();
                 if (imageView != null) {
                     imageView.setImageBitmap(bitmap);
