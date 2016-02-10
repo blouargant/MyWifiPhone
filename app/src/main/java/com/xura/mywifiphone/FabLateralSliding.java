@@ -1,11 +1,16 @@
 package com.xura.mywifiphone;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by bertrand on 09/02/16.
@@ -32,4 +37,6 @@ public class FabLateralSliding extends FloatingActionButton.Behavior {
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
         return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL;
     }
+
+
 }

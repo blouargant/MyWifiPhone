@@ -125,7 +125,7 @@ public class ContactFragment extends Fragment {
             context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
-            mValues = contacts.readContactNames();
+            mValues = contacts.readContactsNames();
 
         }
 

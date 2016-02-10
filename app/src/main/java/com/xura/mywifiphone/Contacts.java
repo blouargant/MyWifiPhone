@@ -66,7 +66,7 @@ public class Contacts {
     public Contacts (Context activity_context) {
         mMemoryCache = new LruCache<>(1048576); // 1MB
         context = activity_context;
-        default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.face);
+        default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_person_white_48dp);
 
     }
 
@@ -80,14 +80,16 @@ public class Contacts {
         return R.drawable.face;
     }
 
-    public List<String> readContactNames() {
+    // Get Contact List with only name and id
+    public List<String> readContactsNames() {
         ContentResolver cr = context.getContentResolver();
         String[] columns = {ContactsContract.Contacts._ID,
-                ContactsContract.Contacts.DISPLAY_NAME,
-                ContactsContract.Contacts.HAS_PHONE_NUMBER,
-                ContactsContract.Contacts.PHOTO_URI,
-                ContactsContract.Contacts.PHOTO_THUMBNAIL_URI};
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,columns, null, null, ContactsContract.Contacts.SORT_KEY_PRIMARY + " ASC");
+                            ContactsContract.Contacts.DISPLAY_NAME,
+                            ContactsContract.Contacts.PHOTO_URI,
+                            ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
+                            ContactsContract.Contacts.HAS_PHONE_NUMBER};
+        Cursor cur = cr.query(  ContactsContract.Contacts.CONTENT_URI,columns, null, null,
+                ContactsContract.Contacts.SORT_KEY_PRIMARY + " ASC");
 
         int amount = 0;
         if (cur != null) {
@@ -100,47 +102,11 @@ public class Contacts {
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-
-                Hashtable<String, String> dic = new Hashtable<>();
-                dic.put("id", id);
-                dic.put("thumbnail", "");
-                dic.put("photo", "");
-
-                contactDic.put(name, dic);
-                list.add(name);
-            }
-        }
-        if (cur != null) {
-            cur.close();
-        }
-
-        return list;
-    }
-
-    public List<String> readContactNamesOld() {
-        ContentResolver cr = context.getContentResolver();
-        String[] columns = {ContactsContract.Contacts._ID,
-                            ContactsContract.Contacts.DISPLAY_NAME};
-        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,columns, null, null, null);
-
-        int amount = 0;
-        if (cur != null) {
-            amount = cur.getCount();
-        }
-        ArrayList<String> list = new ArrayList<>(amount);
-
-        if (amount > 0) {
-            while (cur.moveToNext()) {
-                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
-                long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
-                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-
                 //String photo_id =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_ID));
                 String photo_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
                 String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
 
                 Hashtable<String, String> dic = new Hashtable<>();
-                dic.put("id", id);
                 if (thumbnail_uri != null) {
                     dic.put("thumbnail", thumbnail_uri);
                 } else {
@@ -152,17 +118,62 @@ public class Contacts {
                     dic.put("photo", "");
                 }
                 contactDic.put(name, dic);
+                list.add(name);
+            }
+        }
+        if (cur != null) {
+            cur.close();
+        }
 
+        return list;
+    }
+
+    //Get specific contact's Infos
+    public void fetchContactBaseInfos(String name) {
+
+        Hashtable<String, String> aContactDic = contactDic.get(name);
+        String sID = aContactDic.get("id");
+
+        ContentResolver cr = context.getContentResolver();
+        String query_id = ContactsContract.Contacts._ID+"="+sID;
+        String[] columns = {ContactsContract.Contacts._ID,
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.Contacts.PHOTO_URI,
+                ContactsContract.Contacts.PHOTO_THUMBNAIL_URI,
+                ContactsContract.Contacts.HAS_PHONE_NUMBER};
+        Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI, columns, query_id, null, null);
+
+        int amount = 0;
+        if (cur != null) {
+            amount = cur.getCount();
+        }
+        ArrayList<String> list = new ArrayList<>(amount);
+
+        if (amount > 0) {
+            while (cur.moveToNext()) {
+                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
+
+                //String photo_id =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_ID));
+                String photo_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
+                String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
+
+                if (thumbnail_uri != null) {
+                    aContactDic.put("thumbnail", thumbnail_uri);
+                } else {
+                    aContactDic.put("thumbnail", "");
+                }
+                if (photo_uri != null) {
+                    aContactDic.put("photo", photo_uri);
+                } else {
+                    aContactDic.put("photo", "");
+                }
+                contactDic.put(name, aContactDic);
+
+                /*
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-                    list.add(name);
-                    // Look for a photo
-                    //System.out.println("Name: " + name);
-                    Uri contactUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
-                    //System.out.println("URI: " + contactUri);
-                    InputStream photo = ContactsContract.Contacts.openContactPhotoInputStream(cr, contactUri, false);
-                    //System.out.println("photo: " + photo);
 
-                    /*
+
                     // get the phone number
                     Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null,
                             ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",
@@ -260,16 +271,13 @@ public class Contacts {
                         String title = orgCur.getString(orgCur.getColumnIndex(ContactsContract.CommonDataKinds.Organization.TITLE));
                     }
                     orgCur.close();
-                    */
-                }
+
+                }*/
             }
         }
         if (cur != null) {
             cur.close();
         }
-        // Sort the contact list
-        java.util.Collections.sort(list, Collator.getInstance());
-        return list;
     }
 
 
@@ -282,6 +290,7 @@ public class Contacts {
 
     // Main function called by ContactFragment
     public void setContactThumbnail(ImageView mImageView, String contactName) {
+        //fetchContactBaseInfos(contactName);
 
         if (hasThumbnail(contactName)) {
             Glide.with(mImageView.getContext())

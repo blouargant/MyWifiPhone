@@ -1,9 +1,13 @@
 package com.xura.mywifiphone;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,20 +26,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
+import java.lang.ref.WeakReference;
 import java.security.acl.Permission;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar appToolbar;
     private DrawerLayout mDrawerLayout;
     private TabLayout tabLayout;
+    private int lastSelectedTab = 0;
 
     private static final int REQUEST_CONTACTS = 0;
     private static String[] PERMISSIONS_CONTACT = {Manifest.permission.READ_CONTACTS,
@@ -127,10 +137,11 @@ public class MainActivity extends AppCompatActivity {
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         if (viewPager != null) {
             setupViewPager(viewPager);
+
         }
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,17 +160,10 @@ public class MainActivity extends AppCompatActivity {
                 int pos = tab.getPosition();
                 viewPager.setCurrentItem(pos);
                 tab.setIcon(tabIconsSelected[pos]);
-
-                FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab);
-                CoordinatorLayout.LayoutParams p = (CoordinatorLayout.LayoutParams) mFab.getLayoutParams();
-                /*
-                if (pos != 0) {
-                    p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
-                } else {
-                    p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                if ((pos == 0) || (lastSelectedTab == 0)) {
+                        moveFloatingActionButton(pos);
                 }
-                mFab.setLayoutParams(p);*/
-
+                lastSelectedTab = pos;
             }
 
             @Override
@@ -188,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        Log.d("DEBUG", "onOptionsItemSelected: "+item.getItemId());
         switch (item.getItemId()) {
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
@@ -257,6 +260,77 @@ public class MainActivity extends AppCompatActivity {
             // Remove Title from the tab bar:
             //return mFragmentTitles.get(position);
             return null;
+        }
+    }
+
+    private void moveFloatingActionButton(int position) {
+        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        int fab_margin = (int) getResources().getDimension(R.dimen.fab_margin);
+        int timewait = 1;
+
+        if (viewPager.getWidth() == 0) { //Screen is rotated, wait for views to be initialized
+            timewait = 200;
+        }
+        WaitFabAnimation task = new WaitFabAnimation(mFab, viewPager, fab_margin, position);
+        task.execute(timewait);
+    }
+    static class WaitFabAnimation extends AsyncTask<Integer, Void, Void> {
+        private final WeakReference<FloatingActionButton> FabReference;
+        private final WeakReference<ViewPager> viewReference;
+        private final int fab_margin;
+        private final int pos;
+
+        public WaitFabAnimation(FloatingActionButton mFab, ViewPager viewPager,
+                                int margin, int position) {
+            FabReference = new WeakReference<FloatingActionButton>(mFab);
+            viewReference = new WeakReference<ViewPager>(viewPager);
+            fab_margin = margin;
+            pos = position;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+        // Decode image in background.
+        @Override
+        protected Void doInBackground(Integer... params) {
+            try {
+                TimeUnit.MILLISECONDS.sleep(params[0]);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+            return null;
+
+        }
+        // Once complete, see if ImageView is still around and set bitmap.
+        @Override
+        protected void onPostExecute(Void res) {
+            if (FabReference != null) {
+                final FloatingActionButton mFab = FabReference.get();
+                final ViewPager viewPager = viewReference.get();
+                if ((mFab != null) && (viewPager != null)) {
+                    int fabpos = (viewPager.getWidth() / 2) - (mFab.getWidth() / 2) - fab_margin;
+                    int final_pos = fabpos;
+                    int start_pos = 0;
+                    long duration = Math.abs(Math.round(fabpos * 1.6));
+
+                    if (pos == 0) {
+                        start_pos = fabpos;
+                        final_pos = 0;
+                    }
+                    //TranslateAnimation moveFab;
+                    ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(mFab, "translationX", start_pos, final_pos);
+                    objectAnimator.setDuration(duration);
+                    objectAnimator.start();
+
+                    objectAnimator.addListener(new AnimatorListenerAdapter() {
+                        public void onAnimationEnd(Animator animation) {
+                              Log.d("DEBUG", "done animation");
+                            }
+                        });
+                }
+            }
         }
     }
 
