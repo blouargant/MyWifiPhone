@@ -80,6 +80,58 @@ public class Contacts {
         return R.drawable.face;
     }
 
+    // Get Most called contacts
+    public List<String> readMostContactedNames() {
+        ContentResolver cr = context.getContentResolver();
+        String[] columns = {ContactsContract.Contacts._ID,
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.Contacts.TIMES_CONTACTED,
+                ContactsContract.Contacts.LAST_TIME_CONTACTED,
+                ContactsContract.Contacts.STARRED};
+        Cursor cur = cr.query( ContactsContract.Contacts.CONTENT_URI,columns, null, null,
+                ContactsContract.Contacts.TIMES_CONTACTED+" DESC");
+
+        int amount = 0;
+        if (cur != null) {
+            amount = cur.getCount();
+        }
+        ArrayList<String> list = new ArrayList<>(amount);
+        ArrayList<String> listStarred = new ArrayList<>(amount);
+
+        if (amount > 0) {
+            while (cur.moveToNext()) {
+                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                long last_time =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+                int starred =  cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
+
+                Hashtable<String, String> dic = new Hashtable<>();
+                if (last_time != 0) {
+                    dic.put("last", String.valueOf(last_time));
+                } else {
+                    dic.put("photo", "0");
+                }
+                if (starred != 0) {
+                    listStarred.add(name);
+                    dic.put("starred", "yes");
+                } else {
+                    list.add(name);
+                    dic.put("thumbnail", "no");
+                }
+                contactDic.put(name, dic);
+
+            }
+        }
+        if (cur != null) {
+            cur.close();
+        }
+        List<String> newList = new ArrayList<>(listStarred.size() + list.size());
+        newList.addAll(listStarred);
+        newList.addAll(list);
+        return newList;
+    }
+
     // Get Contact List with only name and id
     public List<String> readContactsNames() {
         ContentResolver cr = context.getContentResolver();

@@ -40,8 +40,9 @@
                 android:layout_centerHorizontal="true"
                 app:backgroundTint="@color/colorPrimary"
                 app:borderWidth="0dp"
-                app:layout_behavior="com.xura.mywifiphone.FabLateralSliding"
                 android:layout_margin="@dimen/fab_margin" />
+                <!--app:layout_behavior="com.xura.mywifiphone.FabLateralSliding"-->
+
         </android.support.design.widget.CoordinatorLayout>
     </RelativeLayout>
 

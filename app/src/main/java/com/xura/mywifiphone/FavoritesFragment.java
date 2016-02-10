@@ -77,7 +77,7 @@ public class FavoritesFragment extends Fragment {
             context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
-            mValues = contacts.readContactsNames();
+            mValues = contacts.readMostContactedNames();
 
         }
 
@@ -113,7 +113,7 @@ public class FavoritesFragment extends Fragment {
                     context.startActivity(intent);
                 }
             });
-            contacts.setContactThumbnail(holder.mImageView, contactName);
+            //contacts.setContactThumbnail(holder.mImageView, contactName);
 
         }
 
