@@ -71,6 +71,7 @@ public class Contacts {
         default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_person_white_48dp);
     }
 
+
     public int getDrawableBackground(String contactName) {
         int res = R.drawable.city;
         /*
