@@ -41,6 +41,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 
@@ -59,6 +60,7 @@ public class Contacts {
 
     private final Random RANDOM = new Random();
     private Hashtable<String, Hashtable> contactDic = new Hashtable<>();
+    private Colors colors = new Colors();
     private LruCache<String, Bitmap> mMemoryCache;
     public Context context;
     private Bitmap default_icon;
@@ -67,16 +69,21 @@ public class Contacts {
         mMemoryCache = new LruCache<>(1048576); // 1MB
         context = activity_context;
         default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_person_white_48dp);
-
     }
 
     public int getDrawableBackground(String contactName) {
-        return R.drawable.city;
+        int res = R.drawable.city;
+        /*
+        if (contactDic.containsKey(contactName)) {
+            Hashtable<String, String> dic = contactDic.get(contactName);
+            if (dic.containsKey("photo")) {
 
+            }
+        }
+        */
+        return res;
     }
-
     public int getDrawableFace(int position) {
-
         return R.drawable.face;
     }
 
@@ -88,8 +95,10 @@ public class Contacts {
                 ContactsContract.Contacts.TIMES_CONTACTED,
                 ContactsContract.Contacts.LAST_TIME_CONTACTED,
                 ContactsContract.Contacts.STARRED};
-        Cursor cur = cr.query( ContactsContract.Contacts.CONTENT_URI,columns, null, null,
-                ContactsContract.Contacts.TIMES_CONTACTED+" DESC");
+        String orderedBy = ContactsContract.Contacts.TIMES_CONTACTED + " DESC, "
+                            + ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC, "
+                            + ContactsContract.Contacts.SORT_KEY_PRIMARY + " ASC";
+        Cursor cur = cr.query( ContactsContract.Contacts.CONTENT_URI,columns, null, null,orderedBy);
 
         int amount = 0;
         if (cur != null) {
@@ -100,24 +109,29 @@ public class Contacts {
 
         if (amount > 0) {
             while (cur.moveToNext()) {
+                Hashtable<String, String> dic;
+
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                 long last_time =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
                 int starred =  cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
-
-                Hashtable<String, String> dic = new Hashtable<>();
+                if (contactDic.containsKey(name)) {
+                    dic = contactDic.get(name);
+                } else {
+                    dic = new Hashtable<>();
+                }
                 if (last_time != 0) {
                     dic.put("last", String.valueOf(last_time));
                 } else {
-                    dic.put("photo", "0");
+                    dic.put("last", "0");
                 }
                 if (starred != 0) {
                     listStarred.add(name);
                     dic.put("starred", "yes");
                 } else {
                     list.add(name);
-                    dic.put("thumbnail", "no");
+                    dic.put("starred", "no");
                 }
                 contactDic.put(name, dic);
 
@@ -151,6 +165,8 @@ public class Contacts {
 
         if (amount > 0) {
             while (cur.moveToNext()) {
+                Hashtable<String, String> dic;
+
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
@@ -158,7 +174,11 @@ public class Contacts {
                 String photo_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
                 String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
 
-                Hashtable<String, String> dic = new Hashtable<>();
+                if (contactDic.containsKey(name)) {
+                    dic = contactDic.get(name);
+                } else {
+                    dic = new Hashtable<>();
+                }
                 if (thumbnail_uri != null) {
                     dic.put("thumbnail", thumbnail_uri);
                 } else {
@@ -332,7 +352,22 @@ public class Contacts {
         }
     }
 
-
+    // Set Favorites background color based on random choice
+    public void setFavoriteBackground(LinearLayout fav_layout, String contactName) {
+        Hashtable<String, String> dic = contactDic.get(contactName);
+        int aColor;
+        if (dic.containsKey("fav_color")) {
+            aColor = Integer.parseInt(dic.get("fav_color"));
+            Log.d("DEBUG", contactName+" has saved color "+colors.getColorName(aColor));
+        } else {
+            Log.d("DEBUG", contactName+" does not have a fav_color");
+            aColor = colors.getRandomColor();
+            dic.put("fav_color", String.valueOf(aColor));
+            contactDic.put(contactName, dic);
+            Log.d("DEBUG", contactName+" has now color "+colors.getColorName(aColor));
+        }
+        fav_layout.setBackgroundColor(aColor);
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -410,30 +445,6 @@ public class Contacts {
         return output;
     }
 
-    private List<Integer> materialColors = Arrays.asList(
-            0xffF44336,
-            0xffE91E63,
-            0xff9C27B0,
-            0xff673AB7,
-            0xff3F51B5,
-            0xff2196F3,
-            0xff03A9F4,
-            0xff00BCD4,
-            0xff4db6ac,
-            0xff4CAF50,
-            0xff8BC34A,
-            0xffCDDC39,
-            0xffFFEB3B,
-            0xffFFC107,
-            0xffFF9800,
-            0xffFF5722,
-            0xff795548
-    );
-
-    private int getMaterialColor(Object key) {
-        return materialColors.get(Math.abs(key.hashCode()) % materialColors.size());
-    }
-
     // Save generated round bitmaps for all name beginin with the same letter
     private void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemCache(key) == null) {
@@ -447,10 +458,7 @@ public class Contacts {
     // Load a round colored bitmap with capital letter
     private void loadBitmap(ImageView mImageView, String contactName) {
         String firstLetter = contactName.substring(0, 1).toUpperCase();
-
-        int aColor = getMaterialColor(firstLetter);
-        //BitmapWorkerTask task = new BitmapWorkerTask(mImageView, firstLetter);
-        //task.execute(aColor);
+        int aColor = colors.getRandomColor();
 
         if (cancelPotentialWork(aColor, mImageView)) {
             final BitmapWorkerTask task = new BitmapWorkerTask(mImageView, firstLetter);

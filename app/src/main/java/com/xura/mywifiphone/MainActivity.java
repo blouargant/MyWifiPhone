@@ -323,12 +323,12 @@ public class MainActivity extends AppCompatActivity {
                     ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(mFab, "translationX", start_pos, final_pos);
                     objectAnimator.setDuration(duration);
                     objectAnimator.start();
-
+                    /*
                     objectAnimator.addListener(new AnimatorListenerAdapter() {
                         public void onAnimationEnd(Animator animation) {
                               Log.d("DEBUG", "done animation");
                             }
-                        });
+                        });*/
                 }
             }
         }

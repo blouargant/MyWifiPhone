@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class FavoritesFragment extends Fragment {
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.contact_list_recycler, container, false);
         contacts = new Contacts(getActivity());
+        Log.d("DEBUG", "onCreateView");
         setupRecyclerView(rv);
         return rv;
     }
@@ -84,7 +86,7 @@ public class FavoritesFragment extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.contact_item, parent, false);
+                    .inflate(R.layout.favorite_item, parent, false);
             view.setBackgroundResource(mBackground);
             return new ViewHolder(view);
         }
@@ -113,7 +115,8 @@ public class FavoritesFragment extends Fragment {
                     context.startActivity(intent);
                 }
             });
-            //contacts.setContactThumbnail(holder.mImageView, contactName);
+            LinearLayout fav_layout = (LinearLayout)holder.mView.findViewById(R.id.favorite_item_layout);
+            contacts.setFavoriteBackground(fav_layout, contactName);
 
         }
 

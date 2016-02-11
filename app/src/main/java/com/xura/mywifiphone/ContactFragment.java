@@ -54,6 +54,22 @@ import java.util.Random;
 public class ContactFragment extends Fragment {
 
     private Contacts contacts;
+    /*
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("someVarA", someVarA);
+        outState.putString("someVarB", someVarB);
+        outState.p
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        someVarA = savedInstanceState.getInt("someVarA");
+        someVarB = savedInstanceState.getString("someVarB");
+    }
+    */
 
     @Nullable
     @Override
