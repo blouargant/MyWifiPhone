@@ -19,7 +19,7 @@ public class JsonDic implements Parcelable {
 
     public JsonDic() {
         jsonDic = new JSONObject();
-        JSONArray entries = new JSONArray();
+        JSONObject entries = new JSONObject();
         JSONArray keys = new JSONArray();
     }
 
@@ -39,26 +39,84 @@ public class JsonDic implements Parcelable {
     public void serialyse() {
     }
 
-    // Add a new string, if key already defined then it is replaced
-    public void putString(String key, String value) {
+    // Add a new entry, if key already defined then it is replaced
+    public void put(String key, Object value) {
         try {
-            JSONArray joEntries = jsonDic.getJSONArray("entries");
-            JSONArray joKeys = jsonDic.getJSONArray("keys");
-            JSONObject newEntry = new JSONObject();
-            newEntry.put(key, value);
-            joEntries.put(newEntry);
-            if (! this.keys.contains(key)) {
-                this.keys.add(key);
-                joKeys.put(key);
+            if ( (value instanceof Integer) ||
+                 (value instanceof String) ||
+                 (value instanceof Long) ||
+                 (value instanceof Boolean) ) {
+                JSONObject joEntries = jsonDic.getJSONObject("entries");
+                JSONArray joKeys = jsonDic.getJSONArray("keys");
+                joEntries.putOpt(key, value);
+                if (!this.keys.contains(key)) {
+                    this.keys.add(key);
+                    joKeys.put(key);
+                }
+                jsonDic.put("entries", joEntries);
+                jsonDic.put("keys", joKeys);
+            } else {
+                throw new IllegalArgumentException("Illegal Argument :" + value);
             }
-            jsonDic.put("entries", joEntries);
-            jsonDic.put("keys", joKeys);
-
         } catch (JSONException e) {
             System.out.println(e);
         }
-
     }
+    public Object get(String key) {
+        Object value = new Object();
+        try {
+            value = jsonDic.getJSONObject("entries").opt(key);
+        } catch (JSONException e) {
+            System.out.println(e);
+        }
+        return value;
+    }
+    public Object getString(String key) {
+        String value = "";
+        value = (String) this.get(key);
+        return value;
+    }
+    public Object getInt(String key) {
+        Integer value = 0;
+        value = (Integer) this.get(key);
+        return value;
+    }
+    public Object getLong(String key) {
+        Long value = new Long(0);
+        value = (Long) this.get(key);
+        return value;
+    }
+    public Object getBoolean(String key) {
+        Boolean value = false;
+        value = (Boolean) this.get(key);
+        return value;
+    }
+    public Object getArray(String key) {
+        String value = "";
+        value = (String) this.get(key);
+        return value;
+    }
+
+    void foo(String a, Object... b) {
+
+        Integer b1 = 0;
+        String b2 = "";
+        if (b.length > 0) {
+            if (!(b[0] instanceof Integer)) {
+                throw new IllegalArgumentException("...");
+            }
+            b1 = (Integer)b[0];
+        }
+        if (b.length > 1) {
+            if (!(b[1] instanceof String)) {
+                throw new IllegalArgumentException("...");
+            }
+            b2 = (String)b[1];
+            //...
+        }
+        //...
+    }
+
 
 
     public static final Parcelable.Creator<JsonDic> CREATOR = new Creator<JsonDic>() {
