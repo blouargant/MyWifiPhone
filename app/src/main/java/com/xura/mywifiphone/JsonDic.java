@@ -2,6 +2,7 @@ package com.xura.mywifiphone;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,17 +14,48 @@ import java.util.ArrayList;
  * Created by bertrand on 12/02/16.
  */
 public class JsonDic implements Parcelable {
-    private String serial;
+    private String serial = "{}";
     private JSONObject jsonDic;
-    public ArrayList<String> keys = new ArrayList<>();
+    private ArrayList<String> keys = new ArrayList<>();
+
 
     public JsonDic() {
+        initJsonDic();
+    }
+    private void initJsonDic() {
         jsonDic = new JSONObject();
         JSONObject entries = new JSONObject();
         JSONArray keys = new JSONArray();
+        try {
+            jsonDic.putOpt("entries", entries);
+            jsonDic.putOpt("keys", keys);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "initJsonDic :" + e);
+        }
+    }
+    private void jsonToSerial() {
+        this.serial = jsonDic.toString();
+    }
+    private void serialToJson() {
+        try {
+            initJsonDic();
+            this.jsonDic = new JSONObject(this.serial);
+            this.keys = getKeys();
+
+        } catch (JSONException e) {
+            Log.d("DEBUG", "serialToJson :" + e);
+        }
+    }
+    public void load(String strDic) {
+        this.serial = strDic;
+        serialToJson();
+    }
+    public String toString() {
+        this.serial = jsonDic.toString();
+        return this.serial;
     }
 
-    public ArrayList<String> getKeys() {
+    private ArrayList<String> getKeys() {
         ArrayList<String> key_list = new ArrayList<>();
         try {
             JSONArray joKeys = jsonDic.getJSONArray("keys");
@@ -31,14 +63,16 @@ public class JsonDic implements Parcelable {
                 key_list.add(joKeys.optString(i));
             }
         } catch (JSONException e) {
-            System.out.println(e);
+            Log.d("DEBUG", "getKeys :" + e);
         }
         return key_list;
     }
-
-    public void serialyse() {
+    public ArrayList<String> Keys() {
+        return this.keys;
     }
-
+    public Boolean containsKey(String key) {
+        return this.keys.contains(key);
+    }
     // Add a new entry, if key already defined then it is replaced
     public void put(String key, Object value) {
         try {
@@ -59,41 +93,88 @@ public class JsonDic implements Parcelable {
                 throw new IllegalArgumentException("Illegal Argument :" + value);
             }
         } catch (JSONException e) {
-            System.out.println(e);
+            Log.d("DEBUG", "put :" + e);
         }
     }
-    public Object get(String key) {
+
+    public void putDic(String key, JsonDic dic) {
+        try {
+            JSONObject joEntries = jsonDic.getJSONObject("entries");
+            JSONArray joKeys = jsonDic.getJSONArray("keys");
+            JSONObject ajsondic = dic.jsonDic;
+            joEntries.putOpt(key, ajsondic);
+            if (!this.keys.contains(key)) {
+                this.keys.add(key);
+                joKeys.put(key);
+            }
+            jsonDic.put("entries", joEntries);
+            jsonDic.put("keys", joKeys);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "putDic :" + e);
+        }
+    }
+    public JsonDic getDic(String key) {
+        JsonDic dic = new JsonDic();
+        try {
+            JSONObject jsondic = jsonDic.getJSONObject("entries").optJSONObject(key);
+            dic.jsonDic = jsondic;
+            dic.keys = dic.getKeys();
+        } catch (JSONException e) {
+            Log.d("DEBUG", "getDic :" + e);
+        }
+        return dic;
+    }
+
+    private Object get(String key) {
         Object value = new Object();
         try {
             value = jsonDic.getJSONObject("entries").opt(key);
         } catch (JSONException e) {
-            System.out.println(e);
+            Log.d("DEBUG", "get :" + e);
+            Log.d("DEBUG", jsonDic.toString());
         }
         return value;
     }
-    public Object getString(String key) {
+    public String getString(String key) {
         String value = "";
-        value = (String) this.get(key);
+        try {
+            value = jsonDic.getJSONObject("entries").getString(key);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "getString :" + e);
+            Log.d("DEBUG", jsonDic.toString());
+        }
         return value;
     }
-    public Object getInt(String key) {
-        Integer value = 0;
-        value = (Integer) this.get(key);
+    public Integer getInt(String key) {
+        int value = 0;
+        try {
+            value = jsonDic.getJSONObject("entries").getInt(key);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "getInt :" + e);
+        }
         return value;
     }
-    public Object getLong(String key) {
+    public Long getLong(String key) {
         Long value = new Long(0);
-        value = (Long) this.get(key);
+        try {
+            value = jsonDic.getJSONObject("entries").getLong(key);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "getLong :" + e);
+        }
         return value;
     }
-    public Object getBoolean(String key) {
+    public Boolean getBoolean(String key) {
         Boolean value = false;
-        value = (Boolean) this.get(key);
+        try {
+            value = jsonDic.getJSONObject("entries").getBoolean(key);
+        } catch (JSONException e) {
+            Log.d("DEBUG", "getBoolean :" + e);
+        }
         return value;
     }
-    public Object getArray(String key) {
-        String value = "";
-        value = (String) this.get(key);
+    public ArrayList<String> getArray(String key) {
+        ArrayList<String> value;
+        value = (ArrayList<String>) this.get(key);
         return value;
     }
 
@@ -118,22 +199,30 @@ public class JsonDic implements Parcelable {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        //Call jsonToSerial to set serial
+        jsonToSerial();
+        dest.writeString(this.serial);
+    }
 
-    public static final Parcelable.Creator<JsonDic> CREATOR = new Creator<JsonDic>() {
+    protected JsonDic(Parcel in) {
+        this.serial = in.readString();
+        serialToJson();
+        //serialToJson to set jsonDic
+    }
+
+    public static final Creator<JsonDic> CREATOR = new Creator<JsonDic>() {
         public JsonDic createFromParcel(Parcel source) {
-            JsonDic dic = new JsonDic();
-            dic.serial = source.readString();
-            return dic;
+            return new JsonDic(source);
         }
+
         public JsonDic[] newArray(int size) {
             return new JsonDic[size];
         }
     };
-
-    public int describeContents() {
-        return 0;
-    }
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(serial);
-    }
 }

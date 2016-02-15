@@ -59,18 +59,25 @@ public class Contacts {
 
 
     private final Random RANDOM = new Random();
-    private Hashtable<String, Hashtable> contactDic = new Hashtable<>();
+    //private Hashtable<String, Hashtable> contactDic = new Hashtable<>();
+    public JsonDic contactDic= new JsonDic();
     private Colors colors = new Colors();
     private LruCache<String, Bitmap> mMemoryCache;
     public Context context;
     private Bitmap default_icon;
 
     public Contacts (Context activity_context) {
+        initContacts(activity_context);
+    }
+    public Contacts (Context activity_context, String contactDicString) {
+        contactDic.load(contactDicString);
+        initContacts(activity_context);
+    }
+    public void initContacts (Context activity_context) {
         mMemoryCache = new LruCache<>(1048576); // 1MB
         context = activity_context;
         default_icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_person_white_48dp);
     }
-
 
     public int getDrawableBackground(String contactName) {
         int res = R.drawable.city;
@@ -110,7 +117,7 @@ public class Contacts {
 
         if (amount > 0) {
             while (cur.moveToNext()) {
-                Hashtable<String, String> dic;
+                JsonDic dic;
 
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
@@ -118,9 +125,9 @@ public class Contacts {
                 long last_time =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
                 int starred =  cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
                 if (contactDic.containsKey(name)) {
-                    dic = contactDic.get(name);
+                    dic = contactDic.getDic(name);
                 } else {
-                    dic = new Hashtable<>();
+                    dic = new JsonDic();
                 }
                 if (last_time != 0) {
                     dic.put("last", String.valueOf(last_time));
@@ -134,7 +141,7 @@ public class Contacts {
                     list.add(name);
                     dic.put("starred", "no");
                 }
-                contactDic.put(name, dic);
+                contactDic.putDic(name, dic);
 
             }
         }
@@ -166,7 +173,7 @@ public class Contacts {
 
         if (amount > 0) {
             while (cur.moveToNext()) {
-                Hashtable<String, String> dic;
+                JsonDic dic;
 
                 String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
                 long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
@@ -176,9 +183,9 @@ public class Contacts {
                 String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
 
                 if (contactDic.containsKey(name)) {
-                    dic = contactDic.get(name);
+                    dic = contactDic.getDic(name);
                 } else {
-                    dic = new Hashtable<>();
+                    dic = new JsonDic();
                 }
                 if (thumbnail_uri != null) {
                     dic.put("thumbnail", thumbnail_uri);
@@ -190,7 +197,7 @@ public class Contacts {
                 } else {
                     dic.put("photo", "");
                 }
-                contactDic.put(name, dic);
+                contactDic.putDic(name, dic);
                 list.add(name);
             }
         }
@@ -204,8 +211,8 @@ public class Contacts {
     //Get specific contact's Infos
     public void fetchContactBaseInfos(String name) {
 
-        Hashtable<String, String> aContactDic = contactDic.get(name);
-        String sID = aContactDic.get("id");
+        JsonDic aContactDic = contactDic.getDic(name);
+        String sID = aContactDic.getString("id");
 
         ContentResolver cr = context.getContentResolver();
         String query_id = ContactsContract.Contacts._ID+"="+sID;
@@ -241,7 +248,7 @@ public class Contacts {
                 } else {
                     aContactDic.put("photo", "");
                 }
-                contactDic.put(name, aContactDic);
+                contactDic.putDic(name, aContactDic);
 
                 /*
                 if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
@@ -355,17 +362,14 @@ public class Contacts {
 
     // Set Favorites background color based on random choice
     public void setFavoriteBackground(LinearLayout fav_layout, String contactName) {
-        Hashtable<String, String> dic = contactDic.get(contactName);
+        JsonDic dic = contactDic.getDic(contactName);
         int aColor;
         if (dic.containsKey("fav_color")) {
-            aColor = Integer.parseInt(dic.get("fav_color"));
-            Log.d("DEBUG", contactName+" has saved color "+colors.getColorName(aColor));
+            aColor = Integer.parseInt(dic.getString("fav_color"));
         } else {
-            Log.d("DEBUG", contactName+" does not have a fav_color");
             aColor = colors.getRandomColor();
             dic.put("fav_color", String.valueOf(aColor));
-            contactDic.put(contactName, dic);
-            Log.d("DEBUG", contactName+" has now color "+colors.getColorName(aColor));
+            contactDic.putDic(contactName, dic);
         }
         fav_layout.setBackgroundColor(aColor);
     }
@@ -393,14 +397,14 @@ public class Contacts {
     // Check if there is a thimbnail for a contact
     public Boolean hasThumbnail(String name) {
         Boolean test = Boolean.FALSE;
-        if (contactDic.get(name).get("thumbnail") != "") {
+        if (contactDic.getDic(name).getString("thumbnail") != "") {
             test = Boolean.TRUE;
         }
         return test;
     }
 
     private String getThumbnail(String name) {
-        String photoUri = contactDic.get(name).get("thumbnail").toString();
+        String photoUri = contactDic.getDic(name).getString("thumbnail");
         return photoUri;
     }
 

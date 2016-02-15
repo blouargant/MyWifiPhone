@@ -54,38 +54,33 @@ import java.util.Random;
 public class ContactFragment extends Fragment {
 
     private Contacts contacts;
-    /*
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt("someVarA", someVarA);
-        outState.putString("someVarB", someVarB);
-        outState.p
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        someVarA = savedInstanceState.getInt("someVarA");
-        someVarB = savedInstanceState.getString("someVarB");
-    }
-    */
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.contact_list_recycler, container, false);
-        contacts = new Contacts(getActivity());
-        /*
-        FloatingActionButton mFab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
 
-        RelativeLayout.LayoutParams p = (RelativeLayout.LayoutParams) mFab.getLayoutParams();
-        p.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
-        mFab.setLayoutParams(p);
-        */
+        if (contacts == null) {
+            String contactDic = "";
+            if (savedInstanceState != null) {
+                contactDic = savedInstanceState.getString("contacts");
+            }
+            if (contactDic != "") {
+                contacts = new Contacts(getActivity(), contactDic);
+            } else {
+                contacts = new Contacts(getActivity());
+            }
+        }
         setupRecyclerView(rv);
         return rv;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String contactDic = contacts.contactDic.toString();
+        outState.putString("contacts", contactDic);
     }
 
     private void setupRecyclerView(RecyclerView recyclerView) {

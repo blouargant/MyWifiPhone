@@ -30,10 +30,30 @@ public class FavoritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.contact_list_recycler, container, false);
-        contacts = new Contacts(getActivity());
-        Log.d("DEBUG", "onCreateView");
+
+        //Log.d("DEBUG", "contacts: "+contacts);
+        if (contacts == null) {
+            String contactDic = "";
+            if (savedInstanceState != null) {
+                contactDic = savedInstanceState.getString("contacts");
+            }
+            if (contactDic != "") {
+                contacts = new Contacts(getActivity(), contactDic);
+            } else {
+                contacts = new Contacts(getActivity());
+            }
+            //Log.d("DEBUG", "contactDic: "+contactDic);
+        }
         setupRecyclerView(rv);
         return rv;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String contactDic = contacts.contactDic.toString();
+        //Log.d("DEBUG", "contactDic: "+contactDic);
+        outState.putString("contacts", contactDic);
     }
 
     private void setupRecyclerView(RecyclerView recyclerView) {
