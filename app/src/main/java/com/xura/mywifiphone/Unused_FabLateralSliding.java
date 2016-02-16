@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by bertrand on 09/02/16.
  */
-public class FabLateralSliding extends FloatingActionButton.Behavior {
+public class Unused_FabLateralSliding extends FloatingActionButton.Behavior {
 
-    public FabLateralSliding(Context context, AttributeSet attrs) {
+    public Unused_FabLateralSliding(Context context, AttributeSet attrs) {
         super();
     }
 
