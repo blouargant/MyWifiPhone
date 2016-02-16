@@ -35,6 +35,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -48,6 +49,7 @@ import com.bumptech.glide.Glide;
 
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -175,5 +177,6 @@ public class HistoryFragment extends Fragment {
             return mValues.size();
         }
     }
+
 }
 

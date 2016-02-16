@@ -36,6 +36,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.graphics.BitmapCompat;
 import android.support.v4.util.LruCache;
+import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.widget.ImageView;
@@ -190,7 +191,8 @@ public class Contacts {
                     } else {
                         dic = new JsonDic();
                     }
-                    dic.put("last", getDate(last_time, "dd/MM/yyyy hh:mm"));
+                    //dic.put("last", getDate(last_time, "EEEE dd/MM/yyyy HH:mm"));
+                    dic.put("last", getDisplayDate(last_time) );
                     if (starred != 0) {
                         dic.put("starred", "yes");
                     } else {
@@ -265,13 +267,28 @@ public class Contacts {
 
     public String getDate(long milliSeconds, String dateFormat)
     {
-        // Create a DateFormatter object for displaying date in specified format.
         SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-
-        // Create a calendar object that will convert the date and time value in milliseconds to date.
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         return formatter.format(calendar.getTime());
+    }
+    public String getDisplayDate(long timestamp) {
+        int year_flag = DateUtils.FORMAT_SHOW_YEAR;
+        String this_year = getDate(System.currentTimeMillis(), "yyyy");
+        String year = getDate(timestamp,"yyyy");
+
+        int date_flags = (  DateUtils.FORMAT_SHOW_DATE |
+                DateUtils.FORMAT_SHOW_WEEKDAY );
+        if (year.equals(this_year) ) {
+            date_flags = date_flags | DateUtils.FORMAT_NO_YEAR;
+        } else {
+            date_flags = date_flags | DateUtils.FORMAT_SHOW_YEAR;
+        }
+        int time_flags = (DateUtils.FORMAT_SHOW_TIME);
+        String date = DateUtils.formatDateTime(context, timestamp,date_flags) + ", " +
+                DateUtils.formatDateTime(context, timestamp,time_flags);
+
+        return date;
     }
     //Get specific contact's Infos
     public void fetchContactBaseInfos(String name) {
