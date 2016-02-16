@@ -48,8 +48,10 @@ import com.bumptech.glide.Glide;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.text.Collator;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
@@ -130,9 +132,9 @@ public class Contacts {
                     dic = new JsonDic();
                 }
                 if (last_time != 0) {
-                    dic.put("last", String.valueOf(last_time));
+                    dic.put("last", last_time);
                 } else {
-                    dic.put("last", "0");
+                    dic.put("last", 0);
                 }
                 if (starred != 0) {
                     listStarred.add(name);
@@ -154,6 +156,53 @@ public class Contacts {
         return newList;
     }
 
+    // Get Last called contacts
+    public List<String> readLastContactedNames() {
+        ContentResolver cr = context.getContentResolver();
+        String[] columns = {ContactsContract.Contacts._ID,
+                ContactsContract.Contacts.DISPLAY_NAME,
+                ContactsContract.Contacts.TIMES_CONTACTED,
+                ContactsContract.Contacts.LAST_TIME_CONTACTED,
+                ContactsContract.Contacts.STARRED};
+        String orderedBy = ContactsContract.Contacts.LAST_TIME_CONTACTED + " DESC, "
+                + ContactsContract.Contacts.SORT_KEY_PRIMARY + " ASC";
+        Cursor cur = cr.query( ContactsContract.Contacts.CONTENT_URI,columns, null, null,orderedBy);
+
+        int amount = 0;
+        if (cur != null) {
+            amount = cur.getCount();
+        }
+        ArrayList<String> list = new ArrayList<>(amount);
+
+        if (amount > 0) {
+            while (cur.moveToNext()) {
+                JsonDic dic;
+
+                String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                long contactId = cur.getLong(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                long last_time =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
+                int starred =  cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
+
+                if (! contactDic.containsKey(name) && (last_time != 0)) {
+                    dic = new JsonDic();
+                    dic.put("last", getDate(last_time, "dd/MM/yyyy hh:mm"));
+                    if (starred != 0) {
+                        dic.put("starred", "yes");
+                    } else {
+                        dic.put("starred", "no");
+                    }
+                    list.add(name);
+                    contactDic.putDic(name, dic);
+                }
+
+            }
+        }
+        if (cur != null) {
+            cur.close();
+        }
+        return list;
+    }
     // Get Contact List with only name and id
     public List<String> readContactsNames() {
         ContentResolver cr = context.getContentResolver();
@@ -187,6 +236,7 @@ public class Contacts {
                 } else {
                     dic = new JsonDic();
                 }
+
                 if (thumbnail_uri != null) {
                     dic.put("thumbnail", thumbnail_uri);
                 } else {
@@ -199,6 +249,7 @@ public class Contacts {
                 }
                 contactDic.putDic(name, dic);
                 list.add(name);
+
             }
         }
         if (cur != null) {
@@ -208,6 +259,16 @@ public class Contacts {
         return list;
     }
 
+    public String getDate(long milliSeconds, String dateFormat)
+    {
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
+    }
     //Get specific contact's Infos
     public void fetchContactBaseInfos(String name) {
 

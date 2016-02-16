@@ -15,19 +15,40 @@
         <LinearLayout
             style="@style/Widget.HistoryCard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/history_call_icon"
-                android:layout_width="@dimen/call_icon_size"
-                android:layout_height="@dimen/call_icon_size"
-                android:layout_marginRight="16dp"/>
-
-            <TextView
-                android:id="@android:id/text1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceListItem"/>
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/history_call_icon"
+                    android:layout_width="@dimen/call_icon_size"
+                    android:layout_height="@dimen/call_icon_size"
+                    android:layout_marginRight="16dp"/>
+
+                <TextView
+                    android:id="@android:id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textAppearance="?attr/textAppearanceListItem"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/callDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="12dp"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

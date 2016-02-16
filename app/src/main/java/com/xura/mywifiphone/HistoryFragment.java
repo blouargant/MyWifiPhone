@@ -84,12 +84,14 @@ public class HistoryFragment extends Fragment {
             public final View mView;
             public final ImageView mImageView;
             public final TextView mTextView;
+            public final TextView mDateView;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
                 mImageView = (ImageView) view.findViewById(R.id.history_call_icon);
                 mTextView = (TextView) view.findViewById(android.R.id.text1);
+                mDateView = (TextView) view.findViewById(R.id.callDate);
             }
 
             @Override
@@ -106,7 +108,7 @@ public class HistoryFragment extends Fragment {
             context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
-            mValues = contacts.readContactsNames();
+            mValues = contacts.readLastContactedNames();
 
         }
 
@@ -123,6 +125,8 @@ public class HistoryFragment extends Fragment {
             String contactName = mValues.get(position);
             holder.mBoundString = contactName;
             holder.mTextView.setText(contactName);
+            JsonDic contactInfo = contacts.contactDic.getDic(contactName);
+            holder.mDateView.setText(contactInfo.getString("last"));
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
