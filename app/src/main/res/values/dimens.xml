@@ -10,4 +10,5 @@
     <dimen name="list_item_height">72dp</dimen>
     <dimen name="fav_item_height">144dp</dimen>
     <dimen name="fav_font_size">24sp</dimen>
+    <dimen name="call_icon_size">40dp</dimen>
 </resources>

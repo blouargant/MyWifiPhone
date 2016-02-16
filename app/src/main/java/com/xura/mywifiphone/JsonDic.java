@@ -36,11 +36,13 @@ public class JsonDic implements Parcelable {
     private void jsonToSerial() {
         this.serial = jsonDic.toString();
     }
-    private void serialToJson() {
+    private void serialToJson(String strDic) {
         try {
             initJsonDic();
-            this.jsonDic = new JSONObject(this.serial);
-            this.keys = getKeys();
+            if ((strDic != null) && (strDic != "" )) {
+                this.jsonDic = new JSONObject(this.serial);
+                this.keys = getKeys();
+            }
 
         } catch (JSONException e) {
             Log.d("DEBUG", "serialToJson :" + e);
@@ -48,7 +50,7 @@ public class JsonDic implements Parcelable {
     }
     public void load(String strDic) {
         this.serial = strDic;
-        serialToJson();
+        serialToJson(strDic);
     }
     public String toString() {
         this.serial = jsonDic.toString();
@@ -212,7 +214,7 @@ public class JsonDic implements Parcelable {
 
     protected JsonDic(Parcel in) {
         this.serial = in.readString();
-        serialToJson();
+        serialToJson(this.serial);
         //serialToJson to set jsonDic
     }
 

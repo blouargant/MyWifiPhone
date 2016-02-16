@@ -6,8 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -28,8 +30,6 @@ public class FavoritesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.contact_list_recycler, container, false);
 
         //Log.d("DEBUG", "contacts: "+contacts);
         if (contacts == null) {
@@ -44,6 +44,9 @@ public class FavoritesFragment extends Fragment {
             }
             //Log.d("DEBUG", "contactDic: "+contactDic);
         }
+        RecyclerView rv = (RecyclerView) inflater.inflate(
+                R.layout.contact_list_recycler, container, false);
+
         setupRecyclerView(rv);
         return rv;
     }
@@ -51,13 +54,26 @@ public class FavoritesFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        String contactDic = contacts.contactDic.toString();
-        //Log.d("DEBUG", "contactDic: "+contactDic);
-        outState.putString("contacts", contactDic);
+        if (contacts != null) {
+            String contactDic = contacts.contactDic.toString();
+            //Log.d("DEBUG", "contactDic: "+contactDic);
+            outState.putString("contacts", contactDic);
+        }
     }
 
     private void setupRecyclerView(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(),2));
+        int nbRows = 2;
+        int fav_size = getActivity().getResources().getDimensionPixelSize(R.dimen.fav_item_height);
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        //metrics.heightPixels;
+        //metrics.widthPixels;
+
+        if (metrics.widthPixels > 3 * fav_size) {
+            nbRows = 3;
+        }
+        recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(),nbRows));
         //recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
         recyclerView.setAdapter(new SimpleStringRecyclerViewAdapter(getActivity(), contacts));
 

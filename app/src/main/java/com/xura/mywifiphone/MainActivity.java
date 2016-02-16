@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
         adapter.addFragment(new FavoritesFragment(), "Favorites");
-        adapter.addFragment(new Fragment(), "History");
+        adapter.addFragment(new HistoryFragment(), "History");
         adapter.addFragment(new ContactFragment(), "Contacts");
         viewPager.setAdapter(adapter);
     }
