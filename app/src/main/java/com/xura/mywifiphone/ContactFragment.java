@@ -58,13 +58,11 @@ public class ContactFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView rv = (RecyclerView) inflater.inflate(
-                R.layout.contact_list_recycler, container, false);
 
         if (contacts == null) {
             String contactDic = "";
             if (savedInstanceState != null) {
-                contactDic = savedInstanceState.getString("contacts");
+                contactDic = savedInstanceState.getString("all_contacts_instance");
             }
             if (contactDic != "") {
                 contacts = new Contacts(getActivity(), contactDic);
@@ -72,6 +70,8 @@ public class ContactFragment extends Fragment {
                 contacts = new Contacts(getActivity());
             }
         }
+        RecyclerView rv = (RecyclerView) inflater.inflate(
+                R.layout.contact_list_recycler, container, false);
         setupRecyclerView(rv);
         return rv;
     }
@@ -81,7 +81,7 @@ public class ContactFragment extends Fragment {
         super.onSaveInstanceState(outState);
         if (contacts != null) {
             String contactDic = contacts.contactDic.toString();
-            outState.putString("contacts", contactDic);
+            outState.putString("all_contacts_instance", contactDic);
         }
     }
 

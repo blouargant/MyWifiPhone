@@ -184,8 +184,12 @@ public class Contacts {
                 long last_time =  cur.getLong(cur.getColumnIndex(ContactsContract.Contacts.LAST_TIME_CONTACTED));
                 int starred =  cur.getInt(cur.getColumnIndex(ContactsContract.Contacts.STARRED));
 
-                if (! contactDic.containsKey(name) && (last_time != 0)) {
-                    dic = new JsonDic();
+                if (last_time != 0) {
+                    if (contactDic.containsKey(name)) {
+                        dic = contactDic.getDic(name);
+                    } else {
+                        dic = new JsonDic();
+                    }
                     dic.put("last", getDate(last_time, "dd/MM/yyyy hh:mm"));
                     if (starred != 0) {
                         dic.put("starred", "yes");
@@ -524,7 +528,16 @@ public class Contacts {
     // Load a round colored bitmap with capital letter
     private void loadBitmap(ImageView mImageView, String contactName) {
         String firstLetter = contactName.substring(0, 1).toUpperCase();
-        int aColor = colors.getRandomColor();
+
+        JsonDic dic = contactDic.getDic(contactName);
+        int aColor;
+        if (dic.containsKey("fav_color")) {
+            aColor = Integer.parseInt(dic.getString("fav_color"));
+        } else {
+            aColor = colors.getRandomColor();
+            dic.put("fav_color", String.valueOf(aColor));
+            contactDic.putDic(contactName, dic);
+        }
 
         if (cancelPotentialWork(aColor, mImageView)) {
             final BitmapWorkerTask task = new BitmapWorkerTask(mImageView, firstLetter);

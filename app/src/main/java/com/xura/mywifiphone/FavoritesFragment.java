@@ -31,11 +31,10 @@ public class FavoritesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //Log.d("DEBUG", "contacts: "+contacts);
         if (contacts == null) {
             String contactDic = "";
             if (savedInstanceState != null) {
-                contactDic = savedInstanceState.getString("contacts");
+                contactDic = savedInstanceState.getString("favorites_contacts_instance");
             }
             if (contactDic != "") {
                 contacts = new Contacts(getActivity(), contactDic);
@@ -57,7 +56,7 @@ public class FavoritesFragment extends Fragment {
         if (contacts != null) {
             String contactDic = contacts.contactDic.toString();
             //Log.d("DEBUG", "contactDic: "+contactDic);
-            outState.putString("contacts", contactDic);
+            outState.putString("favorites_contacts_instance", contactDic);
         }
     }
 
