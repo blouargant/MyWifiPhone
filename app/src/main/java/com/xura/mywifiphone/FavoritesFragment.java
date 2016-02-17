@@ -1,10 +1,13 @@
 package com.xura.mywifiphone;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
@@ -85,6 +88,7 @@ public class FavoritesFragment extends Fragment {
         private int mBackground;
         private List<String> mValues;
         private Contacts contacts;
+        private Activity mActivity;
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
             public String mBoundString;
@@ -111,6 +115,7 @@ public class FavoritesFragment extends Fragment {
         }
 
         public SimpleStringRecyclerViewAdapter(Context context, Contacts contacsRef) {
+            mActivity = (Activity) context;
             context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
@@ -147,7 +152,9 @@ public class FavoritesFragment extends Fragment {
                     //intent.putExtra(ContactDetailActivity.EXTRA_NAME, holder.mBoundString);
                     //String backdrop = String.valueOf(contacts.getDrawableBackground(holder.mBoundString));
                     //intent.putExtra(ContactDetailActivity.BACKGROUND, backdrop);
-                    context.startActivity(intent);
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(holder.mView, 0 , 0 ,holder.mView.getWidth(), holder.mView.getHeight());
+                    ActivityCompat.startActivity(mActivity, intent, options.toBundle());
+                    //context.startActivity(intent);
                 }
             });
             LinearLayout fav_layout = (LinearLayout)holder.mView.findViewById(R.id.favorite_item_layout);

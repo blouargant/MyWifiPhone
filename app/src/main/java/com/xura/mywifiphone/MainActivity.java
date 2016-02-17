@@ -5,6 +5,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -14,6 +15,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -150,13 +152,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.show();
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+                //fab.hide();
+                Intent intent = new Intent(MainActivity.this, DialerActivity.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
+                //ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(view, 0 , 0 ,view.getWidth(), view.getHeight());
+                ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+
+                }
+            });
 
         tabLayout = (TabLayout) findViewById(R.id.tabs_app_bar);
         tabLayout.setupWithViewPager(viewPager);
