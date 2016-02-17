@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -123,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
     private void setupActivity() {
         appToolbar = (Toolbar) findViewById(R.id.top_app_bar);
         setSupportActionBar(appToolbar);
+
+        /*
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+            View dropshadow = (View) findViewById(R.id.toolbar_dropshadow_view);
+            dropshadow.setVisibility(View.GONE);
+        }
+        */
 
         final ActionBar ab = getSupportActionBar();
         ab.setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
