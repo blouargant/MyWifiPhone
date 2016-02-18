@@ -17,10 +17,17 @@
 package com.xura.mywifiphone;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.ImageView;
 
@@ -30,7 +37,8 @@ public class ContactDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_NAME = "contact_name";
     public static final String CONTACT_KEY = "parceable";
-    public static final String BACKGROUND = "";
+    private int mColor = 0;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,9 +47,10 @@ public class ContactDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         //final String contactName = intent.getStringExtra(EXTRA_NAME);
-        final ContactInfo mContact = (ContactInfo) intent.getParcelableExtra(CONTACT_KEY);
+        final ContactInfo mContact = intent.getParcelableExtra(CONTACT_KEY);
         final String contactName = mContact.getName();
-        final int defaultBackground = mContact.getDefaultBackground();
+        mColor = mContact.getColor();
+
 
         Toolbar appToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(appToolbar);
@@ -54,13 +63,24 @@ public class ContactDetailActivity extends AppCompatActivity {
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle(contactName);
 
-        loadBackdrop(defaultBackground);
+        loadBackdrop();
+
     }
 
-    private void loadBackdrop(int backdrop) {
-        final ImageView imageView = (ImageView) findViewById(R.id.backdrop);
+    private void loadBackdrop() {
+
+        ImageView imageView = (ImageView) findViewById(R.id.backdrop);
+        /*
+        if (mPhoto != "") {
+            Glide.with(this).load(mPhoto).into(imageView);
+        } else if (mColor != 0) {
+            imageView.setBackgroundColor(mColor);
+        }*/
+        Log.d("DEBUG", "set color to "+mColor);
+        imageView.setBackgroundColor(mColor);
+        return;
         //Glide.with(this).load(Contacts.getDrawable()).centerCrop().into(imageView);
-        Glide.with(this).load(backdrop).fitCenter().into(imageView);
+        //Glide.with(this).load(backdrop).fitCenter().crossFade().into(imageView);
     }
 
     @Override

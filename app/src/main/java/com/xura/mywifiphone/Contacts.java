@@ -320,6 +320,8 @@ public class Contacts {
                 String photo_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
                 String thumbnail_uri =  cur.getString(cur.getColumnIndex(ContactsContract.Contacts.PHOTO_THUMBNAIL_URI));
 
+                aContactDic.put("fav_color",0);
+
                 if (thumbnail_uri != null) {
                     aContactDic.put("thumbnail", thumbnail_uri);
                 } else {
@@ -447,10 +449,10 @@ public class Contacts {
         JsonDic dic = contactDic.getDic(contactName);
         int aColor;
         if (dic.containsKey("fav_color")) {
-            aColor = Integer.parseInt(dic.getString("fav_color"));
+            aColor = dic.getInt("fav_color");
         } else {
             aColor = colors.getRandomColor();
-            dic.put("fav_color", String.valueOf(aColor));
+            dic.put("fav_color", aColor);
             contactDic.putDic(contactName, dic);
         }
         fav_layout.setBackgroundColor(aColor);

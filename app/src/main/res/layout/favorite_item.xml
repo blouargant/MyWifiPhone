@@ -12,10 +12,11 @@
         android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="0dp">
+        android:layout_marginBottom="0dp"
+        android:transitionName="@string/contact_transition">
 
         <LinearLayout
-            android:id="@+id/favorite_item_layout"
+            android:id="@+id/contact_layout"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fav_item_height"

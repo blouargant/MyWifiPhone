@@ -30,7 +30,8 @@
                     android:id="@+id/history_call_icon"
                     android:layout_width="@dimen/call_icon_size"
                     android:layout_height="@dimen/call_icon_size"
-                    android:layout_marginRight="16dp"/>
+                    android:layout_marginRight="16dp"
+                    android:transitionName="@string/contact_transition"/>
 
                 <TextView
                     android:id="@android:id/text1"

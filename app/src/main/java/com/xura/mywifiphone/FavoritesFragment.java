@@ -143,8 +143,15 @@ public class FavoritesFragment extends Fragment {
                     Context context = v.getContext();
                     ContactInfo mContactInfo = new ContactInfo();
                     mContactInfo.setName(holder.mBoundString);
-                    mContactInfo.setDefaultBackground(contacts.getDrawableBackground(holder.mBoundString));
 
+                    JsonDic aContact = contacts.contactDic.getDic(holder.mBoundString);
+                    if (aContact.containsKey("fav_color")) {
+                        mContactInfo.setColor(aContact.getInt("fav_color"));
+                    } else {
+                        mContactInfo.setColor(0);
+                    }
+
+                    /*
                     Intent intent = new Intent(context, ContactDetailActivity.class);
                     Bundle mBundle = new Bundle();
                     mBundle.putParcelable(ContactDetailActivity.CONTACT_KEY, mContactInfo);
@@ -155,9 +162,26 @@ public class FavoritesFragment extends Fragment {
                     ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(holder.mView, 0 , 0 ,holder.mView.getWidth(), holder.mView.getHeight());
                     ActivityCompat.startActivity(mActivity, intent, options.toBundle());
                     //context.startActivity(intent);
+                    */
+                    Intent intent = new Intent(context, ContactDetailActivity.class);
+                    Bundle mBundle = new Bundle();
+                    mBundle.putParcelable(ContactDetailActivity.CONTACT_KEY, mContactInfo);
+                    intent.putExtras(mBundle);
+
+                    String transitionName = mActivity.getResources().getString(R.string.contact_transition);
+                    ActivityOptionsCompat options =
+                            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                    mActivity,
+                                    holder.mView,   // The view which starts the transition
+                                    transitionName    // The transitionName of the view we’re transitioning to
+                            );
+                    ActivityCompat.startActivity(mActivity, intent, options.toBundle());
+
+
+
                 }
             });
-            LinearLayout fav_layout = (LinearLayout)holder.mView.findViewById(R.id.favorite_item_layout);
+            LinearLayout fav_layout = (LinearLayout)holder.mView.findViewById(R.id.contact_layout);
             contacts.setFavoriteBackground(fav_layout, contactName);
 
         }

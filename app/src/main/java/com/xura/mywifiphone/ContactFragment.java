@@ -16,6 +16,7 @@
 
 package com.xura.mywifiphone;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,8 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -106,6 +109,7 @@ public class ContactFragment extends Fragment {
         private int mBackground;
         private List<String> mValues;
         private Contacts contacts;
+        private Activity mActivity;
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
             public String mBoundString;
@@ -132,6 +136,7 @@ public class ContactFragment extends Fragment {
         }
 
         public SimpleStringRecyclerViewAdapter(Context context, Contacts contacsRef) {
+            mActivity = (Activity) context;
             context.getTheme().resolveAttribute(R.attr.selectableItemBackground, mTypedValue, true);
             mBackground = mTypedValue.resourceId;
             contacts = contacsRef;
@@ -159,16 +164,26 @@ public class ContactFragment extends Fragment {
                     Context context = v.getContext();
                     ContactInfo mContactInfo = new ContactInfo();
                     mContactInfo.setName(holder.mBoundString);
-                    mContactInfo.setDefaultBackground(contacts.getDrawableBackground(holder.mBoundString));
 
+                    JsonDic aContact = contacts.contactDic.getDic(holder.mBoundString);
+                    if (aContact.containsKey("fav_color")) {
+                        mContactInfo.setColor(aContact.getInt("fav_color"));
+                    } else {
+                        mContactInfo.setColor(0);
+                    }
                     Intent intent = new Intent(context, ContactDetailActivity.class);
                     Bundle mBundle = new Bundle();
                     mBundle.putParcelable(ContactDetailActivity.CONTACT_KEY, mContactInfo);
                     intent.putExtras(mBundle);
-                    //intent.putExtra(ContactDetailActivity.EXTRA_NAME, holder.mBoundString);
-                    //String backdrop = String.valueOf(contacts.getDrawableBackground(holder.mBoundString));
-                    //intent.putExtra(ContactDetailActivity.BACKGROUND, backdrop);
-                    context.startActivity(intent);
+
+                    String transitionName = mActivity.getResources().getString(R.string.contact_transition);
+                    ActivityOptionsCompat options =
+                            ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                    mActivity,
+                                    holder.mView,   // The view which starts the transition
+                                    transitionName    // The transitionName of the view we’re transitioning to
+                            );
+                    ActivityCompat.startActivity(mActivity, intent, options.toBundle());
                 }
             });
             contacts.setContactThumbnail(holder.mImageView, contactName);

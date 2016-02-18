@@ -12,7 +12,7 @@
         <!-- enable window content transitions -->
         <item name="android:windowActivityTransitions" tools:targetApi="21">true</item>
 
-        <!-- specify enter and exit transitions -->
+        <!--
         <item name="android:windowEnterTransition" tools:targetApi="21">@android:transition/slide_bottom</item>
         <item name="android:windowExitTransition" tools:targetApi="21">@android:transition/slide_top</item>
         <item name="android:windowContentTransitions" tools:targetApi="21">true</item>
@@ -20,6 +20,7 @@
         <item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="21">true</item>
         <item name="android:windowSharedElementEnterTransition" tools:targetApi="21">@android:transition/slide_left</item>
         <item name="android:windowSharedElementExitTransition" tools:targetApi="21">@android:transition/slide_right</item>
+        -->
         <!--<item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>-->
     </style>
     <style name="toolBarTheme" parent="ThemeOverlay.AppCompat.Dark">

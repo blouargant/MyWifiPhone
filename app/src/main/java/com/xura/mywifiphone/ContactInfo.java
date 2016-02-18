@@ -6,7 +6,8 @@ import android.os.Parcelable;
 public class ContactInfo implements Parcelable {
     private String name;
     private String phone;
-    private int defaultBackground;
+    private String photo;
+    private int color;
 
     public String getName() {
         return name;
@@ -14,25 +15,19 @@ public class ContactInfo implements Parcelable {
     public void setName(String name) {
         this.name = name;
     }
-    public String getPhone() {
-        return phone;
+    public int getColor() {
+        return color;
     }
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setColor(int color) {
+        this.color = color;
     }
-    public int getDefaultBackground() {
-        return defaultBackground;
-    }
-    public void setDefaultBackground(int defaultBackground) {
-        this.defaultBackground = defaultBackground;
-    }
+
 
     public static final Parcelable.Creator<ContactInfo> CREATOR = new Creator<ContactInfo>() {
         public ContactInfo createFromParcel(Parcel source) {
             ContactInfo contact = new ContactInfo();
             contact.name = source.readString();
-            contact.phone = source.readString();
-            contact.defaultBackground = source.readInt();
+            contact.color = source.readInt();
             return contact;
         }
         public ContactInfo[] newArray(int size) {
@@ -45,7 +40,6 @@ public class ContactInfo implements Parcelable {
     }
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(name);
-        parcel.writeString(phone);
-        parcel.writeInt(defaultBackground);
+        parcel.writeInt(color);
     }
 }
