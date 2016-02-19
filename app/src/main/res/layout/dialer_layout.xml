@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipChildren="false"
         tools:context="com.xura.mywifiphone.DialerActivity">
 
         <include
@@ -29,7 +30,398 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="My Dialer" />
+            android:text="My Dialer"
+            android:id="@+id/textView28" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dialer_pad"
+            android:elevation="8dp"
+            android:background="@color/window_background"
+            android:gravity="center">
+
+            <View
+                android:id="@+id/dialer_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_below="@id/main_app_bar"
+                android:background="@drawable/top_shadow"
+                android:visibility="gone"/>
+            <View
+                android:id="@+id/divider0"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/dialer_shadow"
+                android:background="@drawable/border"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:layout_below="@+id/divider0"
+                android:gravity="center"
+                android:id="@+id/dialer_phone_number"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/phone_font_size"
+                    android:text="06 61 16 52 53"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="34dp"
+                    android:typeface="monospace"
+                    android:gravity="center" />
+
+                <Button
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/button"
+                    android:background="@drawable/ic_backspace_blue_grey_24dp"
+                    android:layout_margin="10dp" />
+
+            </LinearLayout>
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/dialer_phone_number"
+                android:background="@drawable/border"/>
+
+
+            <TableLayout
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/dialer_num_pad"
+                android:rowCount="4"
+                android:columnCount="4"
+                android:layout_below="@+id/divider1"
+                android:layout_centerHorizontal="true"
+                android:gravity="fill_horizontal|fill_vertical"
+                android:showDividers="middle"
+                android:layout_marginTop="15dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dial_font_size"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="1"
+                            android:id="@+id/textView3"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/textView4" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="2"
+                            android:id="@+id/textView5"
+                            android:textColor="@color/dialpad"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:id="@+id/textView6"
+                            android:text="ABC"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="3"
+                            android:id="@+id/textView7"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="DEF"
+                            android:id="@+id/textView8"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="4"
+                            android:id="@+id/textView9"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="GHI"
+                            android:id="@+id/textView10"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="5"
+                            android:id="@+id/textView11"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="JKL"
+                            android:id="@+id/textView12"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="6"
+                            android:id="@+id/textView13"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="MNO"
+                            android:id="@+id/textView14"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="7"
+                            android:id="@+id/textView15"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="PQR"
+                            android:id="@+id/textView16"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="8"
+                            android:id="@+id/textView17"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="STU"
+                            android:id="@+id/textView18"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="9"
+                            android:id="@+id/textView19"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="VWXZ"
+                            android:id="@+id/textView20"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="*"
+                            android:id="@+id/textView22"
+                            android:textSize="@dimen/phone_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/dial_font_size"
+                            android:text="0"
+                            android:id="@+id/textView23"
+                            android:textColor="@color/dialpad"
+                            android:typeface="monospace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="+"
+                            android:id="@+id/textView24"
+                            android:textSize="@dimen/under_dial_font_size" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/dial_width"
+                        android:layout_height="@dimen/dial_height"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="#"
+                            android:id="@+id/textView26"
+                            android:textSize="@dimen/phone_font_size" />
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:src="@drawable/ic_phone_white_24dp"
+                app:borderWidth="0dp"
+                android:layout_below="@+id/dialer_num_pad"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

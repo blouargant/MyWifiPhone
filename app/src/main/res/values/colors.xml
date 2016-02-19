@@ -7,8 +7,10 @@
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#727272</color>
     <color name="icons">#FFFFFF</color>
+    <color name="dialpad">#2196f3</color>
     <color name="divider">#B6B6B6</color>
-    <color name="window_background">#FFF5F5F5</color>
+    <color name="window_background">#f5f5f5</color>
+    <color name="border">#88333333</color>
 </resources>
 <!--
 <?xml version="1.0" encoding="utf-8"?>

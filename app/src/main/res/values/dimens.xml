@@ -10,5 +10,10 @@
     <dimen name="list_item_height">72dp</dimen>
     <dimen name="fav_item_height">144dp</dimen>
     <dimen name="fav_font_size">24sp</dimen>
+    <dimen name="dial_font_size">34sp</dimen>
+    <dimen name="phone_font_size">30sp</dimen>
+    <dimen name="under_dial_font_size">10sp</dimen>
     <dimen name="call_icon_size">40dp</dimen>
+    <dimen name="dial_width">110dp</dimen>
+    <dimen name="dial_height">62dp</dimen>
 </resources>
