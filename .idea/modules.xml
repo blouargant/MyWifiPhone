@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyWifiPhone.iml" filepath="$PROJECT_DIR$/MyWifiPhone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/PhoneCommon/app/PhoneCommon.iml" filepath="$PROJECT_DIR$/libraries/PhoneCommon/app/PhoneCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_view_unthemed.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_view_unthemed.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_zero.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_key_zero.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_key.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_pound.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_key_pound.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_zero.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_key_zero.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_star.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_key_star.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_view_unthemed.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_view_unthemed.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_view.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_view.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_one.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_key_one.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_key.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_one.xml",
+        "source": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/layout/dialpad_key_one.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_view.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_view.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_pound.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_key_pound.xml"
+    },
+    {
+        "merged": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/layout/dialpad_key_star.xml",
+        "source": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/layout/dialpad_key_star.xml"
+    }
+]

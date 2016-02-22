@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4745550615395092407" name="callFailed_cb_enabled">"Hindi makagawa ng papalabas na tawag habang naka-on ang call barring."</string>
+    <string msgid="3645995103907418337" name="callFailed_congestion">"Busy ang network"</string>
+    <string msgid="1143052062100334634" name="callFailed_dialToDial">"Ginawang DIAL request na may ibang numero ang DIAL request."</string>
+    <string msgid="3144952834772702469" name="callFailed_dialToSs">"Ginawang SS request ang DIAL request."</string>
+    <string msgid="2093563828737170617" name="callFailed_dialToUssd">"Ginawang USSD request ang DIAL request."</string>
+    <string msgid="4087941056515103695" name="callFailed_dsac_restricted">"Pinaghihigpitan ang mga tawag ng kontrol sa pag-access."</string>
+    <string msgid="9031535611092828510" name="callFailed_dsac_restricted_emergency">"Pinaghihigpitan ang mga emergency na tawag ng kontrol sa pag-access."</string>
+    <string msgid="266947632344387216" name="callFailed_dsac_restricted_normal">"Pinaghihigpitan ang mga normal na tawag ng kontrol sa pag-access."</string>
+    <string msgid="1720606112619022283" name="callFailed_fdn_only">"Pinaghihigpitan ng FDN ang mga papalabas na tawag."</string>
+    <string msgid="6115412108261660271" name="callFailed_invalid_credentials">"Maling username o password"</string>
+    <string msgid="8796663077702587664" name="callFailed_limitExceeded">"Lumagpas na sa limitasyon ng ACM"</string>
+    <string msgid="1758972490451048086" name="callFailed_noSignal">"Walang signal"</string>
+    <string msgid="1243366438388873914" name="callFailed_number_unreachable">"Hindi maabot ang numero"</string>
+    <string msgid="4535901975891969115" name="callFailed_outOfService">"Hindi available ang cellular network"</string>
+    <string msgid="6970725831030399542" name="callFailed_out_of_network">"Out‑of‑network na tawag"</string>
+    <string msgid="9179061328562234362" name="callFailed_powerOff">"Naka-off ang radyo"</string>
+    <string msgid="1391421251190688379" name="callFailed_server_error">"Error sa server. Subukang muli sa ibang pagkakataon."</string>
+    <string msgid="4766146133909799091" name="callFailed_server_unreachable">"Hindi maabot ang server"</string>
+    <string msgid="3307159523385380486" name="callFailed_simError">"Walang SIM o error sa SIM"</string>
+    <string msgid="7772951976278867294" name="callFailed_timedOut">"Walang tugon, nag-time out"</string>
+    <string msgid="124621797631734731" name="callFailed_unobtainable_number">"Hindi wastong numero"</string>
+    <string msgid="5163219086553610486" name="callFailed_userBusy">"Busy ang linya"</string>
+    <string msgid="6011631627871110785" name="default_notification_description">"Default na tunog (<ns1:g id="DEFAULT_SOUND_TITLE">%1$s</ns1:g>)"</string>
+    <string msgid="88733669653753441" name="description_delete_button">"backspace"</string>
+    <string msgid="4853244877599437286" name="description_dialpad_overflow">"Higit pang mga opsyon"</string>
+    <string msgid="7821061347207448362" name="description_image_button_plus">"plus"</string>
+    <string msgid="6281470684653439120" name="description_voicemail_button">"voicemail"</string>
+    <string msgid="3651090591812220874" name="incall_error_missing_voicemail_number">"Hindi alam ang numero ng voicemail."</string>
+    <string msgid="249805466934178869" name="ringtone_silent">"Wala"</string>
+    <string msgid="2303463713486734520" name="ringtone_unknown">"Hindi kilalang ringtone"</string>
+</resources>

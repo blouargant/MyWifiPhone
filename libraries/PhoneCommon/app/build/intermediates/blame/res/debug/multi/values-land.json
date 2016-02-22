@@ -1,0 +1,286 @@
+[
+    {
+        "outputFile": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/res/merged/debug/values-land/values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 663,
+                        "endColumn": 54,
+                        "endOffset": 713
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 55,
+                    "endOffset": 161
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 900,
+                        "endColumn": 55,
+                        "endOffset": 951
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 166,
+                    "endColumn": 58,
+                    "endOffset": 220
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 787,
+                        "endColumn": 58,
+                        "endOffset": 841
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 225,
+                    "endColumn": 53,
+                    "endOffset": 274
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 846,
+                        "endColumn": 53,
+                        "endOffset": 895
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 279,
+                    "endColumn": 58,
+                    "endOffset": 333
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 956,
+                        "endColumn": 58,
+                        "endOffset": 1010
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 338,
+                    "endLine": 14,
+                    "endColumn": 12,
+                    "endOffset": 786
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/styles.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 8,
+                        "startOffset": 1211,
+                        "endLine": 34,
+                        "endColumn": 12,
+                        "endOffset": 1659
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 791,
+                    "endLine": 22,
+                    "endColumn": 12,
+                    "endOffset": 1300
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/res/values-land/styles.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 692,
+                        "endLine": 25,
+                        "endColumn": 12,
+                        "endOffset": 1201
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/home/bertrand/Documents/dev/PhoneCommon/app/build/intermediates/res/merged/debug/values-land/values-land.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 54,
+                    "endOffset": 105
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 663,
+                        "endColumn": 54,
+                        "endOffset": 713
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 110,
+                    "endColumn": 55,
+                    "endOffset": 161
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 900,
+                        "endColumn": 55,
+                        "endOffset": 951
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 166,
+                    "endColumn": 58,
+                    "endOffset": 220
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 787,
+                        "endColumn": 58,
+                        "endOffset": 841
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 225,
+                    "endColumn": 53,
+                    "endOffset": 274
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 846,
+                        "endColumn": 53,
+                        "endOffset": 895
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 279,
+                    "endColumn": 58,
+                    "endOffset": 333
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 956,
+                        "endColumn": 58,
+                        "endOffset": 1010
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 338,
+                    "endLine": 14,
+                    "endColumn": 12,
+                    "endOffset": 786
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/styles.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 8,
+                        "startOffset": 1211,
+                        "endLine": 34,
+                        "endColumn": 12,
+                        "endOffset": 1659
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 791,
+                    "endLine": 22,
+                    "endColumn": 12,
+                    "endOffset": 1300
+                },
+                "from": {
+                    "file": "/home/bertrand/Documents/dev/PhoneCommon/app/src/main/res/values-land/styles.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 692,
+                        "endLine": 25,
+                        "endColumn": 12,
+                        "endOffset": 1201
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4745550615395092407" name="callFailed_cb_enabled">"કૉલ બેરિંગ ચાલુ હોય ત્યારે આઉટગોઇંગ કૉલ્સ કરી શકાતા નથી."</string>
+    <string msgid="3645995103907418337" name="callFailed_congestion">"નેટવર્ક વ્યસ્ત છે"</string>
+    <string msgid="4087941056515103695" name="callFailed_dsac_restricted">"ઍક્સેસ નિયંત્રણ દ્વારા કૉલ્સ પ્રતિબંધિત કરાયેલ છે."</string>
+    <string msgid="9031535611092828510" name="callFailed_dsac_restricted_emergency">"ઍક્સેસ નિયંત્રણ દ્વારા કટોકટીના કૉલ્સ પ્રતિબંધિત કરાયેલ છે."</string>
+    <string msgid="266947632344387216" name="callFailed_dsac_restricted_normal">"ઍક્સેસ નિયંત્રણ દ્વારા સામાન્ય કૉલ્સ પ્રતિબંધિત કરાયેલ છે."</string>
+    <string msgid="1720606112619022283" name="callFailed_fdn_only">"FDN દ્વારા આઉટગોઇંગ કૉલ્સ પ્રતિબંધિત કરાયેલ છે."</string>
+    <string msgid="6115412108261660271" name="callFailed_invalid_credentials">"ખોટું વપરાશકર્તાનામ અથવા પાસવર્ડ"</string>
+    <string msgid="8796663077702587664" name="callFailed_limitExceeded">"ACM સીમા વટાવી દીધી છે"</string>
+    <string msgid="1758972490451048086" name="callFailed_noSignal">"કોઈ સિગ્નલ નથી"</string>
+    <string msgid="1243366438388873914" name="callFailed_number_unreachable">"નંબર પહોંચયોગ્ય નથી"</string>
+    <string msgid="4535901975891969115" name="callFailed_outOfService">"સેલ્યુલર નેટવર્ક ઉપલબ્ધ નથી"</string>
+    <string msgid="6970725831030399542" name="callFailed_out_of_network">"નેટવર્કની બહારનો કૉલ"</string>
+    <string msgid="9179061328562234362" name="callFailed_powerOff">"રેડિઓ બંધ છે"</string>
+    <string msgid="1391421251190688379" name="callFailed_server_error">"સર્વરની ભૂલ. પછીથી ફરી પ્રયાસ કરો."</string>
+    <string msgid="4766146133909799091" name="callFailed_server_unreachable">"સર્વર પહોંચયોગ્ય નથી"</string>
+    <string msgid="3307159523385380486" name="callFailed_simError">"કોઈ SIM નથી અથવા SIM ભૂલ"</string>
+    <string msgid="7772951976278867294" name="callFailed_timedOut">"કોઈ પ્રતિસાદ નથી, સમય સમાપ્ત"</string>
+    <string msgid="124621797631734731" name="callFailed_unobtainable_number">"અમાન્ય નંબર"</string>
+    <string msgid="5163219086553610486" name="callFailed_userBusy">"લાઇન વ્યસ્ત છે"</string>
+    <string msgid="6011631627871110785" name="default_notification_description">"ડિફોલ્ટ ધ્વનિ (<ns1:g id="DEFAULT_SOUND_TITLE">%1$s</ns1:g>)"</string>
+    <string msgid="88733669653753441" name="description_delete_button">"backspace"</string>
+    <string msgid="4853244877599437286" name="description_dialpad_overflow">"વધુ વિકલ્પો"</string>
+    <string msgid="7821061347207448362" name="description_image_button_plus">"પ્લસ"</string>
+    <string msgid="6281470684653439120" name="description_voicemail_button">"વૉઇસમેઇલ"</string>
+    <string msgid="3651090591812220874" name="incall_error_missing_voicemail_number">"વૉઇસમેઇલ નંબર અજાણ."</string>
+    <string msgid="249805466934178869" name="ringtone_silent">"કોઈ નહીં"</string>
+    <string msgid="2303463713486734520" name="ringtone_unknown">"અજાણ રિંગટોન"</string>
+</resources>

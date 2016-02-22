@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':PhoneCommon'
+project(':PhoneCommon').projectDir = new File('libraries/PhoneCommon/app')
