@@ -19,7 +19,6 @@
 package com.xura.mywifiphone;
 
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -32,28 +31,22 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.graphics.BitmapCompat;
 import android.support.v4.util.LruCache;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.ImageView;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.xura.mywifiphone.Utils.Colors;
+import com.xura.mywifiphone.Utils.JsonDic;
 
-import java.io.InputStream;
 import java.lang.ref.WeakReference;
-import java.text.Collator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 

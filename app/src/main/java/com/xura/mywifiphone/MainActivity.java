@@ -6,8 +6,10 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.ActivityOptions;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
@@ -28,6 +30,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.telecom.PhoneAccount;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -37,6 +41,10 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
+import com.xura.mywifiphone.Dialer.DialpadFragment;
+
+import junit.framework.Assert;
+
 import java.lang.ref.WeakReference;
 import java.security.acl.Permission;
 import java.util.ArrayList;
@@ -44,6 +52,9 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    public static final boolean DEBUG = false;
 
     private Toolbar appToolbar;
     private DrawerLayout mDrawerLayout;
@@ -65,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.ic_access_time_grey_24dp,
             R.drawable.ic_contact_phone_grey_24dp
     };
+
+    private FloatingActionButton mFab;
+    /**
+     * Fragment containing the dialpad that slides into view
+     */
+    protected DialpadFragment mDialpadFragment;
+    /**
+     * Animation that slides in.
+     */
+    private Animation mSlideIn;
+
 
     private void checkPermissionsBeforeSetup() {
 
@@ -151,18 +173,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.show();
+        mFab = (FloatingActionButton) findViewById(R.id.fab);
+        mFab.show();
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //fab.hide();
+
+                /*
                 Intent intent = new Intent(MainActivity.this, DialerActivity.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
                 //ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(view, 0 , 0 ,view.getWidth(), view.getHeight());
                 ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
-
+                */
+                showDialpadFragment(true);
                 }
             });
 
@@ -350,4 +374,100 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
+// TODO
+    /**
+     * Initiates a fragment transaction to show the dialpad fragment. Animations and other visual
+     * updates are handled by a callback which is invoked after the dialpad fragment is shown.
+     * @see #onDialpadShown
+     */
+    private void showDialpadFragment(boolean animate) {
+
+        final FragmentTransaction ft = getFragmentManager().beginTransaction();
+        if (mDialpadFragment == null) {
+            mDialpadFragment = new DialpadFragment();
+            ft.add(R.id.mainCoordinatorLayout, mDialpadFragment, "dialpad");
+        } else {
+            ft.show(mDialpadFragment);
+        }
+
+        mDialpadFragment.setAnimate(animate);
+        ft.commit();
+
+        mFab.hide();
+        //mActionBarController.onDialpadUp();
+
+        //mListsFragment.getView().animate().alpha(0).withLayer();
+    }
+
+    /**
+     * Callback from child DialpadFragment when the dialpad is shown.
+     */
+    public void onDialpadShown() {
+        /*
+        Assert.assertNotNull(mDialpadFragment);
+        if (mDialpadFragment.getAnimate()) {
+            mDialpadFragment.getView().startAnimation(mSlideIn);
+        } else {
+            mDialpadFragment.setYFraction(0);
+        }
+
+        updateSearchFragmentPosition();
+        */
+    }
+
+    /**
+     * Initiates animations and other visual updates to hide the dialpad. The fragment is hidden in
+     * a callback after the hide animation ends.
+     * @see #commitDialpadFragmentHide
+     */
+    public void hideDialpadFragment(boolean animate, boolean clearDialpad) {
+        /*
+        if (mDialpadFragment == null || mDialpadFragment.getView() == null) {
+            return;
+        }
+        if (clearDialpad) {
+            mDialpadFragment.clearDialpad();
+        }
+        if (!mIsDialpadShown) {
+            return;
+        }
+        mIsDialpadShown = false;
+        mDialpadFragment.setAnimate(animate);
+        mListsFragment.setUserVisibleHint(true);
+        mListsFragment.sendScreenViewForCurrentPosition();
+
+        updateSearchFragmentPosition();
+
+        mFloatingActionButtonController.align(getFabAlignment(), animate);
+        if (animate) {
+            mDialpadFragment.getView().startAnimation(mSlideOut);
+        } else {
+            commitDialpadFragmentHide();
+        }
+
+        mActionBarController.onDialpadDown();
+
+        if (isInSearchUi()) {
+            if (TextUtils.isEmpty(mSearchQuery)) {
+                exitSearchUi();
+            }
+        }
+        */
+    }
+
+    /**
+     * Finishes hiding the dialpad fragment after any animations are completed.
+     */
+    private void commitDialpadFragmentHide() {
+        /*
+        if (!mStateSaved && mDialpadFragment != null && !mDialpadFragment.isHidden()) {
+            final FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.hide(mDialpadFragment);
+            ft.commit();
+        }
+        mFloatingActionButtonController.scaleIn(AnimUtils.NO_DELAY);
+        */
+    }
 }

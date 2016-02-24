@@ -1,9 +1,0 @@
--- Merging decision tree log ---
-manifest
-ADDED from /home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/AndroidManifest.xml:18:1-20:12
-	package
-		ADDED from /home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/AndroidManifest.xml:19:9-43
-		INJECTED from /home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/AndroidManifest.xml
-		INJECTED from /home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/AndroidManifest.xml
-	xmlns:android
-		ADDED from /home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/main/AndroidManifest.xml:18:11-69

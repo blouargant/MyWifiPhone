@@ -9,12 +9,12 @@ package com.android.phone.common;
 
 public final class R {
     public static final class anim {
-        public static final int dialpad_slide_in_bottom=0x7f040000;
-        public static final int dialpad_slide_in_left=0x7f040001;
-        public static final int dialpad_slide_in_right=0x7f040002;
-        public static final int dialpad_slide_out_bottom=0x7f040003;
-        public static final int dialpad_slide_out_left=0x7f040004;
-        public static final int dialpad_slide_out_right=0x7f040005;
+        public static int dialpad_slide_in_bottom=0x7f040000;
+        public static int dialpad_slide_in_left=0x7f040001;
+        public static int dialpad_slide_in_right=0x7f040002;
+        public static int dialpad_slide_out_bottom=0x7f040003;
+        public static int dialpad_slide_out_left=0x7f040004;
+        public static int dialpad_slide_out_right=0x7f040005;
     }
     public static final class attr {
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -25,7 +25,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_background=0x7f010007;
+        public static int dialpad_background=0x7f010007;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -34,7 +34,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_icon_tint=0x7f010005;
+        public static int dialpad_icon_tint=0x7f010005;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -43,7 +43,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_key_button_touch_tint=0x7f010000;
+        public static int dialpad_key_button_touch_tint=0x7f010000;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -52,7 +52,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_text_color=0x7f010002;
+        public static int dialpad_text_color=0x7f010002;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -61,7 +61,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_text_color_primary=0x7f010003;
+        public static int dialpad_text_color_primary=0x7f010003;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -70,7 +70,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_text_color_secondary=0x7f010004;
+        public static int dialpad_text_color_secondary=0x7f010004;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -79,7 +79,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dialpad_voicemail_tint=0x7f010006;
+        public static int dialpad_voicemail_tint=0x7f010006;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -89,171 +89,171 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int resizing_text_min_size=0x7f010001;
+        public static int resizing_text_min_size=0x7f010001;
     }
     public static final class color {
-        public static final int background_dialpad=0x7f080000;
-        public static final int background_dialpad_pressed=0x7f080001;
-        public static final int dialer_theme_color=0x7f080002;
-        public static final int dialer_theme_color_dark=0x7f080003;
-        public static final int dialpad_digits_text_color=0x7f080004;
-        public static final int dialpad_icon_tint=0x7f080005;
-        public static final int dialpad_primary_text_color=0x7f080006;
-        public static final int dialpad_secondary_text_color=0x7f080007;
-        public static final int dialpad_separator_line_color=0x7f080008;
-        public static final int dialpad_voicemail_tint=0x7f080009;
+        public static int background_dialpad=0x7f080000;
+        public static int background_dialpad_pressed=0x7f080001;
+        public static int dialer_theme_color=0x7f080002;
+        public static int dialer_theme_color_dark=0x7f080003;
+        public static int dialpad_digits_text_color=0x7f080004;
+        public static int dialpad_icon_tint=0x7f080005;
+        public static int dialpad_primary_text_color=0x7f080006;
+        public static int dialpad_secondary_text_color=0x7f080007;
+        public static int dialpad_separator_line_color=0x7f080008;
+        public static int dialpad_voicemail_tint=0x7f080009;
     }
     public static final class dimen {
-        public static final int dialpad_bottom_key_height=0x7f060005;
-        public static final int dialpad_button_margin=0x7f060006;
-        public static final int dialpad_center_margin=0x7f060007;
-        public static final int dialpad_digits_adjustable_height=0x7f060008;
-        public static final int dialpad_digits_adjustable_text_size=0x7f060009;
-        public static final int dialpad_digits_height=0x7f06000a;
-        public static final int dialpad_digits_menu_left_padding=0x7f06000b;
-        public static final int dialpad_digits_menu_right_padding=0x7f06000c;
-        public static final int dialpad_digits_padding=0x7f06000d;
-        public static final int dialpad_digits_text_min_size=0x7f06000e;
-        public static final int dialpad_digits_text_size=0x7f06000f;
-        public static final int dialpad_horizontal_padding=0x7f060010;
-        public static final int dialpad_key_button_translate_y=0x7f060011;
-        public static final int dialpad_key_height=0x7f060012;
-        public static final int dialpad_key_letters_size=0x7f060013;
-        public static final int dialpad_key_margin_right=0x7f060000;
-        public static final int dialpad_key_number_default_margin_bottom=0x7f060014;
-        public static final int dialpad_key_number_margin_bottom=0x7f060015;
-        public static final int dialpad_key_number_width=0x7f060001;
-        public static final int dialpad_key_numbers_default_size=0x7f060016;
-        public static final int dialpad_key_numbers_size=0x7f060017;
-        public static final int dialpad_key_one_margin_right=0x7f060002;
-        public static final int dialpad_key_plus_size=0x7f060018;
-        public static final int dialpad_key_pound_size=0x7f060019;
-        public static final int dialpad_key_star_size=0x7f06001a;
-        public static final int dialpad_key_text_width=0x7f060003;
-        public static final int dialpad_overflow_margin=0x7f06001b;
-        public static final int dialpad_space_above_keys=0x7f06001c;
-        public static final int dialpad_symbol_margin_bottom=0x7f060004;
-        public static final int dialpad_voicemail_icon_padding_top=0x7f06001d;
-        public static final int dialpad_zero_key_number_default_margin_bottom=0x7f06001e;
-        public static final int dialpad_zero_key_number_margin_bottom=0x7f06001f;
-        public static final int floating_action_button_dialpad_margin_bottom_offset=0x7f060020;
-        public static final int floating_action_button_height=0x7f060021;
-        public static final int floating_action_button_list_bottom_padding=0x7f060022;
-        public static final int floating_action_button_margin_bottom=0x7f060023;
-        public static final int floating_action_button_margin_right=0x7f060024;
-        public static final int floating_action_button_radius=0x7f060025;
-        public static final int floating_action_button_translation_z=0x7f060026;
-        public static final int floating_action_button_width=0x7f060027;
-        public static final int ild_margin_height=0x7f060028;
+        public static int dialpad_bottom_key_height=0x7f060005;
+        public static int dialpad_button_margin=0x7f060006;
+        public static int dialpad_center_margin=0x7f060007;
+        public static int dialpad_digits_adjustable_height=0x7f060008;
+        public static int dialpad_digits_adjustable_text_size=0x7f060009;
+        public static int dialpad_digits_height=0x7f06000a;
+        public static int dialpad_digits_menu_left_padding=0x7f06000b;
+        public static int dialpad_digits_menu_right_padding=0x7f06000c;
+        public static int dialpad_digits_padding=0x7f06000d;
+        public static int dialpad_digits_text_min_size=0x7f06000e;
+        public static int dialpad_digits_text_size=0x7f06000f;
+        public static int dialpad_horizontal_padding=0x7f060010;
+        public static int dialpad_key_button_translate_y=0x7f060011;
+        public static int dialpad_key_height=0x7f060012;
+        public static int dialpad_key_letters_size=0x7f060013;
+        public static int dialpad_key_margin_right=0x7f060000;
+        public static int dialpad_key_number_default_margin_bottom=0x7f060014;
+        public static int dialpad_key_number_margin_bottom=0x7f060015;
+        public static int dialpad_key_number_width=0x7f060001;
+        public static int dialpad_key_numbers_default_size=0x7f060016;
+        public static int dialpad_key_numbers_size=0x7f060017;
+        public static int dialpad_key_one_margin_right=0x7f060002;
+        public static int dialpad_key_plus_size=0x7f060018;
+        public static int dialpad_key_pound_size=0x7f060019;
+        public static int dialpad_key_star_size=0x7f06001a;
+        public static int dialpad_key_text_width=0x7f060003;
+        public static int dialpad_overflow_margin=0x7f06001b;
+        public static int dialpad_space_above_keys=0x7f06001c;
+        public static int dialpad_symbol_margin_bottom=0x7f060004;
+        public static int dialpad_voicemail_icon_padding_top=0x7f06001d;
+        public static int dialpad_zero_key_number_default_margin_bottom=0x7f06001e;
+        public static int dialpad_zero_key_number_margin_bottom=0x7f06001f;
+        public static int floating_action_button_dialpad_margin_bottom_offset=0x7f060020;
+        public static int floating_action_button_height=0x7f060021;
+        public static int floating_action_button_list_bottom_padding=0x7f060022;
+        public static int floating_action_button_margin_bottom=0x7f060023;
+        public static int floating_action_button_margin_right=0x7f060024;
+        public static int floating_action_button_radius=0x7f060025;
+        public static int floating_action_button_translation_z=0x7f060026;
+        public static int floating_action_button_width=0x7f060027;
+        public static int ild_margin_height=0x7f060028;
     }
     public static final class drawable {
-        public static final int btn_dialpad_key=0x7f020000;
-        public static final int fab_green=0x7f020001;
-        public static final int ic_dialpad_delete=0x7f020002;
-        public static final int ic_dialpad_voicemail=0x7f020003;
-        public static final int ic_overflow_menu=0x7f020004;
-        public static final int ic_settings_white_24dp=0x7f020005;
+        public static int btn_dialpad_key=0x7f020000;
+        public static int fab_green=0x7f020001;
+        public static int ic_dialpad_delete=0x7f020002;
+        public static int ic_dialpad_voicemail=0x7f020003;
+        public static int ic_overflow_menu=0x7f020004;
+        public static int ic_settings_white_24dp=0x7f020005;
     }
     public static final class id {
-        public static final int deleteButton=0x7f0a0018;
-        public static final int dialpad=0x7f0a0000;
-        public static final int dialpad_key_letters=0x7f0a000a;
-        public static final int dialpad_key_number=0x7f0a0009;
-        public static final int dialpad_key_voicemail=0x7f0a000c;
-        public static final int dialpad_overflow=0x7f0a0016;
-        public static final int dialpad_view=0x7f0a0010;
-        public static final int digits=0x7f0a0017;
-        public static final int digits_container=0x7f0a0015;
-        public static final int eight=0x7f0a0007;
-        public static final int five=0x7f0a0004;
-        public static final int four=0x7f0a0003;
-        public static final int ild_container=0x7f0a0012;
-        public static final int ild_country=0x7f0a0013;
-        public static final int ild_rate=0x7f0a0014;
-        public static final int nine=0x7f0a0008;
-        public static final int one=0x7f0a000b;
-        public static final int pound=0x7f0a000d;
-        public static final int rate_container=0x7f0a0011;
-        public static final int seven=0x7f0a0006;
-        public static final int six=0x7f0a0005;
-        public static final int star=0x7f0a000e;
-        public static final int three=0x7f0a0002;
-        public static final int two=0x7f0a0001;
-        public static final int zero=0x7f0a000f;
+        public static int deleteButton=0x7f0a0018;
+        public static int dialpad=0x7f0a0000;
+        public static int dialpad_key_letters=0x7f0a000a;
+        public static int dialpad_key_number=0x7f0a0009;
+        public static int dialpad_key_voicemail=0x7f0a000c;
+        public static int dialpad_overflow=0x7f0a0016;
+        public static int dialpad_view=0x7f0a0010;
+        public static int digits=0x7f0a0017;
+        public static int digits_container=0x7f0a0015;
+        public static int eight=0x7f0a0007;
+        public static int five=0x7f0a0004;
+        public static int four=0x7f0a0003;
+        public static int ild_container=0x7f0a0012;
+        public static int ild_country=0x7f0a0013;
+        public static int ild_rate=0x7f0a0014;
+        public static int nine=0x7f0a0008;
+        public static int one=0x7f0a000b;
+        public static int pound=0x7f0a000d;
+        public static int rate_container=0x7f0a0011;
+        public static int seven=0x7f0a0006;
+        public static int six=0x7f0a0005;
+        public static int star=0x7f0a000e;
+        public static int three=0x7f0a0002;
+        public static int two=0x7f0a0001;
+        public static int zero=0x7f0a000f;
     }
     public static final class integer {
-        public static final int dialpad_slide_in_duration=0x7f090000;
-        public static final int dialpad_slide_out_duration=0x7f090001;
-        public static final int floating_action_button_animation_duration=0x7f090002;
+        public static int dialpad_slide_in_duration=0x7f090000;
+        public static int dialpad_slide_out_duration=0x7f090001;
+        public static int floating_action_button_animation_duration=0x7f090002;
     }
     public static final class layout {
-        public static final int dialpad=0x7f030000;
-        public static final int dialpad_key=0x7f030001;
-        public static final int dialpad_key_one=0x7f030002;
-        public static final int dialpad_key_pound=0x7f030003;
-        public static final int dialpad_key_star=0x7f030004;
-        public static final int dialpad_key_zero=0x7f030005;
-        public static final int dialpad_view=0x7f030006;
-        public static final int dialpad_view_unthemed=0x7f030007;
+        public static int dialpad=0x7f030000;
+        public static int dialpad_key=0x7f030001;
+        public static int dialpad_key_one=0x7f030002;
+        public static int dialpad_key_pound=0x7f030003;
+        public static int dialpad_key_star=0x7f030004;
+        public static int dialpad_key_zero=0x7f030005;
+        public static int dialpad_view=0x7f030006;
+        public static int dialpad_view_unthemed=0x7f030007;
     }
     public static final class string {
-        public static final int callFailed_cb_enabled=0x7f050000;
-        public static final int callFailed_congestion=0x7f050001;
-        public static final int callFailed_dialToDial=0x7f050002;
-        public static final int callFailed_dialToSs=0x7f050003;
-        public static final int callFailed_dialToUssd=0x7f050004;
-        public static final int callFailed_dsac_restricted=0x7f050005;
-        public static final int callFailed_dsac_restricted_emergency=0x7f050006;
-        public static final int callFailed_dsac_restricted_normal=0x7f050007;
-        public static final int callFailed_fdn_only=0x7f050008;
-        public static final int callFailed_invalid_credentials=0x7f050009;
-        public static final int callFailed_limitExceeded=0x7f05000a;
-        public static final int callFailed_noSignal=0x7f05000b;
-        public static final int callFailed_number_unreachable=0x7f05000c;
-        public static final int callFailed_outOfService=0x7f05000d;
-        public static final int callFailed_out_of_network=0x7f05000e;
-        public static final int callFailed_powerOff=0x7f05000f;
-        public static final int callFailed_server_error=0x7f050010;
-        public static final int callFailed_server_unreachable=0x7f050011;
-        public static final int callFailed_simError=0x7f050012;
-        public static final int callFailed_timedOut=0x7f050013;
-        public static final int callFailed_unobtainable_number=0x7f050014;
-        public static final int callFailed_userBusy=0x7f050015;
-        public static final int default_notification_description=0x7f050016;
-        public static final int description_delete_button=0x7f050017;
-        public static final int description_dialpad_overflow=0x7f050018;
-        public static final int description_image_button_plus=0x7f050019;
-        public static final int description_voicemail_button=0x7f05001a;
-        public static final int dialpad_0_letters=0x7f05001e;
-        public static final int dialpad_1_letters=0x7f05001f;
-        public static final int dialpad_2_letters=0x7f050020;
-        public static final int dialpad_3_letters=0x7f050021;
-        public static final int dialpad_4_letters=0x7f050022;
-        public static final int dialpad_5_letters=0x7f050023;
-        public static final int dialpad_6_letters=0x7f050024;
-        public static final int dialpad_7_letters=0x7f050025;
-        public static final int dialpad_8_letters=0x7f050026;
-        public static final int dialpad_9_letters=0x7f050027;
-        public static final int dialpad_pound_letters=0x7f050028;
-        public static final int dialpad_pound_number=0x7f050029;
-        public static final int dialpad_star_letters=0x7f05002a;
-        public static final int dialpad_star_number=0x7f05002b;
-        public static final int incall_error_missing_voicemail_number=0x7f05001b;
-        public static final int ringtone_silent=0x7f05001c;
-        public static final int ringtone_unknown=0x7f05001d;
+        public static int callFailed_cb_enabled=0x7f050000;
+        public static int callFailed_congestion=0x7f050001;
+        public static int callFailed_dialToDial=0x7f050002;
+        public static int callFailed_dialToSs=0x7f050003;
+        public static int callFailed_dialToUssd=0x7f050004;
+        public static int callFailed_dsac_restricted=0x7f050005;
+        public static int callFailed_dsac_restricted_emergency=0x7f050006;
+        public static int callFailed_dsac_restricted_normal=0x7f050007;
+        public static int callFailed_fdn_only=0x7f050008;
+        public static int callFailed_invalid_credentials=0x7f050009;
+        public static int callFailed_limitExceeded=0x7f05000a;
+        public static int callFailed_noSignal=0x7f05000b;
+        public static int callFailed_number_unreachable=0x7f05000c;
+        public static int callFailed_outOfService=0x7f05000d;
+        public static int callFailed_out_of_network=0x7f05000e;
+        public static int callFailed_powerOff=0x7f05000f;
+        public static int callFailed_server_error=0x7f050010;
+        public static int callFailed_server_unreachable=0x7f050011;
+        public static int callFailed_simError=0x7f050012;
+        public static int callFailed_timedOut=0x7f050013;
+        public static int callFailed_unobtainable_number=0x7f050014;
+        public static int callFailed_userBusy=0x7f050015;
+        public static int default_notification_description=0x7f050016;
+        public static int description_delete_button=0x7f050017;
+        public static int description_dialpad_overflow=0x7f050018;
+        public static int description_image_button_plus=0x7f050019;
+        public static int description_voicemail_button=0x7f05001a;
+        public static int dialpad_0_letters=0x7f05001e;
+        public static int dialpad_1_letters=0x7f05001f;
+        public static int dialpad_2_letters=0x7f050020;
+        public static int dialpad_3_letters=0x7f050021;
+        public static int dialpad_4_letters=0x7f050022;
+        public static int dialpad_5_letters=0x7f050023;
+        public static int dialpad_6_letters=0x7f050024;
+        public static int dialpad_7_letters=0x7f050025;
+        public static int dialpad_8_letters=0x7f050026;
+        public static int dialpad_9_letters=0x7f050027;
+        public static int dialpad_pound_letters=0x7f050028;
+        public static int dialpad_pound_number=0x7f050029;
+        public static int dialpad_star_letters=0x7f05002a;
+        public static int dialpad_star_number=0x7f05002b;
+        public static int incall_error_missing_voicemail_number=0x7f05001b;
+        public static int ringtone_silent=0x7f05001c;
+        public static int ringtone_unknown=0x7f05001d;
     }
     public static final class style {
-        public static final int DialpadBottomKeyButtonStyle=0x7f070002;
-        public static final int DialpadBottomKeyNumberStyle=0x7f070003;
-        public static final int DialpadKeyButtonStyle=0x7f070004;
-        public static final int DialpadKeyInternalLayoutStyle=0x7f070005;
-        public static final int DialpadKeyLettersStyle=0x7f070000;
-        public static final int DialpadKeyNumberStyle=0x7f070001;
-        public static final int DialpadKeyPoundStyle=0x7f070006;
-        public static final int DialpadKeyStarStyle=0x7f070007;
-        public static final int DialpadSpaceStyle=0x7f070008;
-        public static final int Dialpad_Dark=0x7f070009;
-        public static final int Dialpad_Light=0x7f07000a;
+        public static int DialpadBottomKeyButtonStyle=0x7f070002;
+        public static int DialpadBottomKeyNumberStyle=0x7f070003;
+        public static int DialpadKeyButtonStyle=0x7f070004;
+        public static int DialpadKeyInternalLayoutStyle=0x7f070005;
+        public static int DialpadKeyLettersStyle=0x7f070000;
+        public static int DialpadKeyNumberStyle=0x7f070001;
+        public static int DialpadKeyPoundStyle=0x7f070006;
+        public static int DialpadKeyStarStyle=0x7f070007;
+        public static int DialpadSpaceStyle=0x7f070008;
+        public static int Dialpad_Dark=0x7f070009;
+        public static int Dialpad_Light=0x7f07000a;
     }
     public static final class styleable {
         /** Attributes that can be used with a Dialpad.
@@ -283,7 +283,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_key_button_touch_tint
         */
-        public static final int Dialpad_dialpad_key_button_touch_tint = 0;
+        public static int Dialpad_dialpad_key_button_touch_tint = 0;
         /** Attributes that can be used with a ResizingText.
            <p>Includes the following attributes:</p>
            <table>
@@ -312,7 +312,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:resizing_text_min_size
         */
-        public static final int ResizingText_resizing_text_min_size = 0;
+        public static int ResizingText_resizing_text_min_size = 0;
         /** Attributes that can be used with a Theme_Dialpad.
            <p>Includes the following attributes:</p>
            <table>
@@ -351,7 +351,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_background
         */
-        public static final int Theme_Dialpad_dialpad_background = 5;
+        public static int Theme_Dialpad_dialpad_background = 5;
         /**
           <p>This symbol is the offset where the {@link com.android.phone.common.R.attr#dialpad_icon_tint}
           attribute's value can be found in the {@link #Theme_Dialpad} array.
@@ -366,7 +366,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_icon_tint
         */
-        public static final int Theme_Dialpad_dialpad_icon_tint = 3;
+        public static int Theme_Dialpad_dialpad_icon_tint = 3;
         /**
           <p>This symbol is the offset where the {@link com.android.phone.common.R.attr#dialpad_text_color}
           attribute's value can be found in the {@link #Theme_Dialpad} array.
@@ -381,7 +381,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_text_color
         */
-        public static final int Theme_Dialpad_dialpad_text_color = 0;
+        public static int Theme_Dialpad_dialpad_text_color = 0;
         /**
           <p>This symbol is the offset where the {@link com.android.phone.common.R.attr#dialpad_text_color_primary}
           attribute's value can be found in the {@link #Theme_Dialpad} array.
@@ -396,7 +396,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_text_color_primary
         */
-        public static final int Theme_Dialpad_dialpad_text_color_primary = 1;
+        public static int Theme_Dialpad_dialpad_text_color_primary = 1;
         /**
           <p>This symbol is the offset where the {@link com.android.phone.common.R.attr#dialpad_text_color_secondary}
           attribute's value can be found in the {@link #Theme_Dialpad} array.
@@ -411,7 +411,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_text_color_secondary
         */
-        public static final int Theme_Dialpad_dialpad_text_color_secondary = 2;
+        public static int Theme_Dialpad_dialpad_text_color_secondary = 2;
         /**
           <p>This symbol is the offset where the {@link com.android.phone.common.R.attr#dialpad_voicemail_tint}
           attribute's value can be found in the {@link #Theme_Dialpad} array.
@@ -426,6 +426,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.android.phone.common:dialpad_voicemail_tint
         */
-        public static final int Theme_Dialpad_dialpad_voicemail_tint = 4;
+        public static int Theme_Dialpad_dialpad_voicemail_tint = 4;
     };
 }

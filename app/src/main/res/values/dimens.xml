@@ -16,4 +16,5 @@
     <dimen name="call_icon_size">40dp</dimen>
     <dimen name="dial_width">110dp</dimen>
     <dimen name="dial_height">62dp</dimen>
+    <dimen name="shadow_length">10dp</dimen>
 </resources>

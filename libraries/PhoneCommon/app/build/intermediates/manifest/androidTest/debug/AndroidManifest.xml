@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.phone.common.test">
+    package="com.android.phone.common.test" >
 
-    <uses-sdk android:minSdkVersion="1" android:targetSdkVersion="1" />
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="16" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for com.android.phone.common.test"
+        android:targetPackage="com.android.phone.common.test" />
 
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
 
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.android.phone.common"
-                     android:handleProfiling="false"
-                     android:functionalTest="false"
-                     android:label="Tests for com.android.phone.common"/>
 </manifest>
