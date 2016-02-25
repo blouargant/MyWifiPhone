@@ -3,6 +3,7 @@ package com.xura.mywifiphone;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
@@ -21,6 +22,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
 import com.android.phone.common.animation.AnimUtils;
@@ -41,6 +43,7 @@ public class DialerActivity extends AppCompatActivity {
     protected DialpadFragment mDialpadFragment;
     public static final boolean DEBUG = MainActivity.DEBUG;
     private ViewPager mViewPager;
+    private FloatingActionButton mFabDial;
     /**
      * Animation that slides in.
      */
@@ -91,8 +94,10 @@ public class DialerActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.settings_drawer_layout);
 
-        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab_dial);
-        mFab.setVisibility(View.GONE);
+        mFabDial = (FloatingActionButton) findViewById(R.id.fab_dial);
+        mFabDial.setTranslationY(mFabDial.getHeight() + 16);
+
+        //mFab.setVisibility(View.GONE);
 
         mViewPager = (ViewPager) findViewById(R.id.dialer_viewpager);
         /*
@@ -199,9 +204,10 @@ public class DialerActivity extends AppCompatActivity {
             mDialpadFragment.setYFraction(0);
         }
 
-        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab_dial);
         //mFab.show();
         //updateSearchFragmentPosition();
+
+        mFabDial.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
 
     }
 

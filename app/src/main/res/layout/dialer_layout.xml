@@ -47,8 +47,7 @@
                 app:borderWidth="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/fab_margin"
-                android:visibility="visible" />
+                android:layout_margin="@dimen/fab_margin" />
 
         </android.support.design.widget.CoordinatorLayout>>
 

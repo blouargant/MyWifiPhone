@@ -390,7 +390,6 @@ public class DialpadFragment extends Fragment
         mDialpadChooser = (ListView) fragmentView.findViewById(R.id.dialpadChooser);
         mDialpadChooser.setOnItemClickListener(this);
         */
-        Log.d(TAG, " onCreateView init FAB");
         mFloatingActionButton = (FloatingActionButton) getActivity().findViewById(R.id.fab_dial);
         mFloatingActionButton.setOnClickListener(this);
 
@@ -1220,7 +1219,7 @@ public class DialpadFragment extends Fragment
             }
 
             //mFloatingActionButton.setVisible(true);
-            mFloatingActionButton.show();
+            //mFloatingActionButton.show();
             //mDialpadChooser.setVisibility(View.GONE);
         }
     }
@@ -1599,12 +1598,12 @@ public class DialpadFragment extends Fragment
             if (mAnimate) {
                 dialpadView.animateShow();
             }
-            mFloatingActionButton.show();
+            //mFloatingActionButton.show();
             activity.onDialpadShown();
             mDigits.requestFocus();
         }
         if (hidden) {
-            mFloatingActionButton.show();
+            mFloatingActionButton.hide();
         }
     }
 

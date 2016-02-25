@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mFab.hide();
                 Intent intent = new Intent(MainActivity.this, DialerActivity.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
                 //ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(view, 0 , 0 ,view.getWidth(), view.getHeight());
