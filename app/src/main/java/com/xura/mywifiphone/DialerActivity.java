@@ -1,6 +1,7 @@
 package com.xura.mywifiphone;
 
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -19,10 +20,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
+import com.android.phone.common.animation.AnimUtils;
+import com.android.phone.common.animation.AnimationListenerAdapter;
 import com.xura.mywifiphone.MainActivity;
 import com.xura.mywifiphone.Dialer.DialpadFragment;
+import com.xura.mywifiphone.Utils.DialerUtils;
 
 import junit.framework.Assert;
 
@@ -40,6 +45,30 @@ public class DialerActivity extends AppCompatActivity {
      * Animation that slides in.
      */
     private Animation mSlideIn;
+    AnimationListenerAdapter mSlideInListener = new AnimationListenerAdapter() {
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            //maybeEnterSearchUi();
+        }
+    };
+    /**
+     * Animation that slides out.
+     */
+    private Animation mSlideOut;
+    /**
+     * Listener for after slide out animation completes on dialer fragment.
+     */
+    AnimationListenerAdapter mSlideOutListener = new AnimationListenerAdapter() {
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            commitDialpadFragmentHide();
+        }
+    };
+    /**
+     * Whether or not the device is in landscape orientation.
+     */
+    private boolean mIsLandscape;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +91,35 @@ public class DialerActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.settings_drawer_layout);
 
+        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab_dial);
+        mFab.setVisibility(View.GONE);
+
         mViewPager = (ViewPager) findViewById(R.id.dialer_viewpager);
         /*
         if (viewPager != null) {
             setupViewPager(viewPager);
 
         }*/
+        mIsLandscape = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+
+
+        final boolean isLayoutRtl = DialerUtils.isRtl();
+        if (mIsLandscape) {
+            mSlideIn = AnimationUtils.loadAnimation(this,
+                    isLayoutRtl ? R.anim.dialpad_slide_in_left : R.anim.dialpad_slide_in_right);
+            mSlideOut = AnimationUtils.loadAnimation(this,
+                    isLayoutRtl ? R.anim.dialpad_slide_out_left : R.anim.dialpad_slide_out_right);
+        } else {
+            mSlideIn = AnimationUtils.loadAnimation(this, R.anim.dialpad_slide_in_bottom);
+            mSlideOut = AnimationUtils.loadAnimation(this, R.anim.dialpad_slide_out_bottom);
+        }
+
+        mSlideIn.setInterpolator(AnimUtils.EASE_IN);
+        mSlideOut.setInterpolator(AnimUtils.EASE_OUT);
+
+        mSlideIn.setAnimationListener(mSlideInListener);
+        mSlideOut.setAnimationListener(mSlideOutListener);
 
 
         showDialpadFragment(true);
@@ -96,13 +148,6 @@ public class DialerActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-
-
-
-
-
     @Override
     public void onStart() {
         super.onStart();
@@ -113,8 +158,6 @@ public class DialerActivity extends AppCompatActivity {
         super.onStop();
 
     }
-
-
 
 // TODO
     /**
@@ -134,12 +177,9 @@ public class DialerActivity extends AppCompatActivity {
 
         mDialpadFragment.setAnimate(animate);
         ft.commit();
-        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab_dial);
-        mFab.show();
         //mActionBarController.onDialpadUp();
 
-        mViewPager.getRootView().animate().alpha(0).withLayer();
-        //mListsFragment.getView().animate().alpha(0).withLayer();
+        mViewPager.animate().alpha(0).withLayer();
     }
 
     /**
@@ -159,6 +199,8 @@ public class DialerActivity extends AppCompatActivity {
             mDialpadFragment.setYFraction(0);
         }
 
+        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab_dial);
+        //mFab.show();
         //updateSearchFragmentPosition();
 
     }

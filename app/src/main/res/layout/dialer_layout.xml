@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
-    android:id="@+id/settings_drawer_layout"
+    android:id="@+id/dialer_drawerlayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -47,7 +47,8 @@
                 app:borderWidth="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/fab_margin"/>
+                android:layout_margin="@dimen/fab_margin"
+                android:visibility="visible" />
 
         </android.support.design.widget.CoordinatorLayout>>
 
