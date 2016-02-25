@@ -248,6 +248,7 @@ public class DialpadView extends LinearLayout {
     }
 
     public void animateShow() {
+        Log.d(TAG, "animate show");
         // This is a hack; without this, the setTranslationY is delayed in being applied, and the
         // numbers appear at their original position (0) momentarily before animating.
         final AnimatorListenerAdapter showListener = new AnimatorListenerAdapter() {};

@@ -25,46 +25,31 @@
             android:layout_below="@id/app_bar"
             android:background="@drawable/toolbar_dropshadow" />
 
-        <TextView
-            android:layout_below="@+id/app_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="My Dialer"
-            android:id="@+id/textView28" />
-
-        <LinearLayout
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/dialerCoordinatorLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- spacer view -->
-            <View
-                android:id="@+id/spacer"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="#00000000" />
-            <!-- Dialpad shadow -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/shadow_length"
-                android:background="@drawable/shadow_fade_up" />
-            <include
-                layout="@layout/dialpad_view_unthemed"
-                android:theme="@style/Dialpad_Light" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:layout_below="@+id/app_bar">
 
-        </LinearLayout>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/dialer_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_dial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:src="@drawable/ic_phone_white_24dp"
-            app:borderWidth="0dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/fab_margin"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_dial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:src="@drawable/ic_phone_white_24dp"
+                app:borderWidth="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/fab_margin"/>
+
+        </android.support.design.widget.CoordinatorLayout>>
 
     </RelativeLayout>
 

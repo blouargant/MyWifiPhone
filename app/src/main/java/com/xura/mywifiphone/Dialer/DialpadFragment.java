@@ -72,7 +72,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.telephony.PhoneNumberUtils;
 
-import com.xura.mywifiphone.MainActivity;
+import com.xura.mywifiphone.DialerActivity;
 //import com.android.phone.common.CallLogAsync;
 import com.android.phone.common.animation.AnimUtils;
 import com.android.phone.common.dialpad.DialpadKeyButton;
@@ -139,7 +139,7 @@ public class DialpadFragment extends Fragment
         boolean onDialpadSpacerTouchWithEmptyQuery();
     }
 
-    private static final boolean DEBUG = MainActivity.DEBUG;
+    private static final boolean DEBUG = DialerActivity.DEBUG;
 
     // This is the amount of screen the dialpad fragment takes up when fully displayed
     private static final float DIALPAD_SLIDE_FRACTION = 0.67f;
@@ -391,7 +391,7 @@ public class DialpadFragment extends Fragment
         mDialpadChooser.setOnItemClickListener(this);
         */
         Log.d(TAG, " onCreateView init FAB");
-        mFloatingActionButton = (FloatingActionButton) fragmentView.findViewById(R.id.fab_dial);
+        mFloatingActionButton = (FloatingActionButton) getActivity().findViewById(R.id.fab_dial);
         mFloatingActionButton.setOnClickListener(this);
 
         Log.d(TAG, " onCreateView done");
@@ -485,7 +485,7 @@ public class DialpadFragment extends Fragment
      */
     private void configureScreenFromIntent(Activity parent) {
         // If we were not invoked with a DIAL intent,
-        if (!(parent instanceof MainActivity)) {
+        if (!(parent instanceof DialerActivity)) {
             setStartedFromNewIntent(false);
             return;
         }
@@ -612,7 +612,7 @@ public class DialpadFragment extends Fragment
 
         super.onResume();
 
-        final MainActivity activity = (MainActivity) getActivity();
+        final DialerActivity activity = (DialerActivity) getActivity();
         //mDialpadQueryListener = activity;
 
         // Query the last dialed number. Do it first because hitting
@@ -959,7 +959,7 @@ public class DialpadFragment extends Fragment
     }
 
     private void hideAndClearDialpad(boolean animate) {
-        ((MainActivity) getActivity()).hideDialpadFragment(animate, true);
+        ((DialerActivity) getActivity()).hideDialpadFragment(animate, true);
     }
 
     public static class ErrorDialogFragment extends DialogFragment {
@@ -1052,8 +1052,8 @@ public class DialpadFragment extends Fragment
             } else {
                 /*
                 final Intent intent = IntentUtil.getCallIntent(number,
-                        (getActivity() instanceof MainActivity ?
-                                ((MainActivity) getActivity()).getCallOrigin() : null));
+                        (getActivity() instanceof DialerActivity ?
+                                ((DialerActivity) getActivity()).getCallOrigin() : null));
                 DialerUtils.startActivityWithErrorToast(getActivity(), intent);
                 */
                 hideAndClearDialpad(false);
@@ -1200,6 +1200,7 @@ public class DialpadFragment extends Fragment
             }
 
             mFloatingActionButton.hide();
+
             //mDialpadChooser.setVisibility(View.VISIBLE);
 
             // Instantiate the DialpadChooserAdapter and hook it up to the
@@ -1591,14 +1592,14 @@ public class DialpadFragment extends Fragment
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        final MainActivity activity = (MainActivity) getActivity();
+        final DialerActivity activity = (DialerActivity) getActivity();
         final DialpadView dialpadView = (DialpadView) getView().findViewById(R.id.dialpad_view);
         if (activity == null) return;
         if (!hidden && !isDialpadChooserVisible()) {
             if (mAnimate) {
                 dialpadView.animateShow();
             }
-            mFloatingActionButton.hide();
+            mFloatingActionButton.show();
             activity.onDialpadShown();
             mDigits.requestFocus();
         }
