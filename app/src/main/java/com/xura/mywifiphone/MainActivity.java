@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    mFabAnim.hide("launchDialer",80);
+                    mFabAnim.hide("launchDialer",40);
                 }
             });
 

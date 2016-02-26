@@ -16,6 +16,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,6 +54,7 @@ public class DialerActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private FloatingActionButton mFabDial;
     private FabAnimation mFabAnim;
+    private boolean mStateSaved;
     /**
      * Animation that slides in.
      */
@@ -99,7 +101,7 @@ public class DialerActivity extends AppCompatActivity {
         */
         final ActionBar ab = getSupportActionBar();
         assert ab != null;
-        ab.setHomeButtonEnabled(true);
+        //ab.setHomeButtonEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.settings_drawer_layout);
         mViewPager = (ViewPager) findViewById(R.id.dialer_viewpager);
@@ -156,7 +158,9 @@ public class DialerActivity extends AppCompatActivity {
             return true;
         }
         if (id == android.R.id.home) {
-            NavUtils.navigateUpFromSameTask(this);
+            hideDialpadFragment(true,false);
+            return true;
+            //NavUtils.navigateUpFromSameTask(this);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -173,6 +177,43 @@ public class DialerActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
     }
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mStateSaved = false;
+    }
+    @Override
+    public void onBackPressed() {
+        if (mStateSaved) {
+            return;
+        }
+        hideDialpadFragment(true, false);
+
+        /*
+        if (mIsDialpadShown) {
+            if (TextUtils.isEmpty(mSearchQuery) ||
+                    (mSmartDialSearchFragment != null && mSmartDialSearchFragment.isVisible()
+                            && mSmartDialSearchFragment.getAdapter().getCount() == 0)) {
+                exitSearchUi();
+            }
+            hideDialpadFragment(true, false);
+        } else if (isInSearchUi()) {
+            exitSearchUi();
+            DialerUtils.hideInputMethod(mParentLayout);
+
+        }*/
+
+        //super.onBackPressed();
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mStateSaved = true;
+    }
 
 // TODO
     /**
@@ -181,6 +222,9 @@ public class DialerActivity extends AppCompatActivity {
      * @see #onDialpadShown
      */
     private void showDialpadFragment(boolean animate) {
+        if (mStateSaved) {
+            return;
+        }
 
         final FragmentTransaction ft = getFragmentManager().beginTransaction();
         if (mDialpadFragment == null) {
@@ -222,55 +266,50 @@ public class DialerActivity extends AppCompatActivity {
      * @see #commitDialpadFragmentHide
      */
     public void hideDialpadFragment(boolean animate, boolean clearDialpad) {
-        mFabAnim.hide("postHideFragment", 200);
-    }
-    public void postHideFragment() {
-                /*
+        Log.d("DialerActivity", "hideDialpadFragment");
         if (mDialpadFragment == null || mDialpadFragment.getView() == null) {
             return;
         }
         if (clearDialpad) {
             mDialpadFragment.clearDialpad();
         }
-        if (!mIsDialpadShown) {
-            return;
-        }
-        mIsDialpadShown = false;
         mDialpadFragment.setAnimate(animate);
-        mListsFragment.setUserVisibleHint(true);
-        mListsFragment.sendScreenViewForCurrentPosition();
 
-        updateSearchFragmentPosition();
+        //updateSearchFragmentPosition();
 
-        mFloatingActionButtonController.align(getFabAlignment(), animate);
+        //mFloatingActionButtonController.align(getFabAlignment(), animate);
         if (animate) {
             mDialpadFragment.getView().startAnimation(mSlideOut);
         } else {
             commitDialpadFragmentHide();
         }
 
-        mActionBarController.onDialpadDown();
-
+        //mActionBarController.onDialpadDown();
+        /*
         if (isInSearchUi()) {
             if (TextUtils.isEmpty(mSearchQuery)) {
                 exitSearchUi();
             }
-        }
-        */
+        }*/
+        mFabAnim.hide("backPress", 400);
+
+    }
+    public void backPress() {
+        super.onBackPressed();
     }
 
     /**
      * Finishes hiding the dialpad fragment after any animations are completed.
      */
     private void commitDialpadFragmentHide() {
-        /*
+        Log.d("DialerActivity", "commitDialpadFragmentHide");
         if (!mStateSaved && mDialpadFragment != null && !mDialpadFragment.isHidden()) {
             final FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.hide(mDialpadFragment);
             ft.commit();
         }
-        mFloatingActionButtonController.scaleIn(AnimUtils.NO_DELAY);
-        */
+        //mFloatingActionButtonController.scaleIn(AnimUtils.NO_DELAY);
+
     }
 
 }
