@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="debug"><source path="/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/bundles/debug/assets"/></dataSet><dataSet config="main"><source path="/home/bertrand/Documents/dev/MyWifiPhone/libraries/PhoneCommon/app/src/androidTest/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="debug"><source path="/home/bertrand/dev/MyWifiPhone/libraries/PhoneCommon/app/build/intermediates/bundles/debug/assets"/></dataSet><dataSet config="main"><source path="/home/bertrand/dev/MyWifiPhone/libraries/PhoneCommon/app/src/androidTest/assets"/></dataSet></merger>

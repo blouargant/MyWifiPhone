@@ -1,18 +1,10 @@
 package com.xura.mywifiphone;
 
 import android.Manifest;
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -30,23 +22,13 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.telecom.PhoneAccount;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.RelativeLayout;
 
-import com.xura.mywifiphone.Dialer.DialpadFragment;
-
-import junit.framework.Assert;
+import com.xura.mywifiphone.Utils.FabAnimation;
 
 import java.lang.ref.WeakReference;
-import java.security.acl.Permission;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -78,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private FloatingActionButton mFab;
+    private FabAnimation mFabAnim;
     /**
      * Fragment containing the dialpad that slides into view
      */
@@ -139,6 +122,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         checkPermissionsBeforeSetup();
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mFab == null) {
+            mFab = (FloatingActionButton) findViewById(R.id.fab);
+        }
+        mFab.show();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
 
     private void setupActivity() {
         appToolbar = (Toolbar) findViewById(R.id.top_app_bar);
@@ -166,19 +163,13 @@ public class MainActivity extends AppCompatActivity {
             setupViewPager(viewPager);
 
         }
-
-
         mFab = (FloatingActionButton) findViewById(R.id.fab);
-        mFab.show();
+        mFabAnim = new FabAnimation(this, viewPager, mFab);
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mFab.hide();
-                Intent intent = new Intent(MainActivity.this, DialerActivity.class);
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
-                //ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(view, 0 , 0 ,view.getWidth(), view.getHeight());
-                ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+                    mFabAnim.hide("launchDialer",80);
                 }
             });
 
@@ -193,7 +184,11 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(pos);
                 tab.setIcon(tabIconsSelected[pos]);
                 if ((pos == 0) || (lastSelectedTab == 0)) {
-                        moveFloatingActionButton(pos);
+                    if (pos == 0) {
+                        mFabAnim.moveRight();
+                    } else {
+                        mFabAnim.moveLeft();
+                    }
                 }
                 lastSelectedTab = pos;
             }
@@ -212,7 +207,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-        @Override
+    public void launchDialer() {
+        Intent intent = new Intent(MainActivity.this, DialerActivity.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
+        ActivityCompat.startActivity(MainActivity.this, intent, options.toBundle());
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -294,76 +295,4 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
-
-    private void moveFloatingActionButton(int position) {
-        FloatingActionButton mFab = (FloatingActionButton) findViewById(R.id.fab);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        int fab_margin = (int) getResources().getDimension(R.dimen.fab_margin);
-        int timewait = 1;
-
-        if (viewPager.getWidth() == 0) { //Screen is rotated, wait for views to be initialized
-            timewait = 200;
-        }
-        WaitFabAnimation task = new WaitFabAnimation(mFab, viewPager, fab_margin, position);
-        task.execute(timewait);
-    }
-    static class WaitFabAnimation extends AsyncTask<Integer, Void, Void> {
-        private final WeakReference<FloatingActionButton> FabReference;
-        private final WeakReference<ViewPager> viewReference;
-        private final int fab_margin;
-        private final int pos;
-
-        public WaitFabAnimation(FloatingActionButton mFab, ViewPager viewPager,
-                                int margin, int position) {
-            FabReference = new WeakReference<FloatingActionButton>(mFab);
-            viewReference = new WeakReference<ViewPager>(viewPager);
-            fab_margin = margin;
-            pos = position;
-        }
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-        // Decode image in background.
-        @Override
-        protected Void doInBackground(Integer... params) {
-            try {
-                TimeUnit.MILLISECONDS.sleep(params[0]);
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
-            return null;
-
-        }
-        // Once complete, see if ImageView is still around and set bitmap.
-        @Override
-        protected void onPostExecute(Void res) {
-            if (FabReference != null) {
-                final FloatingActionButton mFab = FabReference.get();
-                final ViewPager viewPager = viewReference.get();
-                if ((mFab != null) && (viewPager != null)) {
-                    int fabpos = (viewPager.getWidth() / 2) - (mFab.getWidth() / 2) - fab_margin;
-                    int final_pos = fabpos;
-                    int start_pos = 0;
-                    long duration = Math.abs(Math.round(fabpos * 1.6));
-
-                    if (pos == 0) {
-                        start_pos = fabpos;
-                        final_pos = 0;
-                    }
-                    //TranslateAnimation moveFab;
-                    ObjectAnimator objectAnimator= ObjectAnimator.ofFloat(mFab, "translationX", start_pos, final_pos);
-                    objectAnimator.setDuration(duration);
-                    objectAnimator.start();
-                    /*
-                    objectAnimator.addListener(new AnimatorListenerAdapter() {
-                        public void onAnimationEnd(Animator animation) {
-                              Log.d("DEBUG", "done animation");
-                            }
-                        });*/
-                }
-            }
-        }
-    }
-
 }

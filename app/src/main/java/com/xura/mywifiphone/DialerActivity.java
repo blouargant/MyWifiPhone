@@ -1,8 +1,11 @@
 package com.xura.mywifiphone;
 
+import android.animation.ObjectAnimator;
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -23,6 +26,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
 import com.android.phone.common.animation.AnimUtils;
@@ -30,8 +34,12 @@ import com.android.phone.common.animation.AnimationListenerAdapter;
 import com.xura.mywifiphone.MainActivity;
 import com.xura.mywifiphone.Dialer.DialpadFragment;
 import com.xura.mywifiphone.Utils.DialerUtils;
+import com.xura.mywifiphone.Utils.FabAnimation;
 
 import junit.framework.Assert;
+
+import java.lang.ref.WeakReference;
+import java.util.concurrent.TimeUnit;
 
 public class DialerActivity extends AppCompatActivity {
 
@@ -44,6 +52,7 @@ public class DialerActivity extends AppCompatActivity {
     public static final boolean DEBUG = MainActivity.DEBUG;
     private ViewPager mViewPager;
     private FloatingActionButton mFabDial;
+    private FabAnimation mFabAnim;
     /**
      * Animation that slides in.
      */
@@ -93,13 +102,12 @@ public class DialerActivity extends AppCompatActivity {
         ab.setHomeButtonEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.settings_drawer_layout);
+        mViewPager = (ViewPager) findViewById(R.id.dialer_viewpager);
 
         mFabDial = (FloatingActionButton) findViewById(R.id.fab_dial);
-        mFabDial.setTranslationY(mFabDial.getHeight() + 16);
+        mFabAnim = new FabAnimation(this, mViewPager, mFabDial);
+        mFabDial.setVisibility(View.GONE);
 
-        //mFab.setVisibility(View.GONE);
-
-        mViewPager = (ViewPager) findViewById(R.id.dialer_viewpager);
         /*
         if (viewPager != null) {
             setupViewPager(viewPager);
@@ -156,12 +164,14 @@ public class DialerActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        if (mFabDial == null) {
+            mFabDial = (FloatingActionButton) findViewById(R.id.fab_dial);
+        }
+        mFabDial.setVisibility(View.GONE);
     }
-
     @Override
     public void onStop() {
         super.onStop();
-
     }
 
 // TODO
@@ -191,11 +201,12 @@ public class DialerActivity extends AppCompatActivity {
      * Callback from child DialpadFragment when the dialpad is shown.
      */
     public void onDialpadShown() {
-
+        mFabAnim.show("slideFragmentIn", 200);
+    }
+    public void slideFragmentIn() {
         Assert.assertNotNull(mDialpadFragment);
         if (mDialpadFragment.getAnimate()) {
             if (mDialpadFragment.getView() != null) {
-                Log.d("DialerActivity", "mDialpadFragment.getView():" + mDialpadFragment.getView());
                 mDialpadFragment.getView().startAnimation(mSlideIn);
             } else {
                 Log.d("DialerActivity", "mDialpadFragment.getView() is null");
@@ -203,12 +214,6 @@ public class DialerActivity extends AppCompatActivity {
         } else {
             mDialpadFragment.setYFraction(0);
         }
-
-        //mFab.show();
-        //updateSearchFragmentPosition();
-
-        mFabDial.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2)).start();
-
     }
 
     /**
@@ -217,7 +222,10 @@ public class DialerActivity extends AppCompatActivity {
      * @see #commitDialpadFragmentHide
      */
     public void hideDialpadFragment(boolean animate, boolean clearDialpad) {
-        /*
+        mFabAnim.hide("postHideFragment", 200);
+    }
+    public void postHideFragment() {
+                /*
         if (mDialpadFragment == null || mDialpadFragment.getView() == null) {
             return;
         }
@@ -264,6 +272,5 @@ public class DialerActivity extends AppCompatActivity {
         mFloatingActionButtonController.scaleIn(AnimUtils.NO_DELAY);
         */
     }
-
 
 }
