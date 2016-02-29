@@ -13,14 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <view class="com.android.phone.common.dialpad.DialpadView"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dialpad_view"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:layout_gravity="bottom"
     android:orientation="vertical"
+    android:layoutDirection="ltr"
+    android:background="?attr/dialpad_background"
     android:clickable="true">
 
     <!-- Text field where call rate is displayed for ILD calls. -->
@@ -66,8 +68,9 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dialpad_digits_adjustable_height"
         android:orientation="horizontal">
-<!--
+
         <ImageButton android:id="@+id/dialpad_overflow"
+            android:background="@drawable/btn_dialpad_key"
             android:src="@drawable/ic_overflow_menu"
             android:tint="?attr/dialpad_icon_tint"
             android:layout_width="wrap_content"
@@ -96,29 +99,13 @@
             android:cursorVisible="false"
             android:textColor="?attr/dialpad_text_color"
             android:textCursorDrawable="@null"
+            android:fontFamily="sans-serif"
             android:textStyle="normal"
             ex:resizing_text_min_size="@dimen/dialpad_digits_text_min_size" />
 
-        <TextView
-            android:id="@+id/digits"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@android:color/transparent"
-            android:maxLines="1"
-            android:textSize="@dimen/dialpad_digits_adjustable_text_size"
-            android:freezesText="true"
-            android:focusableInTouchMode="true"
-            android:textColor="?attr/dialpad_text_color"
-            android:textCursorDrawable="@null"
-            android:textStyle="normal"/>
--->
-
         <ImageButton
             android:id="@+id/deleteButton"
+            android:background="@drawable/btn_dialpad_key"
             android:tint="?attr/dialpad_icon_tint"
             android:paddingLeft="@dimen/dialpad_digits_padding"
             android:paddingRight="@dimen/dialpad_digits_padding"

@@ -1,3 +1,19 @@
+/*
+ * Created by bertrand Louargant on 26/02/16
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.xura.mywifiphone.Utils;
 
 import android.animation.ObjectAnimator;
@@ -12,9 +28,6 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by bertrand on 26/02/16.
- */
 public class FabAnimation {
     private FloatingActionButton mFab;
     private AppCompatActivity mActivity;
@@ -33,8 +46,8 @@ public class FabAnimation {
     public void hide(String function){
         mFab.hide();
         try {
-            Method method = mActivity.getClass().getMethod(function, null);
-            final Object invoke = method.invoke(mActivity, null);
+            Method method = mActivity.getClass().getMethod(function);
+            final Object invoke = method.invoke(mActivity);
         } catch (Exception e) {
             System.out.print(e);
         }
@@ -47,8 +60,8 @@ public class FabAnimation {
     public void show(String function){
         mFab.hide();
         try {
-            Method method = mActivity.getClass().getMethod(function, null);
-            final Object invoke = method.invoke(mActivity, null);
+            Method method = mActivity.getClass().getMethod(function);
+            final Object invoke = method.invoke(mActivity);
         } catch (Exception e) {
             System.out.print(e);
         }
@@ -102,8 +115,8 @@ public class FabAnimation {
         protected void onPreExecute() {
             if (position == BEFORE) {
                 try {
-                    Method method = mActivity.getClass().getMethod(function, null);
-                    final Object invoke = method.invoke(mActivity, null);
+                    Method method = mActivity.getClass().getMethod(function);
+                    final Object invoke = method.invoke(mActivity);
                 } catch (Exception e) {
                     System.out.print(e);
                 }
@@ -141,8 +154,8 @@ public class FabAnimation {
             if ((mFab != null) && (viewPager != null)) {
                 if (position == AFTER) {
                     try {
-                        Method method = mActivity.getClass().getMethod(function, null);
-                        final Object invoke = method.invoke(mActivity, null);
+                        Method method = mActivity.getClass().getMethod(function);
+                        final Object invoke = method.invoke(mActivity);
                     } catch (Exception e) {
                         System.out.print(e);
                     }

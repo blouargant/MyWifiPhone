@@ -3,8 +3,8 @@
     package="com.android.phone.common.test" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="16" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="15" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"

@@ -119,7 +119,7 @@ public class DialerActivity extends AppCompatActivity {
                 == Configuration.ORIENTATION_LANDSCAPE;
 
 
-        final boolean isLayoutRtl = DialerUtils.isRtl();
+        final boolean isLayoutRtl = DialerUtils.isRtl(mViewPager);
         if (mIsLandscape) {
             mSlideIn = AnimationUtils.loadAnimation(this,
                     isLayoutRtl ? R.anim.dialpad_slide_in_left : R.anim.dialpad_slide_in_right);
@@ -130,8 +130,10 @@ public class DialerActivity extends AppCompatActivity {
             mSlideOut = AnimationUtils.loadAnimation(this, R.anim.dialpad_slide_out_bottom);
         }
 
-        mSlideIn.setInterpolator(AnimUtils.EASE_IN);
-        mSlideOut.setInterpolator(AnimUtils.EASE_OUT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mSlideIn.setInterpolator(AnimUtils.EASE_IN);
+            mSlideOut.setInterpolator(AnimUtils.EASE_OUT);
+        }
 
         mSlideIn.setAnimationListener(mSlideInListener);
         mSlideOut.setAnimationListener(mSlideOutListener);
@@ -238,7 +240,11 @@ public class DialerActivity extends AppCompatActivity {
         ft.commit();
         //mActionBarController.onDialpadUp();
 
-        mViewPager.animate().alpha(0).withLayer();
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            mViewPager.animate().alpha(0);
+        } else {
+            mViewPager.animate().alpha(0).withLayer();
+        }
     }
 
     /**

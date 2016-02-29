@@ -23,6 +23,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.RippleDrawable;
+import android.os.Build;
+import android.support.v7.widget.ViewUtils;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -102,8 +104,22 @@ public class DialpadView extends LinearLayout {
 
         mIsLandscape = getResources().getConfiguration().orientation ==
                 Configuration.ORIENTATION_LANDSCAPE;
-        mIsRtl = TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) ==
-                View.LAYOUT_DIRECTION_RTL;
+
+
+        mIsRtl = isRtl(this);
+    }
+
+    public static boolean isRtl(View view) {
+        Boolean rtl = true;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            rtl = ViewUtils.isLayoutRtl(view);
+
+        } else {
+            rtl = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) ==
+                    View.LAYOUT_DIRECTION_RTL);
+        }
+        return rtl;
     }
 
     @Override
@@ -122,6 +138,7 @@ public class DialpadView extends LinearLayout {
             // The text view must be selected to send accessibility events.
             mDigits.setSelected(true);
         }
+        super.onFinishInflate();
     }
 
     private void setupKeypad() {
@@ -170,16 +187,18 @@ public class DialpadView extends LinearLayout {
                     resources.getString(letterIds[i]);
             }
 
-            final RippleDrawable rippleBackground =
-                    (RippleDrawable) getContext().getDrawable(R.drawable.btn_dialpad_key);
-            if (mRippleColor != null) {
-                rippleBackground.setColor(mRippleColor);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                final RippleDrawable rippleBackground =
+                        (RippleDrawable) getContext().getDrawable(R.drawable.btn_dialpad_key);
+                if (mRippleColor != null) {
+                    rippleBackground.setColor(mRippleColor);
+                }
+                dialpadKey.setBackground(rippleBackground);
+                numberView.setElegantTextHeight(false);
             }
 
             numberView.setText(numberString);
-            numberView.setElegantTextHeight(false);
             dialpadKey.setContentDescription(numberContentDescription);
-            dialpadKey.setBackground(rippleBackground);
 
             if (lettersView != null) {
                 lettersView.setText(resources.getString(letterIds[i]));

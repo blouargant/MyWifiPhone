@@ -338,8 +338,8 @@ public class DialpadFragment extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-        final View fragmentView = inflater.inflate(R.layout.dialpad_fragment, container,
-                false);
+
+        View fragmentView = inflater.inflate(R.layout.dialpad_fragment, container, false);
         fragmentView.buildLayer();
         Log.d(TAG, " onCreateView");
 

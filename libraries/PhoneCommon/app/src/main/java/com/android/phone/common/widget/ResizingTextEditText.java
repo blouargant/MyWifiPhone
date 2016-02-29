@@ -22,6 +22,7 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 
 import com.android.phone.common.R;
+//import com.android.phone.common.util.EditText;
 import com.android.phone.common.util.ViewUtil;
 
 /**
