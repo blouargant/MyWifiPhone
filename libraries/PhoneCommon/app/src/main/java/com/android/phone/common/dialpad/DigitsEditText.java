@@ -39,6 +39,7 @@ public class DigitsEditText extends ResizingTextEditText {
     public DigitsEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         setInputType(getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             setShowSoftInputOnFocus(false);
         }

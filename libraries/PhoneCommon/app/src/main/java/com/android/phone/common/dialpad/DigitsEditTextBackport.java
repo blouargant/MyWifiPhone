@@ -7,6 +7,7 @@ import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.phone.common.R;
@@ -15,7 +16,7 @@ import com.android.phone.common.util.ViewUtil;
 /**
  * Created by bertrand Louargant on 01/03/16.
  */
-public class DigitsEditTextBackport extends TextView {
+public class DigitsEditTextBackport extends EditText {
     private final int mOriginalTextSize;
     private final int mMinTextSize;
 
