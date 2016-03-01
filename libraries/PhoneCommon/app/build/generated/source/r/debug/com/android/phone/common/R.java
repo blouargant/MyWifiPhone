@@ -1756,14 +1756,14 @@ containing a value of this type.
         public static int customPanel=0x7f0b0036;
         public static int decor_content_parent=0x7f0b003f;
         public static int default_activity_button=0x7f0b0027;
-        public static int deleteButton=0x7f0b0067;
+        public static int deleteButton=0x7f0b0068;
         public static int dialpad=0x7f0b0050;
         public static int dialpad_key_letters=0x7f0b005a;
         public static int dialpad_key_number=0x7f0b0059;
         public static int dialpad_key_voicemail=0x7f0b005c;
-        public static int dialpad_overflow=0x7f0b0068;
+        public static int dialpad_overflow=0x7f0b0066;
         public static int dialpad_view=0x7f0b0060;
-        public static int digits=0x7f0b0066;
+        public static int digits=0x7f0b0067;
         public static int digits_container=0x7f0b0065;
         public static int disableHome=0x7f0b000c;
         public static int edit_query=0x7f0b0043;

@@ -72,7 +72,7 @@ public class DialpadKeyButton extends FrameLayout {
     private Runnable mLongHoverRunnable;
 
     public interface OnPressedListener {
-        public void onPressed(View view, boolean pressed);
+        void onPressed(View view, boolean pressed);
     }
 
     private OnPressedListener mOnPressedListener;
@@ -83,12 +83,12 @@ public class DialpadKeyButton extends FrameLayout {
 
     public DialpadKeyButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        initForAccessibility(context);
+        //initForAccessibility(context);
     }
 
     public DialpadKeyButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        initForAccessibility(context);
+        //initForAccessibility(context);
     }
 
     private void initForAccessibility(Context context) {
