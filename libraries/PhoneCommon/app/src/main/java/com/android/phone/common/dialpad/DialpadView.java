@@ -289,11 +289,19 @@ public class DialpadView extends LinearLayout {
                 dialpadKey.setTranslationY(mTranslateDistance);
                 animator.translationY(0);
             }
-            animator.setInterpolator(AnimUtils.EASE_OUT_EASE_IN)
-                    .setStartDelay(delay)
-                    .setDuration(duration)
-                    .setListener(showListener)
-                    .start();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                animator.setStartDelay(delay)
+                        .setDuration(duration)
+                        .setListener(showListener)
+                        .start();
+
+            } else {
+                animator.setInterpolator(AnimUtils.EASE_OUT_EASE_IN)
+                        .setStartDelay(delay)
+                        .setDuration(duration)
+                        .setListener(showListener)
+                        .start();
+            }
         }
     }
 

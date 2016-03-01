@@ -16,9 +16,13 @@
 
 package com.android.phone.common.util;
 
+import android.annotation.TargetApi;
 import android.content.res.Resources;
 import android.graphics.Outline;
 import android.graphics.Paint;
+import android.os.Build;
+import android.support.v7.widget.ViewUtils;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +32,12 @@ import android.widget.TextView;
 
 import com.android.phone.common.R;
 
+import java.util.Locale;
+
 /**
  * Provides static functions to work with views
  */
+
 public class ViewUtil {
     private ViewUtil() {}
 
@@ -56,26 +63,38 @@ public class ViewUtil {
      * @return True if the view's layout direction is RTL
      */
     public static boolean isViewLayoutRtl(View view) {
-        return view.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+        //return view.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+        Boolean rtl = true;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            rtl = ViewUtils.isLayoutRtl(view);
+
+        } else {
+            rtl = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) ==
+                    View.LAYOUT_DIRECTION_RTL);
+        }
+        return rtl;
     }
 
-    private static final ViewOutlineProvider OVAL_OUTLINE_PROVIDER = new ViewOutlineProvider() {
-        @Override
-        public void getOutline(View view, Outline outline) {
-            outline.setOval(0, 0, view.getWidth(), view.getHeight());
-        }
-    };
+
 
     /**
      * Configures the floating action button, clipping it to a circle and setting its translation z.
      * @param view The float action button's view.
      * @param res The resources file.
      */
+    /*
+    private static final ViewOutlineProvider OVAL_OUTLINE_PROVIDER = new ViewOutlineProvider() {
+        @Override
+        public void getOutline(View view, Outline outline) {
+            outline.setOval(0, 0, view.getWidth(), view.getHeight());
+        }
+    };
     public static void setupFloatingActionButton(View view, Resources res) {
         view.setOutlineProvider(OVAL_OUTLINE_PROVIDER);
         view.setTranslationZ(
                 res.getDimensionPixelSize(R.dimen.floating_action_button_translation_z));
-    }
+    }*/
 
     /**
      * Adds padding to the bottom of the given {@link ListView} so that the floating action button
@@ -87,8 +106,22 @@ public class ViewUtil {
     public static void addBottomPaddingToListViewForFab(ListView listView, Resources res) {
         final int fabPadding = res.getDimensionPixelSize(
                 R.dimen.floating_action_button_list_bottom_padding);
-        listView.setPaddingRelative(listView.getPaddingStart(), listView.getPaddingTop(),
-                listView.getPaddingEnd(), listView.getPaddingBottom() + fabPadding);
+        int paddingStart = 0;
+        int paddingEnd = 0;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (isViewLayoutRtl(listView)) {
+                paddingStart = listView.getPaddingRight();
+                paddingEnd = listView.getPaddingLeft();
+            } else {
+                paddingStart = listView.getPaddingLeft();
+                paddingEnd = listView.getPaddingRight();
+            }
+            listView.setPadding(paddingStart, listView.getPaddingTop(),
+                    paddingEnd, listView.getPaddingBottom() + fabPadding);
+        } else {
+            listView.setPaddingRelative(listView.getPaddingStart(), listView.getPaddingTop(),
+                    listView.getPaddingEnd(), listView.getPaddingBottom() + fabPadding);
+        }
         listView.setClipToPadding(false);
     }
 
