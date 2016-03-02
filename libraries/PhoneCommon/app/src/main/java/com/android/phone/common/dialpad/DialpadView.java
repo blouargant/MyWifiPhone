@@ -293,7 +293,7 @@ public class DialpadView extends LinearLayout {
                 dialpadKey.setTranslationY(mTranslateDistance);
                 animator.translationY(0);
             }
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
                 animator.setStartDelay(delay)
                         .setDuration(duration)
                         .setListener(showListener)

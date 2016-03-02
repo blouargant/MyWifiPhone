@@ -130,7 +130,7 @@ public class DialerActivity extends AppCompatActivity {
             mSlideOut = AnimationUtils.loadAnimation(this, R.anim.dialpad_slide_out_bottom);
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlideIn.setInterpolator(AnimUtils.EASE_IN);
             mSlideOut.setInterpolator(AnimUtils.EASE_OUT);
         }

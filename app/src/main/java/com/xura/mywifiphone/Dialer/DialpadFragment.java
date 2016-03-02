@@ -1479,10 +1479,20 @@ public class DialpadFragment extends Fragment
      */
     private void updateMenuOverflowButton(boolean transitionIn) {
         mOverflowMenuButton = mDialpadView.getOverflowMenuButton();
-        if (transitionIn) {
-            AnimUtils.fadeIn(mOverflowMenuButton, AnimUtils.DEFAULT_DURATION);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (transitionIn) {
+                AnimUtils.fadeIn(mOverflowMenuButton, AnimUtils.DEFAULT_DURATION);
+            } else {
+                AnimUtils.fadeOut(mOverflowMenuButton, AnimUtils.DEFAULT_DURATION);
+            }
         } else {
-            AnimUtils.fadeOut(mOverflowMenuButton, AnimUtils.DEFAULT_DURATION);
+            if (transitionIn) {
+                mOverflowMenuButton.setVisibility(View.VISIBLE);
+                mOverflowMenuButton.animate().alpha(1);
+            } else {
+                mOverflowMenuButton.setVisibility(View.INVISIBLE);
+                mOverflowMenuButton.animate().alpha(0);
+            }
         }
     }
 
