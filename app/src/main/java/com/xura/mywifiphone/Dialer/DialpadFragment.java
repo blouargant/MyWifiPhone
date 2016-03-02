@@ -95,6 +95,7 @@ public class DialpadFragment extends Fragment
         AdapterView.OnItemClickListener, TextWatcher,
         PopupMenu.OnMenuItemClickListener,
         DialpadKeyButton.OnPressedListener {
+
     private static final String TAG = "DialpadFragment";
 
     /**
@@ -351,11 +352,11 @@ public class DialpadFragment extends Fragment
         mDigits.setOnKeyListener(this);
         mDigits.setOnLongClickListener(this);
         mDigits.addTextChangedListener(this);
+        mDigits.setKeyListener(UnicodeDialerKeyListener.INSTANCE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mDigits.setKeyListener(UnicodeDialerKeyListener.INSTANCE);
             mDigits.setElegantTextHeight(false);
-            PhoneNumberFormatter.setPhoneNumberFormattingTextWatcher(getActivity(), mDigits);
         }
+        PhoneNumberFormatter.setPhoneNumberFormattingTextWatcher(getActivity(), mDigits);
         // Check for the presence of the keypad
         View oneButton = fragmentView.findViewById(R.id.one);
         if (oneButton != null) {
@@ -571,6 +572,7 @@ public class DialpadFragment extends Fragment
         for (int i = 0; i < buttonIds.length; i++) {
             dialpadKey = (DialpadKeyButton) fragmentView.findViewById(buttonIds[i]);
             dialpadKey.setOnPressedListener(this);
+            Log.d(TAG, "configureKeypadListeners: "+ i);
         }
 
         // Long-pressing one button will initiate Voicemail.
@@ -705,6 +707,7 @@ public class DialpadFragment extends Fragment
     }
 
     private void keyPressed(int keyCode) {
+        Log.d(TAG, "keyPressed()");
         if (getView() == null || getView().getTranslationY() != 0) {
             return;
         }
@@ -762,6 +765,7 @@ public class DialpadFragment extends Fragment
 
     @Override
     public boolean onKey(View view, int keyCode, KeyEvent event) {
+        Log.d(TAG, "onKey()");
         switch (view.getId()) {
             case R.id.digits:
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -781,7 +785,7 @@ public class DialpadFragment extends Fragment
      */
     @Override
     public void onPressed(View view, boolean pressed) {
-        if (DEBUG) Log.d(TAG, "onPressed(). view: " + view + ", pressed: " + pressed);
+        Log.d(TAG, "onPressed(). view: " + view + ", pressed: " + pressed);
         if (pressed) {
             switch (view.getId()) {
                 case R.id.one: {

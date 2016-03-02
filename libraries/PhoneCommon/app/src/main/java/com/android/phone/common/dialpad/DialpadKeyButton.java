@@ -20,6 +20,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -44,6 +45,9 @@ import android.widget.FrameLayout;
  * <ul>
  */
 public class DialpadKeyButton extends FrameLayout {
+
+    private static final String TAG = "DialpadKeyButton";
+
     /** Timeout before switching to long-click accessibility mode. */
     private static final int LONG_HOVER_TIMEOUT = ViewConfiguration.getLongPressTimeout() * 2;
 
@@ -78,6 +82,7 @@ public class DialpadKeyButton extends FrameLayout {
     private OnPressedListener mOnPressedListener;
 
     public void setOnPressedListener(OnPressedListener onPressedListener) {
+        Log.d(TAG, "setOnPressedListener :" +onPressedListener );
         mOnPressedListener = onPressedListener;
     }
 
@@ -115,8 +120,10 @@ public class DialpadKeyButton extends FrameLayout {
 
     @Override
     public void setPressed(boolean pressed) {
+        Log.d(TAG, "setPressed :" +pressed );
         super.setPressed(pressed);
         if (mOnPressedListener != null) {
+            Log.d(TAG, "setPressed :mOnPressedListener " +pressed );
             mOnPressedListener.onPressed(this, pressed);
         }
     }
@@ -192,6 +199,7 @@ public class DialpadKeyButton extends FrameLayout {
      * semantic meaning of performClick(). Required for Braille support.
      */
     private void simulateClickForAccessibility() {
+        Log.d(TAG, "simulateClickForAccessibility");
         // Checking the press state prevents double activation.
         if (isPressed()) {
             return;

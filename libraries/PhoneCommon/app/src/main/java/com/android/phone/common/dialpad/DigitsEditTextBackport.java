@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.android.phone.common.util.ViewUtil;
 public class DigitsEditTextBackport extends EditText {
     private final int mOriginalTextSize;
     private final int mMinTextSize;
+    private final String TAG = "DigitsEditTextBackport";
 
     public DigitsEditTextBackport(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -48,6 +50,7 @@ public class DigitsEditTextBackport extends EditText {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG,"onTouchEvent " + event );
         final boolean ret = super.onTouchEvent(event);
         // Must be done after super.onTouchEvent()
         final InputMethodManager imm = ((InputMethodManager) getContext()

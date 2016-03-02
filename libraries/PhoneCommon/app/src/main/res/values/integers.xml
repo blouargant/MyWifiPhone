@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Some numbers pulled from material design. -->
+    <integer name="button_pressed_animation_duration">500</integer>
+    <integer name="button_pressed_animation_delay">200</integer>
+</resources>

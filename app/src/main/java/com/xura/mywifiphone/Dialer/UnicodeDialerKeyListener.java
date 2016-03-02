@@ -30,12 +30,18 @@ import android.text.method.DialerKeyListener;
 public class UnicodeDialerKeyListener extends DialerKeyListener {
     public static final UnicodeDialerKeyListener INSTANCE = new UnicodeDialerKeyListener();
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+
     @Override
     public CharSequence filter(CharSequence source, int start, int end,
                                Spanned dest, int dstart, int dend) {
-        final String converted = PhoneNumberUtils.convertKeypadLettersToDigits(
-                PhoneNumberUtils.replaceUnicodeDigits(source.toString()));
+        String conv;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            conv = PhoneNumberUtils.convertKeypadLettersToDigits(
+                    PhoneNumberUtils.replaceUnicodeDigits(source.toString()));
+        } else {
+            conv = PhoneNumberUtils.convertKeypadLettersToDigits(source.toString());
+        }
+        final String converted = conv;
         // PhoneNumberUtils.replaceUnicodeDigits performs a character for character replacement,
         // so we can assume that start and end positions should remain unchanged.
         CharSequence result = super.filter(converted, start, end, dest, dstart, dend);
