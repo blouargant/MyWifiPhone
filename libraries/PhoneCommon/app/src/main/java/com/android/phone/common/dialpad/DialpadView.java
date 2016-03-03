@@ -271,7 +271,7 @@ public class DialpadView extends LinearLayout {
     }
 
     public void animateShow() {
-        Log.d(TAG, "animate show");
+
         // This is a hack; without this, the setTranslationY is delayed in being applied, and the
         // numbers appear at their original position (0) momentarily before animating.
         final AnimatorListenerAdapter showListener = new AnimatorListenerAdapter() {};
@@ -279,7 +279,7 @@ public class DialpadView extends LinearLayout {
         for (int i = 0; i < mButtonIds.length; i++) {
             int delay = (int)(getKeyButtonAnimationDelay(mButtonIds[i]) * DELAY_MULTIPLIER);
             int duration =
-                    (int)(getKeyButtonAnimationDuration(mButtonIds[i]) * DURATION_MULTIPLIER);
+                    (int)(getKeyButtonAnimationDuration(mButtonIds[i]) * DURATION_MULTIPLIER *2);
             final DialpadKeyButton dialpadKey = (DialpadKeyButton) findViewById(mButtonIds[i]);
 
             ViewPropertyAnimator animator = dialpadKey.animate();

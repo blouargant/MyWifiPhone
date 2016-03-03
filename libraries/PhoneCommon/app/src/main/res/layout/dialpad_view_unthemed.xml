@@ -20,7 +20,8 @@
     android:layout_width="match_parent"
     android:layout_gravity="bottom"
     android:orientation="vertical"
-    android:clickable="true">
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- Text field where call rate is displayed for ILD calls. -->
     <LinearLayout
@@ -76,6 +77,7 @@
             android:contentDescription="@string/description_dialpad_overflow"
             android:gravity="center"
             android:tint="@color/dialpad_icon_tint"
+            android:background="@android:color/transparent"
             android:visibility="invisible" />
 
         <view class="com.android.phone.common.dialpad.DigitsEditTextBackport"
@@ -122,7 +124,6 @@
         android:layout_height="@dimen/dialpad_space_above_keys" />
 
     <include layout="@layout/dialpad" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="8dp" />

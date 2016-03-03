@@ -21,6 +21,8 @@ import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
 
 import com.xura.mywifiphone.R;
 
@@ -36,6 +38,7 @@ public class FabAnimation {
     private final int LEFT = 1;
     private final int BEFORE = 0;
     private final int AFTER = 1;
+    private String TAG = "FabAnimation";
 
     public FabAnimation(AppCompatActivity activity, ViewPager view, FloatingActionButton fab) {
         mActivity = activity;
@@ -72,6 +75,7 @@ public class FabAnimation {
         }
         WaitFabAnimation task = new WaitFabAnimation(mFab, mView, function, BEFORE, "show");
         task.execute(sleep);
+
     }
 
     public void moveRight(){
