@@ -1,0 +1,216 @@
+[
+    {
+        "outputFile": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/build/intermediates/res/merged/release/values-sw360dp-v13/values-sw360dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 50,
+                    "endOffset": 101
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 869,
+                        "endColumn": 50,
+                        "endOffset": 915
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 106,
+                    "endColumn": 51,
+                    "endOffset": 153
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1190,
+                        "endColumn": 51,
+                        "endOffset": 1237
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 158,
+                    "endColumn": 54,
+                    "endOffset": 208
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1135,
+                        "endColumn": 54,
+                        "endOffset": 1185
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 213,
+                    "endColumn": 50,
+                    "endOffset": 259
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1084,
+                        "endColumn": 50,
+                        "endOffset": 1130
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 264,
+                    "endColumn": 56,
+                    "endOffset": 316
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1027,
+                        "endColumn": 56,
+                        "endOffset": 1079
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 321,
+                    "endColumn": 52,
+                    "endOffset": 369
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 974,
+                        "endColumn": 52,
+                        "endOffset": 1022
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 374,
+                    "endColumn": 87,
+                    "endOffset": 457
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 1750,
+                        "endColumn": 87,
+                        "endOffset": 1833
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endColumn": 93,
+                    "endOffset": 551
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 1656,
+                        "endColumn": 93,
+                        "endOffset": 1745
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 556,
+                    "endColumn": 106,
+                    "endOffset": 658
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 1342,
+                        "endColumn": 106,
+                        "endOffset": 1444
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 663,
+                    "endColumn": 90,
+                    "endOffset": 749
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 1838,
+                        "endColumn": 90,
+                        "endOffset": 1924
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 754,
+                    "endColumn": 116,
+                    "endOffset": 866
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw360dp/dimens.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 1539,
+                        "endColumn": 116,
+                        "endOffset": 1651
+                    }
+                }
+            }
+        ]
+    }
+]

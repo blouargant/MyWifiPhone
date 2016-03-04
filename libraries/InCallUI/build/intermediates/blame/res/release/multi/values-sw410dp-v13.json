@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/build/intermediates/res/merged/release/values-sw410dp-v13/values-sw410dp-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 53,
+                    "endOffset": 104
+                },
+                "from": {
+                    "file": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/values-sw410dp/config.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 803,
+                        "endColumn": 53,
+                        "endOffset": 852
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"Evə get"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"Yuxarı get"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"Daha çox seçim"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"Hazırdır"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Hamısına baxın"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Tətbiq seçin"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"DEAKTİV"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"AKTİV"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"Axtarış..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Sorğunu təmizlə"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"Axtarış sorğusu"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"Axtarış"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"Sorğunu göndərin"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"Səsli axtarış"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Bununla paylaşın"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Dağıt"</string>
+    <string msgid="3047641300848211128" name="audio_mode_bluetooth">"Bluetooth"</string>
+    <string msgid="4156527186373869107" name="audio_mode_earpiece">"Dəstək qulaqlığı"</string>
+    <string msgid="27649582100085266" name="audio_mode_speaker">"Dinamik"</string>
+    <string msgid="1465350758489175975" name="audio_mode_wired_headset">"Simli qulaqlıq"</string>
+    <string msgid="3686963693629739680" name="callFailed_cb_enabled">"Zənglər qadağan olduğu halda zəng edə bilməzsiniz."</string>
+    <string msgid="8737761615702718375" name="callFailed_congestion">"Şəbəkə məşğuldur"</string>
+    <string msgid="2180223622768522345" name="callFailed_dsac_restricted">"Bütün zənglər giriş kontrolu ilə məhdudlaşdırılıb."</string>
+    <string msgid="4353654268813314466" name="callFailed_dsac_restricted_emergency">"Təcili zənglər giriş kontrolu ilə məhdudlaşdırılıb."</string>
+    <string msgid="2680774510252408620" name="callFailed_dsac_restricted_normal">"Normal zənglər giriş kontrolu ilə məhdudlaşdırılıb."</string>
+    <string msgid="2850204579765430641" name="callFailed_fdn_only">"Gedən zənglər FDN tərəfindən məhdudlaşdırılıb."</string>
+    <string msgid="8226835346196775378" name="callFailed_invalid_credentials">"Yanlış istifadəçi adı və ya parol"</string>
+    <string msgid="4958065157970101491" name="callFailed_limitExceeded">"ACM limiti keçilib"</string>
+    <string msgid="1889803273616031933" name="callFailed_noSignal">"Siqnal yoxdur"</string>
+    <string msgid="7632566442515734778" name="callFailed_number_unreachable">"Nömrə əlçatmazdır"</string>
+    <string msgid="4825791466557236225" name="callFailed_outOfService">"Xidmət zonasından kənarda"</string>
+    <string msgid="8740943329772180507" name="callFailed_out_of_network">"Şəbəkədən kənar zəng edilib"</string>
+    <string msgid="2766035859391549713" name="callFailed_powerOff">"Radio deaktivdir"</string>
+    <string msgid="5717915213586193217" name="callFailed_server_error">"Server xətası. Yenidən cəhd edin."</string>
+    <string msgid="2133506577423869729" name="callFailed_server_unreachable">"Server əlçatmazdır"</string>
+    <string msgid="4476360200030635828" name="callFailed_simError">"SIM və ya SIM xətası yoxdur"</string>
+    <string msgid="7590961703135543346" name="callFailed_timedOut">"Cavab yoxdur, vaxt keçdi"</string>
+    <string msgid="4736290912891155067" name="callFailed_unobtainable_number">"Yanlış nömrə"</string>
+    <string msgid="8851106999809294904" name="callFailed_userBusy">"Xətt məşğuldur"</string>
+    <string msgid="317670617901479594" name="call_lost">"Zəng itdi."</string>
+    <string msgid="3231519674734638786" name="caller_manage_header">"Konfrans zəngi <ns1:g id="CONF_CALL_TIME">%s</ns1:g>"</string>
+    <string msgid="4839419581866928142" name="calling_via_template">"<ns1:g id="PROVIDER_NAME">%s</ns1:g> vasitəsi ilə zəng edilir"</string>
+    <string msgid="5544730338889702298" name="card_title_call_ended">"Zəng sona çatdı"</string>
+    <string msgid="1162980346189744501" name="card_title_conf_call">"Konfrans zəngi"</string>
+    <string msgid="5769417478498348054" name="card_title_dialing">"Nömrə yığılır"</string>
+    <string msgid="3999101620995182450" name="card_title_hanging_up">"Dəstək asılır"</string>
+    <string msgid="6346543933068225205" name="card_title_in_call">"zəngdadır"</string>
+    <string msgid="7364539451234646909" name="card_title_incoming_call">"Gələn zəng"</string>
+    <string msgid="112428362494434191" name="card_title_my_phone_number">"Mənim nömrəm <ns1:g id="MY_PHONE_NUMBER">%s</ns1:g>"</string>
+    <string msgid="821463117892339942" name="card_title_on_hold">"Gözləmədədir"</string>
+    <string msgid="4831412164303596395" name="card_title_redialing">"Yenidən sınanılır"</string>
+    <string msgid="1904840547188336828" name="confCall">"Konfrans zəngi"</string>
+    <string msgid="4713193418046639466" name="contactPhoto">"kontakt fotosu"</string>
+    <string msgid="78174796906240970" name="default_notification_description">"Defolt səs (<ns1:g id="DEFAULT_SOUND_TITLE">%1$s</ns1:g>)"</string>
+    <string msgid="4015842181592283903" name="description_delete_button">"geri düyməsi"</string>
+    <string msgid="7459705245418435351" name="description_dial_button">"Yığ"</string>
+    <string msgid="7205604197797472471" name="description_target_answer">"Cavab"</string>
+    <string msgid="4789834364389731957" name="description_target_decline">"Rədd et"</string>
+    <string msgid="2098326025587950144" name="description_target_send_sms">"SMS göndər"</string>
+    <string msgid="5556166819619323893" name="dial_emergency_empty_error">"Zəng göndərilmədi. Təcili nömrəyə zəng vurun!"</string>
+    <string msgid="7969515493359619960" name="dial_emergency_error">"Zəng göndərilmədi. <ns1:g id="NON_EMERGENCY_NUMBER">%s</ns1:g> təcili nömrə deyil!"</string>
+    <string msgid="494525952035761075" name="dial_pad_autocomplete">"Nömrə yığımı klaviaturası tamamlanması"</string>
+    <string msgid="9192914825413747792" name="dialerKeyboardHintText">"Yığmaq üçün klaviatura istifadə edin"</string>
+    <string msgid="827601042915852989" name="dtmf_tone_enable_title">"Yığım düymələrinin toxunuş tonları"</string>
+    <string msgid="207613549344420291" name="emergency_enable_radio_dialog_message">"Radio yandırılır ..."</string>
+    <string msgid="3724423402363063736" name="emergency_enable_radio_dialog_retry">"Xidmət sahəsindən kənardadır, yenidən sınanılır…"</string>
+    <string msgid="4627849966634578257" name="emergency_enable_radio_dialog_title">"Təcili zəng"</string>
+    <string msgid="865837794424530980" name="goPrivate">"şəxsi rejimə keçin"</string>
+    <string msgid="2310958283037924371" name="incall_call_type_label_sip">"İnternet zəng"</string>
+    <string msgid="4313552620858880999" name="incall_error_call_failed">"Zəng göndərilmədi."</string>
+    <string msgid="4678640422710818317" name="incall_error_emergency_only">"Şəbəkədə qeydə alınmayıb."</string>
+    <string msgid="4197432103471807739" name="incall_error_no_phone_number_supplied">"Zəng göndərilmədi, etibarlı nömrə daxil edilməyib."</string>
+    <string msgid="8587993036435080418" name="incall_error_out_of_service">"Mobil şəbəkə əlçatımlı deyil."</string>
+    <string msgid="6550191216405193368" name="incall_error_power_off">"Zəng etmək üçün ilk olaraq Uçuş Rejimini söndürün."</string>
+    <string msgid="2505727299596357312" name="incall_error_supp_service_conference">"Zənglərin konfransı mümkün deyil."</string>
+    <string msgid="7417583238334762737" name="incall_error_supp_service_hangup">"Zəng(ləri) buraxmaq mümkün deyil."</string>
+    <string msgid="7055164130563826216" name="incall_error_supp_service_reject">"Zəngi rədd etmək mümkün deyil."</string>
+    <string msgid="914362338192301746" name="incall_error_supp_service_separate">"Zəngi ayırmaq mümkün deyil."</string>
+    <string msgid="3503552565745872241" name="incall_error_supp_service_switch">"Zəngləri keçirmək mümkün deyil."</string>
+    <string msgid="2509871374644921632" name="incall_error_supp_service_transfer">"Zəng transfer oluna bilmir."</string>
+    <string msgid="2991054870745666038" name="incall_error_supp_service_unknown">"Dəstəklənməyən xidmət."</string>
+    <string msgid="3672498861336189563" name="incall_status_dialed_mmi">"MMI başlanma ardıcıllığı…"</string>
+    <string msgid="4691922394301969053" name="manageConferenceLabel">"Konfrans zəngini idarə edin"</string>
+    <string msgid="6069460915123531620" name="notification_action_end_call">"Dəstəyi qoyun"</string>
+    <string msgid="2107666444937350731" name="notification_dialing">"Nömrə yığılır"</string>
+    <string msgid="2820429205043529642" name="notification_incoming_call">"Zəng gəlir"</string>
+    <string msgid="504686252427747209" name="notification_missedCallTicker">"<ns1:g id="MISSED_CALL_FROM">%s</ns1:g> tərəfindən zəng buraxılıb"</string>
+    <string msgid="7554385905572364535" name="notification_missedCallTitle">"Buraxılmış zəng"</string>
+    <string msgid="2684890353590890187" name="notification_missedCall_call_back">"Geriyə zəng"</string>
+    <string msgid="3049928912736917988" name="notification_missedCall_message">"Mesaj"</string>
+    <string msgid="4575787816055205600" name="notification_missedCallsMsg">"<ns1:g id="NUM_MISSED_CALLS">%s</ns1:g> buraxılmış zənglər"</string>
+    <string msgid="1361677948941502522" name="notification_missedCallsTitle">"Buraxılmış zənglər"</string>
+    <string msgid="2607085729661923269" name="notification_network_selection_text">"Seçilmiş (<ns1:g id="OPERATOR_NAME">%s</ns1:g>) şəbəkə əlçatmazdır"</string>
+    <string msgid="4224455487793492772" name="notification_network_selection_title">"Xidmət yoxdur"</string>
+    <string msgid="3480694969511790465" name="notification_on_hold">"Gözləmə mövqeyində"</string>
+    <string msgid="7068688957273482989" name="notification_ongoing_call">"Davam edən zəng"</string>
+    <string msgid="760963466895609716" name="notification_voicemail_no_vm_number">"Səsli poçt nömrəsi naməlumdur"</string>
+    <string msgid="4447323569453981685" name="notification_voicemail_text_format">"Yığın <ns1:g id="VOICEMAIL_NUMBER">%s</ns1:g>"</string>
+    <string msgid="8933468752045550523" name="notification_voicemail_title">"Yeni səsli poçt"</string>
+    <string msgid="4366360747660929916" name="notification_voicemail_title_count">"Yeni səsli poçt (<ns1:g id="COUNT">%d</ns1:g>)"</string>
+    <string msgid="3811371167865772377" name="ok">"OK"</string>
+    <string msgid="9035493194749959955" name="onHold">"Gözləmə mövqeyində"</string>
+    <string msgid="5140385634712287403" name="onscreenAddCallText">"Zəng əlavə edin"</string>
+    <string msgid="1710087112800041743" name="onscreenAudioText">"Audio"</string>
+    <string msgid="4403855834875398585" name="onscreenEndCallText">"Son"</string>
+    <string msgid="2285258239691145872" name="onscreenHoldText">"Saxlayın"</string>
+    <string msgid="5473231160123254154" name="onscreenManageCallsText">"Zəngləri idarə edin"</string>
+    <string msgid="6485935856534311346" name="onscreenManageConferenceText">"Konfransı idarə edin"</string>
+    <string msgid="6640195098064538950" name="onscreenMergeCallsText">"Zəngləri birləşdirin"</string>
+    <string msgid="5011369181754261374" name="onscreenMuteText">"Susdurun"</string>
+    <string msgid="8561805492659639893" name="onscreenShowDialpadText">"Yığım paneli"</string>
+    <string msgid="1602990689244030047" name="onscreenSwapCallsText">"Dəyişdirin"</string>
+    <string msgid="4800924186056115442" name="onscreenVideoCallText">"Video zəng"</string>
+    <string msgid="3672912580359716394" name="other_settings">"Digər zəng parametrləri"</string>
+    <string msgid="6686238803236884877" name="pause_prompt_no">"Xeyr"</string>
+    <string msgid="1789964702154314806" name="pause_prompt_str">"Tonlar göndərilir\n"</string>
+    <string msgid="3564467212025151797" name="pause_prompt_yes">"Bəli"</string>
+    <string msgid="1931775086311769314" name="payphone">"Telefon ödənişi"</string>
+    <string msgid="906161039445636857" name="phoneAppLabel" product="default">"Telefon"</string>
+    <string msgid="5197960752529332721" name="preference_category_ringtone">"Zəng səsi &amp; Vibrasiya"</string>
+    <string msgid="6713286113000232309" name="private_num">"Şəxsi nömrə"</string>
+    <string msgid="6158880869935281078" name="respond_via_sms_custom_message">"Özünüzünkünü yazın"</string>
+    <string msgid="3754000371039709383" name="respond_via_sms_setting_title">"Tez cavablar"</string>
+    <string msgid="6374978286202084684" name="ringtone_title">"Telefon zəng səsi"</string>
+    <string msgid="781975788478987237" name="selectContact">"kontakt seçin"</string>
+    <string msgid="4106860097497818751" name="send_button">"Göndər"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6878797917991465859" name="unknown">"Naməlum"</string>
+    <string msgid="9197564612065258960" name="vibrate_on_ring_title">"Zəng çalanda vibrasiya olsun"</string>
+    <string msgid="2609519527849101590" name="voicemail_notification_ringtone_title">"Səs"</string>
+    <string msgid="5739583146522136440" name="voicemail_notification_vibarte_when_dialog_title">"Vibrasiya"</string>
+    <string msgid="8361970092063604886" name="voicemail_notification_vibrate_when_title">"Vibrasiya"</string>
+    <string msgid="6724904736891087856" name="voicemail_number_not_set">"&lt;Ayarlanmayıb>"</string>
+    <string msgid="5135942703327136909" name="voicemail_provider">"Xidmət"</string>
+    <string msgid="72448049107749316" name="voicemail_settings">"Quraşdırma"</string>
+    <string msgid="8524164258691887790" name="voicemail_settings_number_label">"Səsli poçt nömrəsi"</string>
+    <string msgid="7601815427707856238" name="wait_prompt_str">"Aşağıdakı tonlar göndərilsin?\n"</string>
+    <string msgid="5543521676355533577" name="wild_prompt_str">"Joker simvolları əvəz edin"</string>
+</resources>

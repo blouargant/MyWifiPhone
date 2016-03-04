@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"முகப்பிற்கு வழிசெலுத்து"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s, %2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s, %2$s, %3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"மேலே வழிசெலுத்து"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"மேலும் விருப்பங்கள்"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"முடிந்தது"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"எல்லாம் காட்டு"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"பயன்பாட்டைத் தேர்வுசெய்க"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"முடக்கு"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"இயக்கு"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"தேடு..."</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"வினவலை அழி"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"தேடல் வினவல்"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"தேடு"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"வினவலைச் சமர்ப்பி"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"குரல் தேடல்"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"இதனுடன் பகிர்"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s உடன் பகிர்"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"சுருக்கு"</string>
+    <string msgid="3047641300848211128" name="audio_mode_bluetooth">"புளூடூத்"</string>
+    <string msgid="4156527186373869107" name="audio_mode_earpiece">"ஹேண்ட்செட் இயர்ஃபீஸ்"</string>
+    <string msgid="27649582100085266" name="audio_mode_speaker">"ஸ்பீக்கர்"</string>
+    <string msgid="1465350758489175975" name="audio_mode_wired_headset">"வயருடன்கூடிய ஹெட்செட்"</string>
+    <string msgid="6183862117003999578" name="call_lost">"அழைப்பு நிறுத்தப்பட்டது"</string>
+    <string msgid="3231519674734638786" name="caller_manage_header">"குழு அழைப்பு <ns1:g id="CONF_CALL_TIME">%s</ns1:g>"</string>
+    <string msgid="4839419581866928142" name="calling_via_template">"<ns1:g id="PROVIDER_NAME">%s</ns1:g> வழியாக அழைக்கிறது"</string>
+    <string msgid="4955261496193316240" name="camera_not_ready">"கேமரா தயாராக இல்லை"</string>
+    <string msgid="5689494614359429889" name="camera_off_description">"கேமராவை முடக்கும்"</string>
+    <string msgid="1903335385405807324" name="camera_ready">"கேமரா தயார்"</string>
+    <string msgid="5544730338889702298" name="card_title_call_ended">"அழைப்பு முடிந்தது"</string>
+    <string msgid="7307938207564217293" name="card_title_callback_number">"உங்களைத் திரும்ப அழைப்பதற்கான எண்\n <ns1:g id="DARK_NUMBER">%1$s</ns1:g>"</string>
+    <string msgid="8634765419223426754" name="card_title_callback_number_emergency">"அவசர அழைப்பு எண்\n <ns1:g id="DARK_NUMBER">%1$s</ns1:g>"</string>
+    <string msgid="1162980346189744501" name="card_title_conf_call">"குழு அழைப்பு"</string>
+    <string msgid="5769417478498348054" name="card_title_dialing">"டயல் செய்கிறது"</string>
+    <string msgid="3999101620995182450" name="card_title_hanging_up">"துண்டிக்கிறது"</string>
+    <string msgid="6346543933068225205" name="card_title_in_call">"அழைப்பில்"</string>
+    <string msgid="7364539451234646909" name="card_title_incoming_call">"உள்வரும் அழைப்பு"</string>
+    <string msgid="112428362494434191" name="card_title_my_phone_number">"எனது எண் <ns1:g id="MY_PHONE_NUMBER">%s</ns1:g>"</string>
+    <string msgid="821463117892339942" name="card_title_on_hold">"காத்திருப்பில்"</string>
+    <string msgid="8253487008234167266" name="card_title_redialing">"மீண்டும் டயல் செய்கிறது"</string>
+    <string msgid="5898636679563320218" name="card_title_video_call">"வீடியோ அழைப்பு"</string>
+    <string msgid="297586766381973954" name="card_title_video_call_connecting">"வீடியோவை இணைக்கிறது"</string>
+    <string msgid="9000555878389539225" name="card_title_video_call_error">"வீடியோ அழைப்பை இணைக்க முடியாது"</string>
+    <string msgid="462358296694719787" name="card_title_video_call_rejected">"வீடியோ கோரிக்கை புறக்கணிக்கப்பட்டது"</string>
+    <string msgid="4587504939739340937" name="card_title_video_call_requesting">"வீடியோவைக் கோருகிறது"</string>
+    <string msgid="7437330400723805538" name="child_number">"<ns1:g id="CHILD_NUMBER">%s</ns1:g> வழியாக"</string>
+    <string msgid="1904840547188336828" name="confCall">"குழு அழைப்பு"</string>
+    <string msgid="4713193418046639466" name="contactPhoto">"தொடர்பு படம்"</string>
+    <string msgid="7516406059429609296" name="custom_message_cancel">"ரத்துசெய்"</string>
+    <string msgid="5795754217085747742" name="custom_message_send">"அனுப்பு"</string>
+    <string msgid="78174796906240970" name="default_notification_description">"இயல்பு ஒலி (<ns1:g id="DEFAULT_SOUND_TITLE">%1$s</ns1:g>)"</string>
+    <string msgid="4317245625565166742" name="description_direction_down">"<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g> க்குக் கீழே ஸ்லைடு செய்க."</string>
+    <string msgid="7129873384376533287" name="description_direction_left">"<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g> க்கு இடதுபக்கமாக நகர்த்தவும்."</string>
+    <string msgid="2122584234531957308" name="description_direction_right">"<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g> வலதுபக்கமாக நகர்த்தவும்."</string>
+    <string msgid="4441409581444516690" name="description_direction_up">"<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g> க்கு மேலாக நகர்த்தவும்."</string>
+    <string msgid="8668058323593087912" name="description_target_accept_upgrade_to_video_receive_request">"வீடியோவைப் பெறும் கோரிக்கையை அனுமதிக்கும்"</string>
+    <string msgid="2894072808324604062" name="description_target_accept_upgrade_to_video_request">"வீடியோ கோரிக்கையை அனுமதி"</string>
+    <string msgid="5311037889642077468" name="description_target_accept_upgrade_to_video_transmit_request">"வீடியோவைப் பரிமாற்றும் கோரிக்கையை அனுமதிக்கும்"</string>
+    <string msgid="7205604197797472471" name="description_target_answer">"பதிலளி"</string>
+    <string msgid="8396296303320994450" name="description_target_answer_audio_call">"ஆடியோ அழைப்பில் பதிலளி"</string>
+    <string msgid="3495965588512395026" name="description_target_answer_video_call">"வீடியோ அழைப்பில் பதிலளி"</string>
+    <string msgid="4789834364389731957" name="description_target_decline">"நிராகரி"</string>
+    <string msgid="2355776509656298367" name="description_target_decline_upgrade_to_video_receive_request">"வீடியோவைப் பெறும் கோரிக்கையை நிராகரிக்கும்"</string>
+    <string msgid="4093888612888538776" name="description_target_decline_upgrade_to_video_request">"வீடியோ கோரிக்கையை நிராகரி"</string>
+    <string msgid="3636108065510415975" name="description_target_decline_upgrade_to_video_transmit_request">"வீடியோவைப் பரிமாற்றும் கோரிக்கையை நிராகரிக்கும்"</string>
+    <string msgid="2098326025587950144" name="description_target_send_sms">"SMS அனுப்பு"</string>
+    <string msgid="9130194953830414638" name="dial_emergency_empty_error">"அழைக்க முடியாது. அவசர அழைப்பு எண்ணை அழைக்கவும்."</string>
+    <string msgid="1509085166367420355" name="dial_emergency_error">"<ns1:g id="NON_EMERGENCY_NUMBER">%s</ns1:g> அவசர அழைப்பு எண் இல்லை என்பதால் அழைக்க முடியாது."</string>
+    <string msgid="9192914825413747792" name="dialerKeyboardHintText">"டயல் செய்வதற்கு விசைப்பலகையைப் பயன்படுத்துக"</string>
+    <string msgid="8373041754188879871" name="emergency_call_dialog_number_for_display">"அவசரகால எண்"</string>
+    <string msgid="207613549344420291" name="emergency_enable_radio_dialog_message">"ரேடியோவை இயக்குகிறது…"</string>
+    <string msgid="5960061579996526883" name="emergency_enable_radio_dialog_retry">"சேவை இல்லை. மீண்டும் முயற்சிக்கிறது…"</string>
+    <string msgid="4627849966634578257" name="emergency_enable_radio_dialog_title">"அவசரகால அழைப்பு"</string>
+    <string msgid="865837794424530980" name="goPrivate">"தனிப்பட்டதிற்குச் செல்"</string>
+    <string msgid="4931428719494190371" name="incall_call_type_label_sip">"SIP அழைப்பு"</string>
+    <string msgid="6302746943230078197" name="incall_error_call_failed">"அழைக்க முடியாது."</string>
+    <string msgid="4678640422710818317" name="incall_error_emergency_only">"நெட்வொர்க்கில் பதிவுசெய்யப்படவில்லை."</string>
+    <string msgid="1150414018684246528" name="incall_error_no_phone_number_supplied">"அழைக்க, சரியான எண்ணை உள்ளிடவும்."</string>
+    <string msgid="4100065333878929223" name="incall_error_out_of_service">"செல்லுலார் நெட்வொர்க் கிடைக்கவில்லை."</string>
+    <string msgid="6550191216405193368" name="incall_error_power_off">"அழைப்பதற்கு, முதலில் விமானப் பயன்முறையை முடக்கவும்."</string>
+    <string msgid="7010354362202271726" name="incall_error_supp_service_conference">"குழு அழைப்பு செய்ய முடியாது."</string>
+    <string msgid="7434513517153834426" name="incall_error_supp_service_hangup">"அழைப்பை(அழைப்புகளை) விடுவிக்க முடியாது."</string>
+    <string msgid="8998568661508655638" name="incall_error_supp_service_reject">"அழைப்பை நிராகரிக்க முடியாது."</string>
+    <string msgid="7224393405134545246" name="incall_error_supp_service_separate">"அழைப்பைப் பிரிக்க முடியாது."</string>
+    <string msgid="5237002176899962862" name="incall_error_supp_service_switch">"அழைப்புகளில் மாற முடியாது."</string>
+    <string msgid="7235952238189391438" name="incall_error_supp_service_transfer">"மாற்ற முடியாது."</string>
+    <string msgid="323435289607131929" name="incall_error_supp_service_unknown">"சேவை ஆதரிக்கப்படவில்லை."</string>
+    <string msgid="3672498861336189563" name="incall_status_dialed_mmi">"MMI வரிசையைத் தொடங்குகிறது..."</string>
+    <string msgid="1696993226115570960" name="incoming_via_template">"<ns1:g id="PROVIDER_NAME">%s</ns1:g> மூலம் உள்வருவது"</string>
+    <string msgid="4691922394301969053" name="manageConferenceLabel">"குழு அழைப்பை நிர்வகிக்கவும்"</string>
+    <string msgid="3548700178238244595" name="note_sent">"குறிப்பு அனுப்பப்பட்டது"</string>
+    <string msgid="2898609801209468429" name="notification_action_accept">"ஏற்கிறேன்"</string>
+    <string msgid="6700362365135365143" name="notification_action_answer">"எடு"</string>
+    <string msgid="7809271910870211729" name="notification_action_answer_video">"வீடியோ"</string>
+    <string msgid="1770796916369437773" name="notification_action_answer_voice">"குரல்"</string>
+    <string msgid="2679969397930852858" name="notification_action_dismiss">"நிராகரி"</string>
+    <string msgid="6069460915123531620" name="notification_action_end_call">"துண்டி"</string>
+    <string msgid="2107666444937350731" name="notification_dialing">"அழைக்கிறது"</string>
+    <string msgid="2820429205043529642" name="notification_incoming_call">"உள்வரும் அழைப்பு"</string>
+    <string msgid="9210706506594546627" name="notification_incoming_call_wifi">"உள்வரும் வைஃபை அழைப்பு"</string>
+    <string msgid="7356836933934464805" name="notification_incoming_video_call">"உள்வரும் வீடியோ அழைப்பு"</string>
+    <string msgid="504686252427747209" name="notification_missedCallTicker">"<ns1:g id="MISSED_CALL_FROM">%s</ns1:g> இடமிருந்து தவறிய அழைப்பு"</string>
+    <string msgid="7554385905572364535" name="notification_missedCallTitle">"தவறிய அழைப்பு"</string>
+    <string msgid="2684890353590890187" name="notification_missedCall_call_back">"அழை"</string>
+    <string msgid="3049928912736917988" name="notification_missedCall_message">"செய்தி"</string>
+    <string msgid="4575787816055205600" name="notification_missedCallsMsg">"<ns1:g id="NUM_MISSED_CALLS">%s</ns1:g> தவறிய அழைப்புகள்"</string>
+    <string msgid="1361677948941502522" name="notification_missedCallsTitle">"தவறிய அழைப்புகள்"</string>
+    <string msgid="2607085729661923269" name="notification_network_selection_text">"தேர்ந்தெடுத்த நெட்வொர்க் (<ns1:g id="OPERATOR_NAME">%s</ns1:g>) கிடைக்கவில்லை"</string>
+    <string msgid="4224455487793492772" name="notification_network_selection_title">"சேவை இல்லை"</string>
+    <string msgid="3480694969511790465" name="notification_on_hold">"காத்திருப்பில்"</string>
+    <string msgid="7068688957273482989" name="notification_ongoing_call">"செயலில் இருக்கும் அழைப்பு"</string>
+    <string msgid="8521553590606569379" name="notification_ongoing_call_wifi">"வெளிச்செல்லும் வைஃபை அழைப்பு"</string>
+    <string msgid="1405576812892369451" name="notification_requesting_video_call">"உள்வரும் வீடியோ கோரிக்கை"</string>
+    <string msgid="760963466895609716" name="notification_voicemail_no_vm_number">"குரலஞ்சல் எண் அறியப்படவில்லை"</string>
+    <string msgid="4447323569453981685" name="notification_voicemail_text_format">"<ns1:g id="VOICEMAIL_NUMBER">%s</ns1:g> ஐ அழை"</string>
+    <string msgid="8933468752045550523" name="notification_voicemail_title">"புதிய குரலஞ்சல்"</string>
+    <string msgid="4366360747660929916" name="notification_voicemail_title_count">"புதிய குரலஞ்சல் (<ns1:g id="COUNT">%d</ns1:g>)"</string>
+    <string msgid="9035493194749959955" name="onHold">"காத்திருப்பில்"</string>
+    <string msgid="5140385634712287403" name="onscreenAddCallText">"அழைப்பைச் சேர்"</string>
+    <string msgid="1710087112800041743" name="onscreenAudioText">"ஆடியோ"</string>
+    <string msgid="5311407863653867937" name="onscreenChangeToVoiceText">"குரல் அழைப்பிற்கு மாறு"</string>
+    <string msgid="9039601192595655846" name="onscreenEndCallText">"அழைப்பை முடி"</string>
+    <string msgid="7127901498507384249" name="onscreenHoldText_selected">"அழைப்பைத் தொடர்"</string>
+    <string msgid="7092499303393171276" name="onscreenHoldText_unselected">"அழைப்பை இடைநிறுத்து"</string>
+    <string msgid="5473231160123254154" name="onscreenManageCallsText">"அழைப்புகளை நிர்வகி"</string>
+    <string msgid="6801708317570467407" name="onscreenManageConferenceText">"குழு அழைப்பை நிர்வகி"</string>
+    <string msgid="6640195098064538950" name="onscreenMergeCallsText">"அழைப்புகளை இணை"</string>
+    <string msgid="5011369181754261374" name="onscreenMuteText">"முடக்கு"</string>
+    <string msgid="2702376562345723132" name="onscreenOverflowText">"மேலும் விருப்பங்கள்"</string>
+    <string msgid="5663965924921429203" name="onscreenPauseVideoText">"வீடியோவை இடைநிறுத்து"</string>
+    <string msgid="8561805492659639893" name="onscreenShowDialpadText">"டயல்பேடு"</string>
+    <string msgid="1602990689244030047" name="onscreenSwapCallsText">"மாற்று"</string>
+    <string msgid="5324543493442787798" name="onscreenSwitchCameraText">"கேமராவை மாற்று"</string>
+    <string msgid="4800924186056115442" name="onscreenVideoCallText">"வீடியோ அழைப்பு"</string>
+    <string msgid="3672912580359716394" name="other_settings">"பிற அழைப்பு அமைப்பு"</string>
+    <string msgid="6686238803236884877" name="pause_prompt_no">"வேண்டாம்"</string>
+    <string msgid="1789964702154314806" name="pause_prompt_str">"டோன்களை அனுப்புகிறது\n"</string>
+    <string msgid="3564467212025151797" name="pause_prompt_yes">"ஆம்"</string>
+    <string msgid="4793877574636445118" name="payphone">"கட்டணத் தொலைபேசி"</string>
+    <string msgid="906161039445636857" name="phoneAppLabel" product="default">"ஃபோன்"</string>
+    <string msgid="6046262510243983589" name="player_started">"வீடியோ துவங்கியது"</string>
+    <string msgid="8856926759436364963" name="player_stopped">"வீடியோ நிறுத்தப்பட்டது."</string>
+    <string msgid="5197960752529332721" name="preference_category_ringtone">"ரிங்டோன் &amp; அதிர்வு"</string>
+    <string msgid="6713286113000232309" name="private_num">"தனிப்பட்ட எண்"</string>
+    <string msgid="5609894336203315400" name="profile_photo_description">"சுயவிவரப் படம்"</string>
+    <string msgid="6158880869935281078" name="respond_via_sms_custom_message">"சொந்தமாக எழுதவும்..."</string>
+    <string msgid="6374978286202084684" name="ringtone_title">"தொலைபேசி ரிங்டோன்"</string>
+    <string msgid="781975788478987237" name="selectContact">"தொடர்பைத் தேர்ந்தெடுக்கவும்"</string>
+    <string msgid="4106860097497818751" name="send_button">"அனுப்பு"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6878797917991465859" name="unknown">"தெரியாதவர்"</string>
+    <string msgid="2431061946920253582" name="unknown_call_session_event">"தெரியாத அழைப்பு நேர நிகழ்வு"</string>
+    <string msgid="9197564612065258960" name="vibrate_on_ring_title">"ரிங் ஆகும்போது அதிர்வை ஏற்படுத்து"</string>
+    <string msgid="2609519527849101590" name="voicemail_notification_ringtone_title">"ஒலி"</string>
+    <string msgid="5739583146522136440" name="voicemail_notification_vibarte_when_dialog_title">"அதிர்வு"</string>
+    <string msgid="8361970092063604886" name="voicemail_notification_vibrate_when_title">"அதிர்வு"</string>
+    <string msgid="6724904736891087856" name="voicemail_number_not_set">"&lt;அமைக்கப்படவில்லை>"</string>
+    <string msgid="5135942703327136909" name="voicemail_provider">"சேவை"</string>
+    <string msgid="72448049107749316" name="voicemail_settings">"அமைவு"</string>
+    <string msgid="8524164258691887790" name="voicemail_settings_number_label">"குரலஞ்சல் எண்"</string>
+    <string msgid="7601815427707856238" name="wait_prompt_str">"பின்வரும் டோன்களை அனுப்பவா?\n"</string>
+    <string msgid="5543521676355533577" name="wild_prompt_str">"இதனுடன் சிறப்புக்குறியை மாற்றியமை"</string>
+</resources>

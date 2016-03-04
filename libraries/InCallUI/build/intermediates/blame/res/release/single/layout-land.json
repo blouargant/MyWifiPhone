@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/build/intermediates/res/merged/release/layout-land/call_card_fragment.xml",
+        "source": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/layout-land/call_card_fragment.xml"
+    },
+    {
+        "merged": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/build/intermediates/res/merged/release/layout-land/video_call_views.xml",
+        "source": "/home/bertrand/dev/MyWifiPhone/libraries/InCallUI/src/main/res/layout-land/video_call_views.xml"
+    }
+]

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="4600421777120114993" name="abc_action_bar_home_description">"ホームへ移動"</string>
+    <string msgid="1397052879051804371" name="abc_action_bar_home_description_format">"%1$s、%2$s"</string>
+    <string msgid="6623331958280229229" name="abc_action_bar_home_subtitle_description_format">"%1$s、%2$s、%3$s"</string>
+    <string msgid="1594238315039666878" name="abc_action_bar_up_description">"上へ移動"</string>
+    <string msgid="3588849162933574182" name="abc_action_menu_overflow_description">"その他のオプション"</string>
+    <string msgid="4076576682505996667" name="abc_action_mode_done">"完了"</string>
+    <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"すべて表示"</string>
+    <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"アプリの選択"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"OFF"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ON"</string>
+    <string msgid="7723749260725869598" name="abc_search_hint">"検索…"</string>
+    <string msgid="3691816814315814921" name="abc_searchview_description_clear">"検索キーワードを削除"</string>
+    <string msgid="2550479030709304392" name="abc_searchview_description_query">"検索キーワード"</string>
+    <string msgid="8264924765203268293" name="abc_searchview_description_search">"検索"</string>
+    <string msgid="8928215447528550784" name="abc_searchview_description_submit">"検索キーワードを送信"</string>
+    <string msgid="893419373245838918" name="abc_searchview_description_voice">"音声検索"</string>
+    <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"共有"</string>
+    <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%sと共有"</string>
+    <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"折りたたむ"</string>
+    <string msgid="3047641300848211128" name="audio_mode_bluetooth">"Bluetooth"</string>
+    <string msgid="4156527186373869107" name="audio_mode_earpiece">"携帯端末のイヤホン"</string>
+    <string msgid="27649582100085266" name="audio_mode_speaker">"スピーカー"</string>
+    <string msgid="1465350758489175975" name="audio_mode_wired_headset">"有線ヘッドセット"</string>
+    <string msgid="6183862117003999578" name="call_lost">"通話が遮断されました"</string>
+    <string msgid="3231519674734638786" name="caller_manage_header">"グループ通話 <ns1:g id="CONF_CALL_TIME">%s</ns1:g>"</string>
+    <string msgid="4839419581866928142" name="calling_via_template">"<ns1:g id="PROVIDER_NAME">%s</ns1:g>で発信中"</string>
+    <string msgid="4955261496193316240" name="camera_not_ready">"カメラが準備できていません"</string>
+    <string msgid="5689494614359429889" name="camera_off_description">"カメラをオフ"</string>
+    <string msgid="1903335385405807324" name="camera_ready">"カメラが準備できました"</string>
+    <string msgid="5544730338889702298" name="card_title_call_ended">"通話終了"</string>
+    <string msgid="7307938207564217293" name="card_title_callback_number">"コールバック先\n<ns1:g id="DARK_NUMBER">%1$s</ns1:g>"</string>
+    <string msgid="8634765419223426754" name="card_title_callback_number_emergency">"緊急通報コールバック先\n<ns1:g id="DARK_NUMBER">%1$s</ns1:g>"</string>
+    <string msgid="1162980346189744501" name="card_title_conf_call">"グループ通話"</string>
+    <string msgid="5769417478498348054" name="card_title_dialing">"発信中"</string>
+    <string msgid="3999101620995182450" name="card_title_hanging_up">"通話終了"</string>
+    <string msgid="6346543933068225205" name="card_title_in_call">"着信"</string>
+    <string msgid="7364539451234646909" name="card_title_incoming_call">"着信"</string>
+    <string msgid="112428362494434191" name="card_title_my_phone_number">"この電話の番号: <ns1:g id="MY_PHONE_NUMBER">%s</ns1:g>"</string>
+    <string msgid="821463117892339942" name="card_title_on_hold">"保留中"</string>
+    <string msgid="8253487008234167266" name="card_title_redialing">"リダイヤル中"</string>
+    <string msgid="5898636679563320218" name="card_title_video_call">"ビデオハングアウト"</string>
+    <string msgid="297586766381973954" name="card_title_video_call_connecting">"ビデオハングアウトに接続しています"</string>
+    <string msgid="9000555878389539225" name="card_title_video_call_error">"ビデオハングアウトを接続できません"</string>
+    <string msgid="462358296694719787" name="card_title_video_call_rejected">"ビデオハングアウトのリクエスト不承認"</string>
+    <string msgid="4587504939739340937" name="card_title_video_call_requesting">"ビデオハングアウトをリクエストしています"</string>
+    <string msgid="7437330400723805538" name="child_number">"<ns1:g id="CHILD_NUMBER">%s</ns1:g>に着信"</string>
+    <string msgid="1904840547188336828" name="confCall">"グループ通話"</string>
+    <string msgid="4713193418046639466" name="contactPhoto">"連絡先の写真"</string>
+    <string msgid="7516406059429609296" name="custom_message_cancel">"キャンセル"</string>
+    <string msgid="5795754217085747742" name="custom_message_send">"送信"</string>
+    <string msgid="78174796906240970" name="default_notification_description">"デフォルトの通知音（<ns1:g id="DEFAULT_SOUND_TITLE">%1$s</ns1:g>）"</string>
+    <string msgid="4317245625565166742" name="description_direction_down">"下にスライドして<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g>を行います。"</string>
+    <string msgid="7129873384376533287" name="description_direction_left">"左にスライドして<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g>を行います。"</string>
+    <string msgid="2122584234531957308" name="description_direction_right">"右にスライドして<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g>を行います。"</string>
+    <string msgid="4441409581444516690" name="description_direction_up">"上にスライドして<ns1:g id="TARGET_DESCRIPTION">%s</ns1:g>を行います。"</string>
+    <string msgid="8668058323593087912" name="description_target_accept_upgrade_to_video_receive_request">"ビデオ受信リクエストを承認する"</string>
+    <string msgid="2894072808324604062" name="description_target_accept_upgrade_to_video_request">"ビデオ通話のリクエストを承諾する"</string>
+    <string msgid="5311037889642077468" name="description_target_accept_upgrade_to_video_transmit_request">"ビデオ送信リクエストを承認する"</string>
+    <string msgid="7205604197797472471" name="description_target_answer">"電話に出る"</string>
+    <string msgid="8396296303320994450" name="description_target_answer_audio_call">"音声通話で電話に出る"</string>
+    <string msgid="3495965588512395026" name="description_target_answer_video_call">"ビデオハングアウトで電話に出る"</string>
+    <string msgid="4789834364389731957" name="description_target_decline">"着信拒否"</string>
+    <string msgid="2355776509656298367" name="description_target_decline_upgrade_to_video_receive_request">"ビデオ受信リクエストを拒否する"</string>
+    <string msgid="4093888612888538776" name="description_target_decline_upgrade_to_video_request">"ビデオ通話のリクエストを拒否する"</string>
+    <string msgid="3636108065510415975" name="description_target_decline_upgrade_to_video_transmit_request">"ビデオ送信リクエストを拒否する"</string>
+    <string msgid="2098326025587950144" name="description_target_send_sms">"SMSを送信"</string>
+    <string msgid="9130194953830414638" name="dial_emergency_empty_error">"発信できません。緊急通報番号におかけください。"</string>
+    <string msgid="1509085166367420355" name="dial_emergency_error">"発信できません。<ns1:g id="NON_EMERGENCY_NUMBER">%s</ns1:g>は緊急通報番号ではありません。"</string>
+    <string msgid="9192914825413747792" name="dialerKeyboardHintText">"キーボードで番号を入力してください"</string>
+    <string msgid="8373041754188879871" name="emergency_call_dialog_number_for_display">"緊急通報番号"</string>
+    <string msgid="207613549344420291" name="emergency_enable_radio_dialog_message">"無線通信をONにしています..."</string>
+    <string msgid="5960061579996526883" name="emergency_enable_radio_dialog_retry">"通信サービスはありません。もう一度お試しください…"</string>
+    <string msgid="4627849966634578257" name="emergency_enable_radio_dialog_title">"緊急通報"</string>
+    <string msgid="865837794424530980" name="goPrivate">"個別通話に切り替え"</string>
+    <string msgid="4931428719494190371" name="incall_call_type_label_sip">"SIP通話"</string>
+    <string msgid="6302746943230078197" name="incall_error_call_failed">"発信できません。"</string>
+    <string msgid="4678640422710818317" name="incall_error_emergency_only">"ご加入の通信サービスがありません"</string>
+    <string msgid="1150414018684246528" name="incall_error_no_phone_number_supplied">"発信するには、有効な番号を入力してください。"</string>
+    <string msgid="4100065333878929223" name="incall_error_out_of_service">"モバイルネットワークが利用できません。"</string>
+    <string msgid="6550191216405193368" name="incall_error_power_off">"機内モードをOFFにしてから発信してください。"</string>
+    <string msgid="7010354362202271726" name="incall_error_supp_service_conference">"グループ通話できません。"</string>
+    <string msgid="7434513517153834426" name="incall_error_supp_service_hangup">"通話を解放できません。"</string>
+    <string msgid="8998568661508655638" name="incall_error_supp_service_reject">"着信を拒否できません。"</string>
+    <string msgid="7224393405134545246" name="incall_error_supp_service_separate">"通話を分割できません。"</string>
+    <string msgid="5237002176899962862" name="incall_error_supp_service_switch">"通話を切り替えられません。"</string>
+    <string msgid="7235952238189391438" name="incall_error_supp_service_transfer">"転送できません。"</string>
+    <string msgid="323435289607131929" name="incall_error_supp_service_unknown">"サービスはサポートされていません。"</string>
+    <string msgid="3672498861336189563" name="incall_status_dialed_mmi">"MMIシーケンスを開始中..."</string>
+    <string msgid="1696993226115570960" name="incoming_via_template">"<ns1:g id="PROVIDER_NAME">%s</ns1:g>で着信中"</string>
+    <string msgid="4691922394301969053" name="manageConferenceLabel">"グループ通話オプション"</string>
+    <string msgid="3548700178238244595" name="note_sent">"メモを送信しました"</string>
+    <string msgid="2898609801209468429" name="notification_action_accept">"同意する"</string>
+    <string msgid="6700362365135365143" name="notification_action_answer">"電話に出る"</string>
+    <string msgid="7809271910870211729" name="notification_action_answer_video">"ビデオ"</string>
+    <string msgid="1770796916369437773" name="notification_action_answer_voice">"音声"</string>
+    <string msgid="2679969397930852858" name="notification_action_dismiss">"拒否"</string>
+    <string msgid="6069460915123531620" name="notification_action_end_call">"通話終了"</string>
+    <string msgid="2107666444937350731" name="notification_dialing">"発信中"</string>
+    <string msgid="2820429205043529642" name="notification_incoming_call">"通話着信"</string>
+    <string msgid="9210706506594546627" name="notification_incoming_call_wifi">"Wi-Fi通話が着信中"</string>
+    <string msgid="7356836933934464805" name="notification_incoming_video_call">"ビデオハングアウト着信"</string>
+    <string msgid="504686252427747209" name="notification_missedCallTicker">"<ns1:g id="MISSED_CALL_FROM">%s</ns1:g>さんからの不在着信"</string>
+    <string msgid="7554385905572364535" name="notification_missedCallTitle">"不在着信"</string>
+    <string msgid="2684890353590890187" name="notification_missedCall_call_back">"コールバック"</string>
+    <string msgid="3049928912736917988" name="notification_missedCall_message">"メッセージ"</string>
+    <string msgid="4575787816055205600" name="notification_missedCallsMsg">"不在着信<ns1:g id="NUM_MISSED_CALLS">%s</ns1:g>件"</string>
+    <string msgid="1361677948941502522" name="notification_missedCallsTitle">"不在着信"</string>
+    <string msgid="2607085729661923269" name="notification_network_selection_text">"選択したネットワーク（<ns1:g id="OPERATOR_NAME">%s</ns1:g>）が利用できません"</string>
+    <string msgid="4224455487793492772" name="notification_network_selection_title">"通信サービスなし"</string>
+    <string msgid="3480694969511790465" name="notification_on_hold">"保留中"</string>
+    <string msgid="7068688957273482989" name="notification_ongoing_call">"通話中"</string>
+    <string msgid="8521553590606569379" name="notification_ongoing_call_wifi">"Wi-Fi通話を発信中"</string>
+    <string msgid="1405576812892369451" name="notification_requesting_video_call">"ビデオハングアウトリクエスト着信"</string>
+    <string msgid="760963466895609716" name="notification_voicemail_no_vm_number">"ボイスメールの番号が不明です"</string>
+    <string msgid="4447323569453981685" name="notification_voicemail_text_format">"<ns1:g id="VOICEMAIL_NUMBER">%s</ns1:g>にダイヤル"</string>
+    <string msgid="8933468752045550523" name="notification_voicemail_title">"新しいボイスメール"</string>
+    <string msgid="4366360747660929916" name="notification_voicemail_title_count">"新しいボイスメール（<ns1:g id="COUNT">%d</ns1:g>）"</string>
+    <string msgid="9035493194749959955" name="onHold">"保留中"</string>
+    <string msgid="5140385634712287403" name="onscreenAddCallText">"通話を追加"</string>
+    <string msgid="1710087112800041743" name="onscreenAudioText">"音声"</string>
+    <string msgid="5311407863653867937" name="onscreenChangeToVoiceText">"音声通話に変更"</string>
+    <string msgid="9039601192595655846" name="onscreenEndCallText">"通話を終了"</string>
+    <string msgid="7127901498507384249" name="onscreenHoldText_selected">"通話を再開"</string>
+    <string msgid="7092499303393171276" name="onscreenHoldText_unselected">"通話を保留"</string>
+    <string msgid="5473231160123254154" name="onscreenManageCallsText">"通話の管理"</string>
+    <string msgid="6801708317570467407" name="onscreenManageConferenceText">"グループ通話オプション"</string>
+    <string msgid="6640195098064538950" name="onscreenMergeCallsText">"グループ通話"</string>
+    <string msgid="5011369181754261374" name="onscreenMuteText">"ミュート"</string>
+    <string msgid="2702376562345723132" name="onscreenOverflowText">"その他のオプション"</string>
+    <string msgid="5663965924921429203" name="onscreenPauseVideoText">"動画を一時停止"</string>
+    <string msgid="8561805492659639893" name="onscreenShowDialpadText">"ダイヤルキー"</string>
+    <string msgid="1602990689244030047" name="onscreenSwapCallsText">"切り替え"</string>
+    <string msgid="5324543493442787798" name="onscreenSwitchCameraText">"カメラを切り替え"</string>
+    <string msgid="4800924186056115442" name="onscreenVideoCallText">"ビデオハングアウト"</string>
+    <string msgid="3672912580359716394" name="other_settings">"その他の通話設定"</string>
+    <string msgid="6686238803236884877" name="pause_prompt_no">"いいえ"</string>
+    <string msgid="1789964702154314806" name="pause_prompt_str">"番号送信\n"</string>
+    <string msgid="3564467212025151797" name="pause_prompt_yes">"はい"</string>
+    <string msgid="4793877574636445118" name="payphone">"公衆電話"</string>
+    <string msgid="906161039445636857" name="phoneAppLabel" product="default">"電話"</string>
+    <string msgid="6046262510243983589" name="player_started">"プレーヤーを開始しました"</string>
+    <string msgid="8856926759436364963" name="player_stopped">"プレーヤーを停止しました"</string>
+    <string msgid="5197960752529332721" name="preference_category_ringtone">"着信音とバイブレーション"</string>
+    <string msgid="6713286113000232309" name="private_num">"非通知設定"</string>
+    <string msgid="5609894336203315400" name="profile_photo_description">"プロフィール写真"</string>
+    <string msgid="6158880869935281078" name="respond_via_sms_custom_message">"カスタム返信を作成..."</string>
+    <string msgid="6374978286202084684" name="ringtone_title">"着信音"</string>
+    <string msgid="781975788478987237" name="selectContact">"連絡先を選択"</string>
+    <string msgid="4106860097497818751" name="send_button">"送信"</string>
+    <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6878797917991465859" name="unknown">"通知不可能"</string>
+    <string msgid="2431061946920253582" name="unknown_call_session_event">"不明な通話セッションイベントです"</string>
+    <string msgid="9197564612065258960" name="vibrate_on_ring_title">"着信時のバイブレーション"</string>
+    <string msgid="2609519527849101590" name="voicemail_notification_ringtone_title">"通知音"</string>
+    <string msgid="5739583146522136440" name="voicemail_notification_vibarte_when_dialog_title">"バイブレーション"</string>
+    <string msgid="8361970092063604886" name="voicemail_notification_vibrate_when_title">"バイブレーション"</string>
+    <string msgid="6724904736891087856" name="voicemail_number_not_set">"&lt;未設定>"</string>
+    <string msgid="5135942703327136909" name="voicemail_provider">"サービス"</string>
+    <string msgid="72448049107749316" name="voicemail_settings">"セットアップ"</string>
+    <string msgid="8524164258691887790" name="voicemail_settings_number_label">"ボイスメールの番号"</string>
+    <string msgid="7601815427707856238" name="wait_prompt_str">"次の番号を送信しますか？\n"</string>
+    <string msgid="5543521676355533577" name="wild_prompt_str">"ワイルド文字を置換:"</string>
+</resources>
