@@ -82,7 +82,6 @@ public class DialpadKeyButton extends FrameLayout {
     private OnPressedListener mOnPressedListener;
 
     public void setOnPressedListener(OnPressedListener onPressedListener) {
-        Log.d(TAG, "setOnPressedListener :" +onPressedListener );
         mOnPressedListener = onPressedListener;
     }
 
@@ -120,10 +119,8 @@ public class DialpadKeyButton extends FrameLayout {
 
     @Override
     public void setPressed(boolean pressed) {
-        Log.d(TAG, "setPressed :" +pressed );
         super.setPressed(pressed);
         if (mOnPressedListener != null) {
-            Log.d(TAG, "setPressed :mOnPressedListener " +pressed );
             mOnPressedListener.onPressed(this, pressed);
         }
     }
@@ -199,7 +196,6 @@ public class DialpadKeyButton extends FrameLayout {
      * semantic meaning of performClick(). Required for Braille support.
      */
     private void simulateClickForAccessibility() {
-        Log.d(TAG, "simulateClickForAccessibility");
         // Checking the press state prevents double activation.
         if (isPressed()) {
             return;

@@ -24,7 +24,7 @@ public class DigitsEditTextBackport extends EditText {
 
     public DigitsEditTextBackport(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        Log.d(TAG, "ResizingTextEditText");
         mOriginalTextSize = (int) getTextSize();
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ResizingText);
@@ -34,8 +34,6 @@ public class DigitsEditTextBackport extends EditText {
         a.recycle();
 
         setInputType(getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        //setShowSoftInputOnFocus(false);
-
     }
 
     @Override
@@ -59,6 +57,12 @@ public class DigitsEditTextBackport extends EditText {
             imm.hideSoftInputFromWindow(getApplicationWindowToken(), 0);
         }
         return ret;
+    }
+
+    @Override
+    protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter);
+        ViewUtil.resizeText(this, mOriginalTextSize, mMinTextSize);
     }
 
     @Override

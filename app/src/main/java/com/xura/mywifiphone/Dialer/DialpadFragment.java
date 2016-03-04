@@ -312,7 +312,6 @@ public class DialpadFragment extends Fragment
 
     @Override
     public void onCreate(Bundle state) {
-        Log.d(TAG, " onCreate");
         super.onCreate(state);
 
         mFirstLaunch = state == null;
@@ -334,7 +333,6 @@ public class DialpadFragment extends Fragment
             mCallStateReceiver = new CallStateReceiver();
             getActivity().registerReceiver(mCallStateReceiver, callStateIntentFilter);
         }
-        Log.d(TAG, " onCreate done");
     }
 
     @Override
@@ -342,8 +340,6 @@ public class DialpadFragment extends Fragment
 
         View fragmentView = inflater.inflate(R.layout.dialpad_fragment, container, false);
         fragmentView.buildLayer();
-        Log.d(TAG, " onCreateView");
-
 
         mDialpadView = (DialpadView) fragmentView.findViewById(R.id.dialpad_view);
         mDialpadView.setCanDigitsBeEdited(true);
@@ -394,7 +390,6 @@ public class DialpadFragment extends Fragment
         mFloatingActionButton = (FloatingActionButton) getActivity().findViewById(R.id.fab_dial);
         mFloatingActionButton.setOnClickListener(this);
 
-        Log.d(TAG, " onCreateView done");
         return fragmentView;
     }
 
@@ -434,7 +429,6 @@ public class DialpadFragment extends Fragment
                     return true;
                 } else {
                     String type = intent.getType();
-                    Log.d("DEBUG", "Intent data:"+ intent.getData());
                     /*
                     if (People.CONTENT_ITEM_TYPE.equals(type)
                             || Phones.CONTENT_ITEM_TYPE.equals(type)) {
@@ -571,8 +565,11 @@ public class DialpadFragment extends Fragment
 
         for (int i = 0; i < buttonIds.length; i++) {
             dialpadKey = (DialpadKeyButton) fragmentView.findViewById(buttonIds[i]);
-            dialpadKey.setOnPressedListener(this);
-            Log.d(TAG, "configureKeypadListeners: "+ i);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                dialpadKey.setOnClickListener(this);
+            } else {
+                dialpadKey.setOnPressedListener(this);
+            }
         }
 
         // Long-pressing one button will initiate Voicemail.
@@ -707,7 +704,6 @@ public class DialpadFragment extends Fragment
     }
 
     private void keyPressed(int keyCode) {
-        Log.d(TAG, "keyPressed()");
         if (getView() == null || getView().getTranslationY() != 0) {
             return;
         }
@@ -765,7 +761,6 @@ public class DialpadFragment extends Fragment
 
     @Override
     public boolean onKey(View view, int keyCode, KeyEvent event) {
-        Log.d(TAG, "onKey()");
         switch (view.getId()) {
             case R.id.digits:
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
@@ -785,7 +780,6 @@ public class DialpadFragment extends Fragment
      */
     @Override
     public void onPressed(View view, boolean pressed) {
-        Log.d(TAG, "onPressed(). view: " + view + ", pressed: " + pressed);
         if (pressed) {
             switch (view.getId()) {
                 case R.id.one: {
@@ -901,7 +895,11 @@ public class DialpadFragment extends Fragment
                 break;
             }
             default: {
-                Log.wtf(TAG, "Unexpected onClick() event from: " + view);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                    onPressed(view, true);
+                } else {
+                    Log.wtf(TAG, "Unexpected onClick() event from: " + view);
+                }
                 return;
             }
         }
@@ -1197,7 +1195,6 @@ public class DialpadFragment extends Fragment
         }
 
         if (enabled) {
-            Log.d(TAG, "Showing dialpad chooser!");
             if (mDialpadView != null) {
                 mDialpadView.setVisibility(View.GONE);
             }
@@ -1215,7 +1212,6 @@ public class DialpadFragment extends Fragment
             mDialpadChooser.setAdapter(mDialpadChooserAdapter);
             */
         } else {
-            Log.d(TAG, "Displaying normal Dialer UI.");
             if (mDialpadView != null) {
                 mDialpadView.setVisibility(View.VISIBLE);
             } else {

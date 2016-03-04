@@ -148,10 +148,8 @@ public class HistoryFragment extends Fragment {
                     JsonDic aContact = contacts.contactDic.getDic(holder.mBoundString);
                     if (aContact.containsKey("fav_color")) {
                         mContactInfo.setColor(aContact.getInt("fav_color"));
-                        Log.d("DEBUG", holder.mBoundString+ " has color " +aContact.getInt("fav_color"));
                     } else {
                         mContactInfo.setColor(0);
-                        Log.d("DEBUG", holder.mBoundString+ " has no color ");
                     }
 
                     Intent intent = new Intent(context, ContactDetailActivity.class);

@@ -76,7 +76,6 @@ public class ContactDetailActivity extends AppCompatActivity {
         } else if (mColor != 0) {
             imageView.setBackgroundColor(mColor);
         }*/
-        Log.d("DEBUG", "set color to "+mColor);
         imageView.setBackgroundColor(mColor);
         return;
         //Glide.with(this).load(Contacts.getDrawable()).centerCrop().into(imageView);

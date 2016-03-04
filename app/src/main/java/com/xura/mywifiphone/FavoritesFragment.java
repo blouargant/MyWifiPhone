@@ -41,7 +41,6 @@ public class FavoritesFragment extends Fragment {
             } else {
                 contacts = new Contacts(getActivity());
             }
-            //Log.d("DEBUG", "contactDic: "+contactDic);
         }
         RecyclerView rv = (RecyclerView) inflater.inflate(
                 R.layout.contact_list_recycler, container, false);
@@ -55,7 +54,6 @@ public class FavoritesFragment extends Fragment {
         super.onSaveInstanceState(outState);
         if (contacts != null) {
             String contactDic = contacts.contactDic.toString();
-            //Log.d("DEBUG", "contactDic: "+contactDic);
             outState.putString("favorites_contacts_instance", contactDic);
         }
     }

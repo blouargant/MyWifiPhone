@@ -19,6 +19,7 @@ package com.android.phone.common.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.android.phone.common.R;
@@ -31,9 +32,12 @@ import com.android.phone.common.util.ViewUtil;
 public class ResizingTextEditText extends EditText {
     private final int mOriginalTextSize;
     private final int mMinTextSize;
+    private String TAG = "ResizingTextEditText";
 
     public ResizingTextEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        Log.d(TAG, "ResizingTextEditText");
         mOriginalTextSize = (int) getTextSize();
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ResizingText);
         mMinTextSize = (int) a.getDimension(R.styleable.ResizingText_resizing_text_min_size,

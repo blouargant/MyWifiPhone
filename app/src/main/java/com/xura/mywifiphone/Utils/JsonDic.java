@@ -17,6 +17,7 @@ public class JsonDic implements Parcelable {
     private String serial = "{}";
     private JSONObject jsonDic;
     private ArrayList<String> keys = new ArrayList<>();
+    private String TAG = "JsonDic";
 
 
     public JsonDic() {
@@ -30,7 +31,7 @@ public class JsonDic implements Parcelable {
             jsonDic.putOpt("entries", entries);
             jsonDic.putOpt("keys", keys);
         } catch (JSONException e) {
-            Log.d("DEBUG", "initJsonDic :" + e);
+            Log.w(TAG, "initJsonDic :" + e);
         }
     }
     private void jsonToSerial() {
@@ -45,7 +46,7 @@ public class JsonDic implements Parcelable {
             }
 
         } catch (JSONException e) {
-            Log.d("DEBUG", "serialToJson :" + e);
+            Log.w(TAG, "serialToJson :" + e);
         }
     }
     public void load(String strDic) {
@@ -65,7 +66,7 @@ public class JsonDic implements Parcelable {
                 key_list.add(joKeys.optString(i));
             }
         } catch (JSONException e) {
-            Log.d("DEBUG", "getKeys :" + e);
+            Log.w(TAG, "getKeys :" + e);
         }
         return key_list;
     }
@@ -95,7 +96,7 @@ public class JsonDic implements Parcelable {
                 throw new IllegalArgumentException("Illegal Argument :" + value);
             }
         } catch (JSONException e) {
-            Log.d("DEBUG", "put :" + e);
+            Log.w(TAG, "put :" + e);
         }
     }
 
@@ -112,7 +113,7 @@ public class JsonDic implements Parcelable {
             jsonDic.put("entries", joEntries);
             jsonDic.put("keys", joKeys);
         } catch (JSONException e) {
-            Log.d("DEBUG", "putDic :" + e);
+            Log.w(TAG, "putDic :" + e);
         }
     }
     public JsonDic getDic(String key) {
@@ -122,7 +123,7 @@ public class JsonDic implements Parcelable {
             dic.jsonDic = jsondic;
             dic.keys = dic.getKeys();
         } catch (JSONException e) {
-            Log.d("DEBUG", "getDic :" + e);
+            Log.w(TAG, "getDic :" + e);
         }
         return dic;
     }
@@ -132,8 +133,7 @@ public class JsonDic implements Parcelable {
         try {
             value = jsonDic.getJSONObject("entries").opt(key);
         } catch (JSONException e) {
-            Log.d("DEBUG", "get :" + e);
-            Log.d("DEBUG", jsonDic.toString());
+            Log.w(TAG, "get :" + e);
         }
         return value;
     }
@@ -142,8 +142,7 @@ public class JsonDic implements Parcelable {
         try {
             value = jsonDic.getJSONObject("entries").getString(key);
         } catch (JSONException e) {
-            Log.d("DEBUG", "getString :" + e);
-            Log.d("DEBUG", jsonDic.toString());
+            Log.w(TAG, "getString :" + e);
         }
         return value;
     }
@@ -152,7 +151,7 @@ public class JsonDic implements Parcelable {
         try {
             value = jsonDic.getJSONObject("entries").getInt(key);
         } catch (JSONException e) {
-            Log.d("DEBUG", "getInt :" + e);
+            Log.w(TAG, "getInt :" + e);
         }
         return value;
     }
@@ -161,7 +160,7 @@ public class JsonDic implements Parcelable {
         try {
             value = jsonDic.getJSONObject("entries").getLong(key);
         } catch (JSONException e) {
-            Log.d("DEBUG", "getLong :" + e);
+            Log.w(TAG, "getLong :" + e);
         }
         return value;
     }
@@ -170,7 +169,7 @@ public class JsonDic implements Parcelable {
         try {
             value = jsonDic.getJSONObject("entries").getBoolean(key);
         } catch (JSONException e) {
-            Log.d("DEBUG", "getBoolean :" + e);
+            Log.w(TAG, "getBoolean :" + e);
         }
         return value;
     }

@@ -272,7 +272,6 @@ public class DialerActivity extends AppCompatActivity {
      * @see #commitDialpadFragmentHide
      */
     public void hideDialpadFragment(boolean animate, boolean clearDialpad) {
-        Log.d("DialerActivity", "hideDialpadFragment");
         if (mDialpadFragment == null || mDialpadFragment.getView() == null) {
             return;
         }
@@ -308,7 +307,6 @@ public class DialerActivity extends AppCompatActivity {
      * Finishes hiding the dialpad fragment after any animations are completed.
      */
     private void commitDialpadFragmentHide() {
-        Log.d("DialerActivity", "commitDialpadFragmentHide");
         if (!mStateSaved && mDialpadFragment != null && !mDialpadFragment.isHidden()) {
             final FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.hide(mDialpadFragment);
